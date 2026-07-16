@@ -1,0 +1,59 @@
+name: Plan or push graph to Supabase
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Plan only or apply repository data to Supabase
+        required: true
+        type: choice
+        default: plan
+        options:
+          - plan
+          - apply
+      prune:
+        description: Delete database records absent from the repository
+        required: true
+        type: boolean
+        default: false
+      prune_confirmation:
+        description: Type DELETE when prune is enabled
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: push-supabase-graph
+  cancel-in-progress: false
+
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    environment: supabase-production
+    env:
+      DATABASE_URL: ${{ secrets.SUPABASE_DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && pip install -r requirements.txt
+      - name: Validate repository snapshot
+        run: python scripts/sync.py check --format
+      - name: Plan synchronization
+        if: inputs.mode == 'plan'
+        run: python scripts/sync.py plan
+      - name: Apply non-destructive synchronization
+        if: inputs.mode == 'apply' && !inputs.prune
+        run: python scripts/sync.py push --apply
+      - name: Apply synchronization with pruning
+        if: inputs.mode == 'apply' && inputs.prune
+        env:
+          PRUNE_CONFIRMATION: ${{ inputs.prune_confirmation }}
+        run: python scripts/sync.py push --apply --prune --confirm-prune "$PRUNE_CONFIRMATION"
