@@ -1,0 +1,53 @@
+name: Pull graph from Supabase
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pull-supabase-graph
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.SUPABASE_DATABASE_URL }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && pip install -r requirements.txt
+      - name: Pull and validate database snapshot
+        run: |
+          python scripts/sync.py pull
+          python scripts/sync.py check --format
+      - name: Open snapshot pull request
+        shell: bash
+        run: |
+          if git diff --quiet -- data/; then
+            echo "Supabase and the data repository are already synchronized."
+            exit 0
+          fi
+
+          branch="automation/supabase-pull-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add data/
+          git commit -m "Sync graph snapshot from Supabase"
+          git push --set-upstream origin "$branch"
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "Sync graph snapshot from Supabase" \
+            --body "Automated deterministic snapshot from the curricula.live Supabase database. Review the concept and relation changes before merging.\n\nWorkflow run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
