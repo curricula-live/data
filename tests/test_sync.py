@@ -8,6 +8,7 @@ def use_temp_data(monkeypatch, tmp_path):
     relations = tmp_path / "relations.jsonl"
     monkeypatch.setattr(sync, "CONCEPTS", concepts)
     monkeypatch.setattr(sync, "RELATIONS", relations)
+    monkeypatch.setattr(sync, "SNAPSHOT", tmp_path / "snapshot.json")
     return concepts, relations
 
 
@@ -104,3 +105,41 @@ def test_prune_requires_explicit_confirmation(monkeypatch, tmp_path):
 
     with pytest.raises(SystemExit, match="confirm-prune"):
         sync.push(apply=True, prune=True, confirm_prune="")
+
+
+def test_prune_rejects_seed_or_unproven_snapshot(monkeypatch, tmp_path):
+    concepts_path, relations_path = use_temp_data(monkeypatch, tmp_path)
+    sync.write_jsonl(concepts_path, [concept("queue")])
+    sync.write_jsonl(relations_path, [])
+
+    with pytest.raises(SystemExit, match="full-snapshot marker"):
+        sync.push(apply=True, prune=True, confirm_prune="DELETE")
+
+
+def test_prune_rejects_stale_snapshot_even_when_counts_match(monkeypatch, tmp_path):
+    concepts_path, relations_path = use_temp_data(monkeypatch, tmp_path)
+    sync.write_jsonl(concepts_path, [concept("queue")])
+    sync.write_jsonl(relations_path, [])
+    sync.SNAPSHOT.write_text(
+        '{"concept_count":1,"concept_sha256":"wrong","full_snapshot":true,'
+        '"relation_count":0,"relation_sha256":"wrong","source":"supabase"}\n',
+        encoding="utf-8",
+    )
+
+    with pytest.raises(SystemExit, match="does not match"):
+        sync.push(apply=True, prune=True, confirm_prune="DELETE")
+
+
+def test_unicode_must_be_nfc(monkeypatch, tmp_path):
+    concepts_path, relations_path = use_temp_data(monkeypatch, tmp_path)
+    sync.write_jsonl(concepts_path, [concept("queue", "Cafe\u0301")])
+    sync.write_jsonl(relations_path, [])
+
+    with pytest.raises(SystemExit, match="NFC"):
+        sync.check(quiet=True)
+
+
+def test_upserts_skip_unchanged_rows():
+    source = (sync.ROOT / "scripts" / "sync.py").read_text(encoding="utf-8")
+    assert "is distinct from" in source.lower()
+    assert "relation.metadata is distinct from excluded.metadata" in source

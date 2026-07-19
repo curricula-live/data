@@ -1,19 +1,24 @@
 name: Pull graph from Supabase
 
 on:
+  repository_dispatch:
+    types: [supabase_graph_changed]
   workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"
 
 permissions:
   contents: write
   pull-requests: write
 
 concurrency:
-  group: pull-supabase-graph
+  group: graph-sync
   cancel-in-progress: false
 
 jobs:
   pull:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     env:
       DATABASE_URL: ${{ secrets.SUPABASE_DATABASE_URL }}
       GH_TOKEN: ${{ github.token }}
@@ -27,6 +32,8 @@ jobs:
           cache: pip
       - name: Install dependencies
         run: python -m pip install --upgrade pip && pip install -r requirements.txt
+      - name: Verify database secret
+        run: test -n "$DATABASE_URL" || { echo "SUPABASE_DATABASE_URL is not configured"; exit 1; }
       - name: Pull and validate database snapshot
         run: |
           python scripts/sync.py pull
@@ -39,13 +46,17 @@ jobs:
             exit 0
           fi
 
-          branch="automation/supabase-pull-${GITHUB_RUN_ID}"
+          branch="automation/supabase-pull"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -c "$branch"
+          git switch -C "$branch"
           git add data/
           git commit -m "Sync graph snapshot from Supabase"
-          git push --set-upstream origin "$branch"
+          git push --force-with-lease --set-upstream origin "$branch"
+          if gh pr list --state open --head "$branch" --json number --jq 'length > 0' | grep -qx true; then
+            echo "Updated the existing Supabase snapshot pull request."
+            exit 0
+          fi
           gh pr create \
             --base main \
             --head "$branch" \

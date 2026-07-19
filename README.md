@@ -8,10 +8,11 @@ Supabase PostgreSQL is the runtime database. This repository provides determinis
 
 - `data/concepts.jsonl` — one concept per line
 - `data/relations.jsonl` — one typed relation per line, using concept slugs
+- `data/snapshot.json` — machine-checkable proof that JSONL files came from one complete pull
 - `schema/` — JSON Schema definitions
 - `scripts/sync.py` — validation and synchronization CLI
 
-The committed queue records are only an initial format example. Run the pull workflow to replace them with the complete current Supabase snapshot before considering pruning.
+The committed queue records are only an initial format example. They cannot be used for pruning. A full pull creates a marker containing exact row counts and SHA-256 hashes; pruning fails closed if that marker is absent, invalid, or stale.
 
 ## Local setup
 
@@ -58,7 +59,7 @@ Runs on every pull request and validates schemas, references, deterministic form
 
 ### Pull graph from Supabase
 
-Manual workflow that exports the full database snapshot and opens a reviewable pull request when data changed.
+Runs on `repository_dispatch` (`supabase_graph_changed`), manual dispatch, and a daily reconciliation schedule. It exports the full database snapshot and creates or updates one reviewable pull request only when data changed. The API should use dispatch as the primary trigger; the schedule is only reconciliation.
 
 ### Plan or push graph to Supabase
 
@@ -71,3 +72,10 @@ SUPABASE_DATABASE_URL
 ```
 
 For production use, configure required reviewers on the `supabase-production` GitHub environment.
+
+Recommended setup:
+
+- `supabase-staging`: staging database URL; use it for the first pull, plan, and non-destructive apply verification.
+- `supabase-production`: production database URL with required reviewers; do not enable pruning until a full snapshot PR has been reviewed and merged.
+
+Recovery is Git-based: stop apply workflows, pull a fresh snapshot into a PR, compare it with the last known-good commit, and apply only after review. Never restore by enabling prune against an incomplete or hand-edited snapshot marker.
