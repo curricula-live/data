@@ -1,0 +1,4 @@
+{"description":"Remove an element from the front of a queue.","label":"Dequeue","metadata":{"domain":"computer-science"},"slug":"dequeue"}
+{"description":"Add an element to the rear of a queue.","label":"Enqueue","metadata":{"domain":"computer-science"},"slug":"enqueue"}
+{"description":"The rule that the first inserted element is the first one removed.","label":"FIFO","metadata":{"domain":"computer-science"},"slug":"fifo"}
+{"description":"A linear collection where elements are processed in first-in, first-out order.","label":"Queue","metadata":{"domain":"computer-science"},"slug":"queue"}

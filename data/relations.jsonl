@@ -1,0 +1,4 @@
+{"metadata":{},"source":"dequeue","target":"queue","type":"part_of"}
+{"metadata":{},"source":"enqueue","target":"queue","type":"part_of"}
+{"metadata":{},"source":"fifo","target":"queue","type":"part_of"}
+{"metadata":{},"source":"queue","target":"fifo","type":"represented_by"}
