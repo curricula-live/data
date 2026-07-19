@@ -4,6 +4,8 @@ Version-controlled interchange format for the curricula.live concept graph.
 
 Supabase PostgreSQL is the runtime database. This repository provides deterministic JSONL snapshots so graph changes can be reviewed through Git and pull requests. It is not a second independently writable database.
 
+Concept slugs are the canonical, immutable repository identities. Supabase UUIDs are runtime implementation details and are resolved from slugs during synchronization. Changing a slug intentionally means deleting one concept and creating another; it is not a rename that preserves identity.
+
 ## Files
 
 - `data/concepts.jsonl` — one concept per line

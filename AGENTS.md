@@ -8,6 +8,7 @@ This repository is the deterministic, reviewable interchange format for the curr
 
 - Keep `data/concepts.jsonl` and `data/relations.jsonl` deterministic and one-record-per-line.
 - Concept references in relation files use slugs, never database UUIDs.
+- A concept slug is its canonical immutable identity. A slug change is a reviewed delete/create operation.
 - Relation predicates are extensible lowercase snake_case strings. Do not introduce a closed enum.
 - `push` must remain plan-only unless `--apply` is explicitly supplied.
 - Pruning must remain opt-in and require the exact additional confirmation `DELETE`.

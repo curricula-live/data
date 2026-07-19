@@ -52,7 +52,11 @@ jobs:
           git switch -C "$branch"
           git add data/
           git commit -m "Sync graph snapshot from Supabase"
-          git push --force-with-lease --set-upstream origin "$branch"
+          if remote_sha="$(git ls-remote --heads origin "refs/heads/$branch" | cut -f1)" && [ -n "$remote_sha" ]; then
+            git push --force-with-lease="refs/heads/$branch:$remote_sha" --set-upstream origin "$branch"
+          else
+            git push --set-upstream origin "$branch"
+          fi
           if gh pr list --state open --head "$branch" --json number --jq 'length > 0' | grep -qx true; then
             echo "Updated the existing Supabase snapshot pull request."
             exit 0
