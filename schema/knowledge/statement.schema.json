@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://curricula.live/schema/knowledge/statement.schema.json",
+  "title": "curricula.live statement v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "subject", "predicate", "object"],
+  "$defs": {
+    "conceptRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": {"const": "concept"},
+        "id": {"type": "string", "format": "uuid"}
+      }
+    },
+    "statementRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": {"const": "statement"},
+        "id": {"type": "string", "format": "uuid"}
+      }
+    },
+    "literal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "datatype", "value"],
+      "properties": {
+        "kind": {"const": "literal"},
+        "datatype": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "value": {
+          "type": ["string", "number", "boolean"]
+        }
+      }
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "subject": {
+      "oneOf": [
+        {"$ref": "#/$defs/conceptRef"},
+        {"$ref": "#/$defs/statementRef"}
+      ]
+    },
+    "predicate": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "object": {
+      "oneOf": [
+        {"$ref": "#/$defs/conceptRef"},
+        {"$ref": "#/$defs/statementRef"},
+        {"$ref": "#/$defs/literal"}
+      ]
+    }
+  }
+}
