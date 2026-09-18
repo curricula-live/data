@@ -4,7 +4,7 @@
 
 This repository is the canonical, reviewable source for the curricula.live knowledge system and its shared provider-neutral PostgreSQL domain schema.
 
-Git `main` is the publishing authority. PostgreSQL is a runtime projection. Do not treat Supabase or any other database host as the canonical authoring surface.
+Git `main` is the publishing authority. PostgreSQL is a runtime projection. Do not treat Supabase or any other database host as a canonical authoring surface.
 
 ## Naming
 
@@ -37,7 +37,12 @@ Git `main` is the publishing authority. PostgreSQL is a runtime projection. Do n
 - Use ordinary PostgreSQL and avoid host-specific APIs/extensions unless explicitly justified.
 - The shared domain schemas begin with `knowledge` and `curriculum`.
 - The future `admin` schema is operational: identity, authorization, audit and review records must not be serialized into canonical public knowledge files.
-- Do not apply v2 migrations to production until coordinated API compatibility work is reviewed.
+- Database publication is one-way: Git → PostgreSQL.
+- Never add an automatic PostgreSQL → Git synchronization path for canonical knowledge.
+- Use `DATABASE_URL`, not provider-specific secret names.
+- `scripts/publish.py apply` must remain explicit, transactional, and protected by the exact confirmation `PUBLISH`.
+- Database schema migrations are separate from canonical data publication; do not apply DDL implicitly from the publisher.
+- Do not apply the v2 target schema to production until coordinated API compatibility work is reviewed.
 
 ## Repository workflow
 
@@ -45,10 +50,11 @@ Git `main` is the publishing authority. PostgreSQL is a runtime projection. Do n
 - Merge feature PRs to `dev`.
 - Promote `dev` to `main` through an explicit release PR.
 - `main` is the only branch that may be treated as published canonical knowledge.
+- Production database apply is allowed only from `main`.
 
-## Legacy transition
+## Historical migration
 
-The existing `data/`, `schema/concept.schema.json`, `schema/relation.schema.json`, and `scripts/sync.py` describe the v1 Supabase-first interchange format. Keep them working until the production corpus and API have migrated, but do not extend them for new v2 modelling.
+The old Supabase-first snapshot is no longer an active authoring surface. Keep `migration/legacy-v1/` and `scripts/migrate_legacy.py` as historical/reproducible migration evidence, but do not extend them for new modelling.
 
 ## Validation
 
@@ -56,7 +62,6 @@ Run before proposing changes:
 
 ```bash
 python scripts/validate_v2.py
-python scripts/sync.py check --format
 pytest -q
 ```
 

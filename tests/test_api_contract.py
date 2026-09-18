@@ -3,55 +3,41 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CONCEPTS = ROOT / "data" / "concepts.jsonl"
-RELATIONS = ROOT / "data" / "relations.jsonl"
+CONCEPTS = ROOT / "knowledge" / "concepts.jsonl"
+PREDICATES = ROOT / "knowledge" / "predicates.jsonl"
+STATEMENTS = ROOT / "knowledge" / "statements.jsonl"
 
 
 def read_jsonl(path):
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line]
 
 
-def test_concept_snapshot_can_supply_read_api_identity():
+def test_canonical_concepts_preserve_slug_lookup_contract():
     concepts = read_jsonl(CONCEPTS)
 
     assert concepts
-    assert all(isinstance(concept["slug"], str) and concept["slug"] for concept in concepts)
+    assert all(concept["id"] and concept["slug"] and concept["label"] for concept in concepts)
+    assert len({concept["id"] for concept in concepts}) == len(concepts)
     assert len({concept["slug"] for concept in concepts}) == len(concepts)
 
 
-def test_relation_snapshot_can_supply_read_api_semantics():
-    relations = read_jsonl(RELATIONS)
+def test_canonical_predicates_preserve_readable_relation_types():
+    predicates = read_jsonl(PREDICATES)
 
-    assert all(
-        isinstance(relation[field], str) and relation[field]
-        for relation in relations
-        for field in ("source", "type", "target")
-    )
+    assert predicates
+    assert all(predicate["slug"] and predicate["label"] for predicate in predicates)
+    assert len({predicate["slug"] for predicate in predicates}) == len(predicates)
 
 
-def test_relations_reference_snapshot_concepts():
-    concepts = {concept["slug"] for concept in read_jsonl(CONCEPTS)}
+def test_migrated_statement_endpoints_resolve():
+    concepts = {concept["id"] for concept in read_jsonl(CONCEPTS)}
+    statements = read_jsonl(STATEMENTS)
+    statement_ids = {statement["id"] for statement in statements}
 
-    for relation in read_jsonl(RELATIONS):
-        assert relation["source"] in concepts
-        assert relation["target"] in concepts
-
-
-def test_relation_semantic_identity_is_unique():
-    semantic_keys = [
-        (relation["source"], relation["type"], relation["target"])
-        for relation in read_jsonl(RELATIONS)
-    ]
-
-    assert len(set(semantic_keys)) == len(semantic_keys)
-
-
-def test_snapshot_order_matches_api_deterministic_order():
-    concepts = read_jsonl(CONCEPTS)
-    relations = read_jsonl(RELATIONS)
-
-    assert concepts == sorted(concepts, key=lambda concept: concept["slug"])
-    assert relations == sorted(
-        relations,
-        key=lambda relation: (relation["source"], relation["type"], relation["target"]),
-    )
+    for statement in statements:
+        for side in ("subject", "object"):
+            reference = statement[side]
+            if reference["kind"] == "concept":
+                assert reference["id"] in concepts
+            elif reference["kind"] == "statement":
+                assert reference["id"] in statement_ids

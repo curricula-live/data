@@ -81,7 +81,6 @@ create index if not exists statement_object_concept_idx
 create index if not exists statement_predicate_idx
     on knowledge.statement(predicate_slug);
 
--- Exactly one canonical definition structure may exist per concept.
 create table if not exists knowledge.definition (
     concept_id uuid primary key
         references knowledge.concept(id)
@@ -98,7 +97,9 @@ create table if not exists knowledge.definition_statement (
         references knowledge.statement(id)
         on delete cascade
         deferrable initially deferred,
-    primary key (concept_id, statement_id)
+    position integer not null check (position > 0),
+    primary key (concept_id, statement_id),
+    unique (concept_id, position)
 );
 
 comment on schema knowledge is

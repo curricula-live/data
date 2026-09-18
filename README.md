@@ -2,7 +2,7 @@
 
 Canonical, reviewable source for the curricula.live knowledge system.
 
-Git is the publishing authority. PostgreSQL is a runtime projection of reviewed repository state. The current runtime happens to be hosted by Supabase, but the model and migrations must remain ordinary PostgreSQL so the system can move to another PostgreSQL service without changing the knowledge model.
+Git is the publishing authority. PostgreSQL is a runtime projection of reviewed repository state. The current runtime happens to be hosted by Supabase, but the model, migrations, and publisher use ordinary PostgreSQL so the runtime can later move to another PostgreSQL service without changing the knowledge model.
 
 ## Canonical flow
 
@@ -21,14 +21,18 @@ release review
       ↓
 main
       ↓
-publish/migrate
+publication plan
+      ↓
+approved database publish
       ↓
 PostgreSQL runtime
+      ↓
+verification
       ↓
 API
 ```
 
-`main` represents published canonical state. Direct production-database editing is not the normal authoring workflow.
+`main` represents published canonical state. Direct production-database editing is not the normal authoring workflow. Database drift is reported; it is never pulled back automatically into canonical Git.
 
 ## Repository layout
 
@@ -36,19 +40,22 @@ API
 knowledge/      canonical concepts, predicates, statements and definitions
 curriculum/     mappings from external curricula to canonical knowledge
 database/       provider-neutral PostgreSQL migrations and schema notes
-pipeline/       extraction/reconciliation workflow; inputs are non-canonical
+migration/      historical/reproducible migrations into canonical Git
+pipeline/       extraction/reconciliation contract; inputs are non-canonical
 schema/         JSON Schemas for canonical repository records
-scripts/        validation and transition tooling
+scripts/        validation, migration and publication tooling
 tests/          repository contract tests
 ```
 
-The existing `data/` directory and `scripts/sync.py` are **legacy v1 compatibility surfaces**. They remain temporarily while the current API/database contract is migrated. New v2 authoring must not extend that format.
+There is intentionally no nested `data/data` canonical layout.
 
 ## Core invariants
 
 ### Stable identity
 
 Canonical concepts use stable UUIDs. Human-readable slugs are unique lookup/URL keys, not immutable identity. A slug may change without changing the concept.
+
+The original production graph was captured into v2 Git using a deterministic one-time UUID migration. That historical mapping is retained under `migration/legacy-v1/`. New concepts receive stable UUIDs directly; their UUIDs are never regenerated from later slug changes.
 
 ### No generic descriptions
 
@@ -82,10 +89,27 @@ Before proposing changes:
 
 ```bash
 python scripts/validate_v2.py
-python scripts/sync.py check --format  # legacy transition contract
 pytest -q
 ```
 
-## Current transition
+## Database publication
 
-The production runtime currently contains substantially more knowledge than the small v1 repository seed. The v2 migration will first reconcile the runtime corpus into stable UUID-backed canonical repository records, then coordinate the API schema migration, and only then retire the legacy Supabase-first synchronization path.
+The canonical publisher is one-way:
+
+```bash
+python scripts/publish.py plan
+python scripts/publish.py apply --confirm-publish PUBLISH
+python scripts/publish.py verify
+```
+
+All commands use `DATABASE_URL`. The publisher targets the shared `knowledge` schema and does not apply DDL automatically.
+
+Production publication is exposed through the manual GitHub Actions workflow **Publish canonical data to PostgreSQL**. Configure a protected GitHub environment named `production-database` with a `DATABASE_URL` secret and required reviewers. Production `apply` is accepted only from `main`.
+
+Database migrations remain a separate reviewed release step. The current v2 target migration must not be applied to production until the API/database cutover phase is coordinated.
+
+## Legacy migration
+
+The previous Supabase-first snapshot/synchronization workflow is retired. The historical exporter and identity ledger remain under `migration/legacy-v1/` and `scripts/migrate_legacy.py` so the origin of the initial canonical UUID-backed corpus stays reproducible and auditable.
+
+Never commit database credentials, private source documents, or user/admin secrets.
