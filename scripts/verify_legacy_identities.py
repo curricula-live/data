@@ -63,8 +63,79 @@ def main() -> None:
         namespace=manifest["concept_namespace_uuid"],
         expected_count=manifest["counts"]["concepts"],
     )
-    print(f"verified {count} migrated concept UUID identities (current slugs may differ)")
+    statement_count = verify_imported_statements(root)
+    print(f"verified {count} migrated concept UUID identities and {statement_count} migrated statement UUIDs")
 
 
 if __name__ == "__main__":
     main()
+
+
+def verify_statement_ledger(
+    statements: list[dict],
+    legacy_ids: list[str],
+    *,
+    concept_ids: set[str],
+    predicate_slugs: set[str],
+    expected_count: int,
+) -> int:
+    """Check preservation of imported statement identities and graph references.
+
+    The legacy UUID list is immutable evidence of the migration cohort.
+    New post-migration statements are allowed; removing or rekeying an imported
+    statement is not. Academic truth/review status is deliberately NOT inferred.
+    """
+    if len(legacy_ids) != expected_count or len(set(legacy_ids)) != expected_count:
+        raise ValueError("legacy statement UUID ledger count or uniqueness mismatch")
+    for identifier in legacy_ids:
+        if str(UUID(identifier)) != identifier:
+            raise ValueError(f"noncanonical legacy statement UUID: {identifier}")
+
+    rows_by_id: dict[str, dict] = {}
+    for row in statements:
+        identifier = row["id"]
+        if str(UUID(identifier)) != identifier:
+            raise ValueError(f"noncanonical statement UUID: {identifier}")
+        if identifier in rows_by_id:
+            raise ValueError(f"duplicate statement UUID: {identifier}")
+        rows_by_id[identifier] = row
+
+    missing = set(legacy_ids) - rows_by_id.keys()
+    if missing:
+        raise ValueError(f"missing imported statement UUID: {sorted(missing)[0]}")
+
+    for identifier, statement in rows_by_id.items():
+        if statement["predicate"] not in predicate_slugs:
+            raise ValueError(f"unknown predicate in statement {identifier}")
+        for side in ("subject", "object"):
+            ref = statement[side]
+            if ref["kind"] == "concept" and ref["id"] not in concept_ids:
+                raise ValueError(f"dangling concept {side} in statement {identifier}")
+            if ref["kind"] == "statement" and ref["id"] not in rows_by_id:
+                raise ValueError(f"dangling statement {side} in statement {identifier}")
+            if ref["kind"] == "literal" and side == "subject":
+                raise ValueError(f"literal cannot be a statement subject: {identifier}")
+
+    return len(legacy_ids)
+
+
+def verify_imported_statements(root: Path = ROOT) -> int:
+    """Validate migration cohort against current source without DB I/O."""
+    manifest = json.loads(
+        (root / "migration/legacy-v1/manifest.json").read_text(encoding="utf-8")
+    )
+    concepts = read_jsonl(root / "knowledge/concepts.jsonl")
+    predicates = read_jsonl(root / "knowledge/predicates.jsonl")
+    statements = read_jsonl(root / "knowledge/statements.jsonl")
+    legacy_ids = [
+        line for line in (
+            root / "migration/legacy-v1/statement-uuids.txt"
+        ).read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    return verify_statement_ledger(
+        statements, legacy_ids,
+        concept_ids={row["id"] for row in concepts},
+        predicate_slugs={row["slug"] for row in predicates},
+        expected_count=manifest["counts"]["statements"],
+    )
