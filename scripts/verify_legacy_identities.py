@@ -67,9 +67,6 @@ def main() -> None:
     print(f"verified {count} migrated concept UUID identities and {statement_count} migrated statement UUIDs")
 
 
-if __name__ == "__main__":
-    main()
-
 
 def verify_statement_ledger(
     statements: list[dict],
@@ -139,3 +136,7 @@ def verify_imported_statements(root: Path = ROOT) -> int:
         predicate_slugs={row["slug"] for row in predicates},
         expected_count=manifest["counts"]["statements"],
     )
+
+
+if __name__ == "__main__":
+    main()
