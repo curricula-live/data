@@ -234,3 +234,18 @@ def test_rate_bucket_pruning_is_bounded(db):
     assert db.execute(
         "select count(*) from admin.owner_auth_rate_bucket"
     ).fetchone()[0] == 1
+
+
+def test_abandoned_fifth_lease_is_cleaned_up_after_timeout(db):
+    now = datetime.now(timezone.utc)
+    _, _, job_id = _queue(db)
+    db.execute(
+        "update admin.owner_email_outbox set attempts=4 where id=%s",
+        (job_id,),
+    )
+    lease = claim_next(db, now=now)
+    assert lease is not None and lease.attempt == 5
+    assert discard_unusable(db, now=now) == 0
+    assert discard_unusable(db, now=now + timedelta(seconds=91)) == 1
+    assert not settle(db, lease, delivered=True, now=now + timedelta(seconds=91))
+    assert claim_next(db, now=now + timedelta(minutes=2)) is None
