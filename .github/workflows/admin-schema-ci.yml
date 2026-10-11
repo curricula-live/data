@@ -36,4 +36,4 @@ jobs:
       - name: Install pinned dependencies
         run: python -m pip install -r requirements.txt
       - name: Verify PostgreSQL DDL and bootstrap constraints
-        run: pytest -q tests/test_admin_schema_postgres.py
+        run: pytest -q tests/test_admin_schema_postgres.py tests/test_admin_delivery_postgres.py
