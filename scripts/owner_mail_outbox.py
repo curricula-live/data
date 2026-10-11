@@ -127,7 +127,9 @@ def discard_unusable(connection, *, now: datetime, batch: int = 100) -> int:
                     join admin.owner_principal p on p.id = c.owner_id
                     where o.delivered_at is null and o.discarded_at is null
                       and (c.expires_at <= %s or c.consumed_at is not null
-                           or not p.active)
+                           or not p.active
+                           or (o.attempts >= 5
+                               and (o.leased_until is null or o.leased_until <= %s)))
                     order by o.created_at
                     for update of o skip locked
                     limit %s
@@ -136,7 +138,7 @@ def discard_unusable(connection, *, now: datetime, batch: int = 100) -> int:
                 set discarded_at = %s, leased_until = null, lease_token = null
                 from doomed where o.id = doomed.id returning o.id
                 """,
-                (now, batch, now),
+                (now, now, batch, now),
             )
             return len(cursor.fetchall())
 
