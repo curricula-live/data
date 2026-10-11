@@ -1,0 +1,39 @@
+name: Owner operational schema CI
+
+on:
+  pull_request:
+    branches: [dev, main]
+  push:
+    branches: [dev, main]
+
+permissions:
+  contents: read
+
+jobs:
+  postgres-owner-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: atlas_test
+          POSTGRES_PASSWORD: isolated-ci-only
+          POSTGRES_DB: atlas_admin_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U atlas_test -d atlas_admin_ci"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      TEST_POSTGRES_DSN: postgresql://atlas_test:isolated-ci-only@localhost:5432/atlas_admin_ci
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Verify PostgreSQL DDL and bootstrap constraints
+        run: pytest -q tests/test_admin_schema_postgres.py
