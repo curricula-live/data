@@ -18,10 +18,14 @@ create table if not exists admin.owner_email_outbox (
     created_at timestamptz not null default now(),
     available_at timestamptz not null default now(),
     leased_until timestamptz,
+    lease_token uuid,
     attempts integer not null default 0,
     delivered_at timestamptz,
     discarded_at timestamptz,
     constraint owner_email_outbox_attempts check (attempts between 0 and 5),
+    constraint owner_email_outbox_lease_consistency check (
+        (leased_until is null) = (lease_token is null)
+    ),
     constraint owner_email_outbox_final_state check (
         not (delivered_at is not null and discarded_at is not null)
     )
