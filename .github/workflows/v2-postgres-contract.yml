@@ -1,0 +1,81 @@
+name: V2 PostgreSQL publication contract
+
+on:
+  pull_request:
+  push:
+    branches: [dev, main]
+
+permissions:
+  contents: read
+
+jobs:
+  postgres-v2-roundtrip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: atlas_v2_ci
+          POSTGRES_PASSWORD: disposable-ci-only
+          POSTGRES_DB: atlas_v2_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U atlas_v2_ci -d atlas_v2_ci"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://atlas_v2_ci:disposable-ci-only@localhost:5432/atlas_v2_ci
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install pinned Python dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Install data-owned knowledge v2 target schema in disposable DB
+        run: psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0001_knowledge_core.sql
+      - name: Validate migration identities and canonical corpus
+        run: |
+          python scripts/validate_v2.py
+          python -m scripts.verify_legacy_identities
+      - name: Publish and independently verify the entire corpus
+        run: |
+          python scripts/publish.py plan
+          python scripts/publish.py apply --confirm-publish PUBLISH
+          python scripts/publish.py verify
+      - name: Verify PostgreSQL row counts and idempotency
+        run: |
+          python - <<'PY'
+          import os
+          import psycopg
+          expected = {
+              "knowledge.concept": 554,
+              "knowledge.predicate": 19,
+              "knowledge.statement": 663,
+              "knowledge.definition": 0,
+              "knowledge.definition_statement": 0,
+          }
+          with psycopg.connect(os.environ["DATABASE_URL"], autocommit=True) as conn:
+              for table, expected_count in expected.items():
+                  with conn.cursor() as cursor:
+                      cursor.execute(f"select count(*) from {table}")
+                      assert cursor.fetchone()[0] == expected_count, table
+          print("All expected canonical v2 row counts verified on PostgreSQL")
+          PY
+          python scripts/publish.py apply --confirm-publish PUBLISH
+          python scripts/publish.py verify
+      - name: Prove drift detection and repair in disposable DB
+        shell: bash
+        run: |
+          set -euo pipefail
+          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -c \
+            "update knowledge.concept set label='CI DRIFT SENTINEL' where slug='operating-system';"
+          if python scripts/publish.py verify > /tmp/atlas-v2-drift.log 2>&1; then
+            echo "ERROR: verifier failed to detect an intentionally corrupted row"
+            exit 1
+          fi
+          grep -q "database drift detected" /tmp/atlas-v2-drift.log
+          python scripts/publish.py apply --confirm-publish PUBLISH
+          python scripts/publish.py verify
