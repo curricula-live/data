@@ -26,6 +26,9 @@ from psycopg import IsolationLevel
 
 from scripts import publish
 from scripts.verify_legacy_identities import read_jsonl, verify_imported_statements
+from scripts.staging_parity_evidence import (
+    build_evidence, check_read_only_target, verified_git_head, write_evidence_exclusive,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -156,7 +159,8 @@ def load_git_state(root: Path) -> dict[str, Any]:
 
 
 def verify_staging(
-    connection: Any, root: Path = ROOT, *, require_v2: bool = False
+    connection: Any, root: Path = ROOT, *, require_v2: bool = False,
+    expected_database: str | None = None, expected_role: str | None = None,
 ) -> dict[str, Any]:
     git_state = load_git_state(root)
     if verify_imported_statements(root) != git_state["manifest"]["counts"]["statements"]:
@@ -164,6 +168,8 @@ def verify_staging(
 
     # Caller must set transaction isolation before its first SQL statement.
     with connection.cursor() as cursor:
+        if expected_database is not None and expected_role is not None:
+            check_read_only_target(cursor, expected_database, expected_role)
         legacy = fetch_legacy_snapshot(cursor)
         result = compare_legacy_to_canonical(legacy, **git_state)
 
@@ -193,9 +199,23 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--database-url", default=os.getenv("STAGING_DATABASE_URL"))
     parser.add_argument("--require-v2", action="store_true")
+    parser.add_argument("--expected-database", help="Exact independently verified staging DB name")
+    parser.add_argument("--expected-role", help="Exact SELECT-only staging PostgreSQL role")
+    parser.add_argument("--expected-git-sha", help="Full reviewed 40-character Git release SHA")
+    parser.add_argument("--evidence-out", type=Path, help="Exclusive private JSON evidence file")
     args = parser.parse_args()
+    if bool(args.expected_database) != bool(args.expected_role):
+        parser.error("--expected-database and --expected-role must be supplied together")
+    if args.evidence_out and (
+        not args.require_v2 or not args.expected_database
+        or not args.expected_role or not args.expected_git_sha
+    ):
+        parser.error("evidence requires --require-v2 and all three expected target/Git values")
     if not args.database_url:
         parser.error("STAGING_DATABASE_URL or --database-url required (staging only)")
+
+    # Verify the exact checked-out corpus before contacting the staging DB.
+    git_commit = verified_git_head(ROOT, args.expected_git_sha) if args.evidence_out else None
 
     with psycopg.connect(
         args.database_url,
@@ -203,7 +223,17 @@ def main() -> None:
     ) as connection:
         connection.read_only = True
         connection.isolation_level = IsolationLevel.REPEATABLE_READ
-        result = verify_staging(connection, require_v2=args.require_v2)
+        result = verify_staging(
+            connection, require_v2=args.require_v2,
+            expected_database=args.expected_database, expected_role=args.expected_role,
+        )
+    if args.evidence_out:
+        evidence = build_evidence(
+            root=ROOT, git_commit=git_commit,
+            target={"database": args.expected_database, "role": args.expected_role},
+            result=result,
+        )
+        write_evidence_exclusive(args.evidence_out, evidence)
     print(json.dumps({"result": "verified", **result}, indent=2, sort_keys=True))
 
 
