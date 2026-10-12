@@ -60,3 +60,21 @@ STAGING_DATABASE_URL='postgresql://REDACTED/STAGING_DATABASE' \
 The verifier operates inside a PostgreSQL `READ ONLY, REPEATABLE READ`
 transaction. It never applies DDL or data changes, merges Git branches,
 publishes a release, or deploys an application.
+
+## Optional protected GitHub Actions execution
+
+The repository also defines `Manual staging parity evidence (read-only)`.
+It can be started **only manually**, from the reviewed `dev` commit, with
+confirmation `READ_ONLY_STAGING_PARITY` and the expected database/role.
+
+Before the first run, a repository administrator must separately configure
+the protected GitHub environment `knowledge-staging` with required reviewer
+approval and its environment-only secret `STAGING_PARITY_DATABASE_URL`.
+That secret must identify an independently sourced non-production snapshot
+through a database role with SELECT privileges only. The workflow does not
+create an environment, provision a database, or acquire credentials.
+
+After an approved and successful run it uploads a private JSON evidence artifact
+retained for 14 days. Record the source snapshot/provenance separately; GitHub
+test logs and this attestation do not independently establish it. Do not run
+the workflow against production or interpret passing CI as production approval.
