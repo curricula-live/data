@@ -1,29 +1,62 @@
-# Staging-only v1 → v2 parity verification
+# Read-only legacy → v2 PostgreSQL staging parity
 
-The initial 554 concepts, 19 predicate identities, and 663 legacy statement UUIDs
-must survive the data model migration. Source-level CI verifies the Git corpus,
-but **does not prove PostgreSQL parity**.
+This is a **release gate**, not a migration or permission to deploy.
 
-After a reviewed staging snapshot has both legacy \`public.*\` tables and
-(optionally) the new data-owned \`knowledge.*\` schema:
+The initial 554 concepts, 19 predicates and 663 original statements must
+survive v1 → v2 migration with their identities and source–predicate–target
+relations preserved. Git/unit CI verifies the corpus, but **does not establish
+parity against an independently sourced legacy PostgreSQL database**.
 
-\`\`\`sh
-# A staging-only, SELECT-only database user is required. NEVER production:
-STAGING_DATABASE_URL='postgresql://...redacted.../staging' \
-  python -m scripts.verify_staging_parity
+## Requirements for an actual staging verification
 
-# When staging v2 publication exists, make full target parity mandatory:
-STAGING_DATABASE_URL='postgresql://...redacted.../staging' \
+An operator must independently confirm:
+
+- A dedicated **non-production**, independently sourced staging snapshot
+  contains the original `public.*` legacy tables and published `knowledge.*` v2 tables.
+- The database role is **SELECT-only**, with no DDL/write privileges.
+- The Git checkout uses the reviewed SHA, with a clean canonical corpus and ledgers.
+- The database and PostgreSQL role were confirmed outside this tool. Matching
+  their names cannot by itself prove a target is not production.
+
+## Verify and capture evidence
+
+Run on the pinned commit, using a restricted, encrypted evidence directory
+outside Git. Never commit or print database credentials.
+
+```bash
+git rev-parse HEAD
+# Confirm the staging target independently; never use the production database.
+export STAGING_DATABASE_URL='postgresql://REDACTED/STAGING_DATABASE'
+python -m scripts.verify_staging_parity \
+  --require-v2 \
+  --expected-database 'ACTUAL_STAGING_DATABASE_NAME' \
+  --expected-role 'ACTUAL_SELECT_ONLY_ROLE' \
+  --expected-git-sha "$(git rev-parse HEAD)" \
+  --evidence-out '/secure/evidence/atlas-staging-parity-001.json'
+```
+
+The evidence file is created exclusively with mode `0600`, never overwritten.
+No evidence is generated if v2 is missing or differs from Git; any historical
+UUID or triple differs; the checked-out SHA or corpus is different; the database
+name or role differs; or the transaction is not read-only.
+
+The certificate includes its format version, UTC verification time, full Git
+commit, SHA-256 of the canonical files and migration ledgers, checked database
+name and role, verified counts, and v2 readback parity. It contains **no DSN
+or password** and never contains owner tokens.
+
+**The certificate is not a cryptographic signature or independent proof of
+database provenance.** Retain the independently sourced staging snapshot
+record, reviewed migration and rollback evidence, public API compatibility
+tests, and explicit owner approval before production promotion.
+
+## Exploratory (no attestation)
+
+```bash
+STAGING_DATABASE_URL='postgresql://REDACTED/STAGING_DATABASE' \
   python -m scripts.verify_staging_parity --require-v2
-\`\`\`
+```
 
-- Runs with PostgreSQL \`READ ONLY\` and \`REPEATABLE READ\` transaction settings.
-- Compares historical \`public.concept.slug\` against the committed legacy UUID ledger, not current mutable concept slugs.
-- Compares \`public.relation\` UUIDs and each original source/predicate/target triple with Git v2 statement UUIDs.
-- Allows *additional* post-migration canonical records, without allowing a historic UUID to be silently rekeyed.
-- If v2 tables are present, also verifies full canonical readback including all definitions using the existing publisher read model and exact diff.
-- Fails closed on counts, missing FKs, ID changes or differing content; prints counts and status only, never database credentials.
-
-This is a staging inspection command, not a migrator. A successful run against
-a real staging database is still required before a cutover PR can be approved.
-No automatic production migration, publication or rollback is authorized.
+The verifier operates inside a PostgreSQL `READ ONLY, REPEATABLE READ`
+transaction. It never applies DDL or data changes, merges Git branches,
+publishes a release, or deploys an application.
