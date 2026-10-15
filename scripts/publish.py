@@ -426,6 +426,11 @@ def command_apply(database_url: str | None, confirmation: str) -> None:
             print("publish plan:")
             print_plan(before)
             apply_canonical_state(cursor, canonical)
+            # Publication attestation is a separate reviewed step. Any apply
+            # invalidates the previous release even when identities are reused.
+            cursor.execute("select to_regclass('knowledge.publication')")
+            if cursor.fetchone()[0] is not None:
+                cursor.execute("delete from knowledge.publication")
             after = build_plan(canonical, fetch_database_state(cursor))
             if has_changes(after):
                 raise RuntimeError(
