@@ -1,0 +1,83 @@
+name: Manual staging parity evidence (read-only)
+
+# Never schedule or run this job for PR/push events.
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Type READ_ONLY_STAGING_PARITY after independently verifying the target"
+        required: true
+        type: string
+      expected_database:
+        description: "Exact independently verified name of the staging PostgreSQL database"
+        required: true
+        type: string
+      expected_role:
+        description: "Exact SELECT-only PostgreSQL role for the isolated staging snapshot"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: staging-parity-read-only
+  cancel-in-progress: false
+
+jobs:
+  attest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Secrets are supplied only through the separately protected staging environment.
+    environment: knowledge-staging
+    env:
+      STAGING_DATABASE_URL: ${{ secrets.STAGING_PARITY_DATABASE_URL }}
+      EXPECTED_DATABASE: ${{ inputs.expected_database }}
+      EXPECTED_ROLE: ${{ inputs.expected_role }}
+      OPERATOR_CONFIRMATION: ${{ inputs.confirmation }}
+    steps:
+      - name: Verify branch, operator confirmation and configured private staging DSN
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$GITHUB_REF" != "refs/heads/dev" ]]; then
+            echo 'Denied: manual staging parity must run from dev only'
+            exit 1
+          fi
+          if [[ "$OPERATOR_CONFIRMATION" != 'READ_ONLY_STAGING_PARITY' ]]; then
+            echo 'Denied: explicit independent staging verification confirmation required'
+            exit 1
+          fi
+          if [[ -z "$STAGING_DATABASE_URL" || -z "$EXPECTED_DATABASE" || -z "$EXPECTED_ROLE" ]]; then
+            echo 'Denied: missing protected staging DSN or expected PostgreSQL identity'
+            exit 1
+          fi
+      - name: Checkout exact review commit
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install pinned verification dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Verify read-only legacy and v2 parity and create private evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python -m scripts.verify_staging_parity \
+            --require-v2 \
+            --expected-database "$EXPECTED_DATABASE" \
+            --expected-role "$EXPECTED_ROLE" \
+            --expected-git-sha "$GITHUB_SHA" \
+            --evidence-out "$RUNNER_TEMP/staging-parity.json"
+      - name: Upload evidence only after successful verification
+        uses: actions/upload-artifact@v4
+        with:
+          name: staging-parity-evidence-${{ github.run_id }}
+          path: ${{ runner.temp }}/staging-parity.json
+          if-no-files-found: error
+          retention-days: 14
