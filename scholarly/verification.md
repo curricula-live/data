@@ -48,3 +48,13 @@ Official ACM bytes obtained: **0**. Imported ACM concepts/edges: **0**. ACM mapp
 3. **Dependent work after source retrieval/permission**: validate actual RDF structure and completeness, wire the recovered UUID resolver into the existing scholarly installer (which still conservatively rejects mappings/definitions), import actual records, create a small explicitly unreviewed pilot in a development-only projection, and verify real browser hierarchy navigation/provenance. No uncertain equivalence will be self-approved.
 
 CS2023 and CSTA remain subsequent deliverables. No production deployment, public taxonomy release, regenerated canonical IDs, or scholarly approval occurred.
+
+## User-supplied RDF/XML — 2026-10-15
+
+The user supplied `acm_ccs2012-1626988337597.xml` (613,931 bytes), SHA-256 `49f7911725537408517d00a3a7fef2ab5600777a9e1c1b79d9a0925b868dc045`. This resolves local source-file access, but not independent download provenance or licensing. Source bytes and the derived full hierarchy remain outside Git and public API/database storage.
+
+Existing SKOS adapter validated **2,113 unique identifiers, 2,100 edges, 13 roots matching all 13 scheme-declared top concepts, zero orphans and zero cycles**, with maximum edge depth 5. Every identifier matches an eight-digit dotted path; each explicit parent matches the path prefix. Parsing twice produces byte-identical normalized records. The XML uses unqualified `lang` and relative RDF identifiers without an explicit base; raw identifiers are preserved rather than silently resolved to invented URIs. It has 159 repeated labels; identifiers are not collapsed on label equality. This verifies internal structure, not independent external completeness.
+
+Exact normalized matching against the unchanged 554-UUID corpus produced 30 candidate associations covering 26 canonical concepts. `acm-ccs-mapping-pilot.json` records five source-ID/UUID pairs for abstraction, authentication, authorization, graph theory and machine learning. Every pair is explicitly unreviewed and related, with checksum/locator references; no equivalence or official alignment is asserted. These are mapping metadata only, without copied taxonomy labels or prose.
+
+No rights/license grant appears in the uploaded XML. Confirmation of direct download provenance and applicable private-development import/display permission has been requested. The earlier user instruction expressly conditions database import on confirmed permissions, so no actual taxonomy DB installation or source display has occurred. Public source redistribution remains disabled; published taxonomy count and reviewed mapping count are zero.

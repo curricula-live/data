@@ -3,56 +3,111 @@
   "retrieval_method": "Connected web browser; source bytes could not be downloaded into workspace",
   "sources": [
     {
-      "id": "acm-ccs", "role": "primary", "publisher": "Association for Computing Machinery",
-      "version": "2012 (release artifact not obtained)", "publication_date": null,
+      "id": "acm-ccs",
+      "role": "primary",
+      "publisher": "Association for Computing Machinery",
+      "version": "2012 (release artifact not obtained)",
+      "publication_date": null,
       "authoritative_landing_url": "https://www.acm.org/publications/class-2012",
       "authoritative_tool_url": "https://dl.acm.org/ccs",
       "authoritative_download_url": null,
-      "formats": {"verified": [], "pending_verification": ["SKOS/RDF XML taxonomy export"]},
+      "formats": {
+        "verified": [],
+        "pending_verification": [
+          "SKOS/RDF XML taxonomy export"
+        ]
+      },
       "identifier_structure": "Must be read from authoritative taxonomy. Paper-selection CCSXML is not a complete taxonomy.",
       "license": "Unestablished; do not infer redistribution permission from public access",
       "copyright": "Unverified; seek ACM permission/terms for complete classification redistribution",
-      "publication_scope": "restricted", "source_sha256": null,
-      "access_result": "Official landing page and DL tool returned 403 in browser; workspace proxy unavailable",
-      "distribution": "official source sought; no mirror imported", "status": "blocked"
+      "publication_scope": "restricted",
+      "source_sha256": "49f7911725537408517d00a3a7fef2ab5600777a9e1c1b79d9a0925b868dc045",
+      "access_result": "Uploaded 613931-byte XML obtained from user; direct ACM endpoint remains inaccessible",
+      "distribution": "user-supplied attachment; official distribution byte equality unverified",
+      "status": "uploaded RDF/XML structurally validated; licensing and download provenance confirmation pending",
+      "uploaded_file": "acm_ccs2012-1626988337597.xml",
+      "source_records": 2113,
+      "hierarchy_edges": 2100,
+      "roots": 13,
+      "declared_roots_match": true,
+      "cycles": 0,
+      "orphan_references": 0
     },
     {
-      "id": "cs2023", "role": "overlay", "publisher": "ACM / IEEE Computer Society / AAAI Joint Task Force",
-      "version": "2024-04-28", "publication_date": "2024-01 (cover date)",
+      "id": "cs2023",
+      "role": "overlay",
+      "publisher": "ACM / IEEE Computer Society / AAAI Joint Task Force",
+      "version": "2024-04-28",
+      "publication_date": "2024-01 (cover date)",
       "authoritative_landing_url": "https://csed.acm.org/final-report/",
       "authoritative_download_url": "https://csed.acm.org/wp-content/uploads/2024/04/3.1-Body-of-Knowledge-1.pdf",
       "version_evidence_url": "https://csed.acm.org/wp-content/uploads/2024/04/0.-Cover-Page.pdf",
-      "formats": {"verified": ["PDF (body of knowledge, 332 pages)", "HTML report at https://csed.acm.org/wp-content/uploads/2025/11/CS2023-Report.htm"], "pending_verification": ["Official structured topic dataset"]},
+      "formats": {
+        "verified": [
+          "PDF (body of knowledge, 332 pages)",
+          "HTML report at https://csed.acm.org/wp-content/uploads/2025/11/CS2023-Report.htm"
+        ],
+        "pending_verification": [
+          "Official structured topic dataset"
+        ]
+      },
       "identifier_structure": "Knowledge Area abbreviation -> Knowledge Unit abbreviation -> numbered/nested topics; CS Core / KA Core / Non-core; illustrative learning outcomes. Preserve source-local IDs; minted locator IDs must be marked editorial.",
       "license": "Full report redistribution terms not established; separate related papers' CC licenses do not establish report rights",
-      "copyright": "Not verified from downloaded artifact", "publication_scope": "restricted", "source_sha256": null,
+      "copyright": "Not verified from downloaded artifact",
+      "publication_scope": "restricted",
+      "source_sha256": null,
       "access_result": "Official cover, body-of-knowledge PDF and report index inspected in browser; raw bytes not obtained",
-      "distribution": "official", "status": "metadata-audited; import and license review blocked"
+      "distribution": "official",
+      "status": "metadata-audited; import and license review blocked"
     },
     {
-      "id": "csta", "role": "overlay", "publisher": "Computer Science Teachers Association",
-      "version": "2017 revised (historical; not latest)", "publication_date": "2017-07",
+      "id": "csta",
+      "role": "overlay",
+      "publisher": "Computer Science Teachers Association",
+      "version": "2017 revised (historical; not latest)",
+      "publication_date": "2017-07",
       "authoritative_landing_url": "https://csteachers.org/2017standards/",
       "authoritative_download_url": "https://csteachers.org/wp-content/uploads/2025/03/2017-csta-k12-computer-science-standards-al.pdf",
       "spreadsheet_url": "https://csteachers.org/wp-content/uploads/2025/03/csta-k-12-standards-revised-2017-spreadsheet.xlsx",
-      "formats": {"verified": ["PDF", "official download index links XLSX and Google Sheets"], "pending_verification": ["XLSX cell schema"]},
+      "formats": {
+        "verified": [
+          "PDF",
+          "official download index links XLSX and Google Sheets"
+        ],
+        "pending_verification": [
+          "XLSX cell schema"
+        ]
+      },
       "identifier_structure": "Level-concept-number identifiers; grade bands, concepts, subconcepts and practices remain separate source fields",
-      "license": "CC-BY-NC-SA-4.0", "license_evidence_url": "https://csteachers.org/2017standards/",
+      "license": "CC-BY-NC-SA-4.0",
+      "license_evidence_url": "https://csteachers.org/2017standards/",
       "copyright": "Attribute Computer Science Teachers Association (2017); observe NC and SA terms",
-      "publication_scope": "metadata-only", "source_sha256": null,
+      "publication_scope": "metadata-only",
+      "source_sha256": null,
       "permission_needed": "Commercial redistribution permission from licensing@csteachers.org; validated crosswalk review before official alignment claims",
       "alignment_evidence_url": "https://csteachers.org/2017standards/standards-alignment-review/",
       "access_result": "Official license page, download index and PDF inspected; XLSX browser unsupported; raw bytes not obtained",
-      "distribution": "official", "status": "metadata-audited; restricted import and publication blocked"
+      "distribution": "official",
+      "status": "metadata-audited; restricted import and publication blocked"
     },
     {
-      "id": "csta", "role": "overlay", "publisher": "Computer Science Teachers Association",
-      "version": "2026 PK-12", "publication_date": "2026-07 (publisher landing-page statement)",
+      "id": "csta",
+      "role": "overlay",
+      "publisher": "Computer Science Teachers Association",
+      "version": "2026 PK-12",
+      "publication_date": "2026-07 (publisher landing-page statement)",
       "authoritative_landing_url": "https://csteachers.org/pk12standards/",
-      "authoritative_download_url": null, "source_sha256": null,
-      "formats": {"verified": [], "pending_verification": ["2026 download and licensing package"]},
+      "authoritative_download_url": null,
+      "source_sha256": null,
+      "formats": {
+        "verified": [],
+        "pending_verification": [
+          "2026 download and licensing package"
+        ]
+      },
       "identifier_structure": "Not audited; 2017 validator must not be used as a 2026 parser",
-      "license": "Not audited; do not inherit 2017 license automatically", "publication_scope": "restricted",
+      "license": "Not audited; do not inherit 2017 license automatically",
+      "publication_scope": "restricted",
       "status": "New revision identified; separate audit required"
     }
   ]
