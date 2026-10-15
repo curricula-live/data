@@ -1,6 +1,6 @@
 # Scholarly data workflow
 
-This subsystem is additive. It never writes `data/concepts.jsonl`, relations, UUIDs, or a runtime database. Source hierarchy, editorial mappings and definition attestations are distinct records. The current checkout has four seed concepts and no verified UUID export: the reported 554/663/19 baseline cannot be reproduced here.
+This subsystem is additive. It never writes `data/concepts.jsonl`, relations, UUIDs, or a runtime database. Source hierarchy, editorial mappings and definition attestations are distinct records. The remote dev snapshot has now been recovered and validated: 554 canonical concepts, 663 statements and 19 predicates. Canonical UUIDs were loaded unchanged into an isolated local PostgreSQL database; no ACM taxonomy has been imported.
 
 ## Source and licensing register
 
@@ -26,14 +26,14 @@ CS2023 entities use `knowledge_area`, `knowledge_unit`, `topic`, `learning_outco
 
 ## Review and publication
 
-Mappings require canonical_uuid, canonical_slug, node_id, relation, confidence, status and checksum/locator references. Exact normalized labels generate only `candidate`/`related` suggestions. Ambiguous duplicate labels produce multiple candidates; none are accepted. A reviewer must inspect semantic scope and choose exact/close/related/curriculum_association. Candidate output is a review queue, never a publication artifact. The verified UUID export must be independently checked against the canonical snapshot; seed slugs are insufficient.
+Mappings require canonical_uuid, canonical_slug, node_id, relation, confidence, status and checksum/locator references. Exact normalized labels generate only `candidate`/`related` suggestions. Ambiguous duplicate labels produce multiple candidates; none are accepted. A reviewer must inspect semantic scope and choose exact/close/related/curriculum_association. Candidate output is a review queue, never a publication artifact. Use the recovered `knowledge/concepts.jsonl` UUID snapshot, validated against `migration/legacy-v1/`; never regenerate UUIDs from labels or slugs.
 
 Approval requires a named reviewer, date, rationale and references. Source import approval is separate from mapping approval. Public export additionally requires official distribution, explicit public scope and a recorded permission review permitting public commercial redistribution. This is a documented human rights assessment, not an automated legal determination. CSTA NC material remains restricted unless permission covers this use. Metadata-only scope deliberately cannot export taxonomy text; the inventory may link to the official source without copying standards. No CSTA alignment claim is authorized by this software.
 
 Definitions require UUID, slug, text, kind (editorial/quotation/paraphrase/conflicting), responsible author, license, publication scope, citations, review, revision and complete version history. Public definitions additionally need permission evidence. AI-assisted drafts cannot be labelled externally verified. Conflicting definitions stay separate attestations. `definition-pilot.json` is a two-entry **unbound review draft**, not an attestation or import file. UUID binding, exact source bytes/checksums, responsible human authorship, rights review and scholarly review are all pending. Nothing from that file is public data.
 
-The API installer independently reruns the same public contract and accepts only deterministic public-export bytes. `api/core/scholarly_contract.py` is a vendored copy of `scripts/scholarly.py`; update them together and compare hashes. The API deliberately rejects mappings/definitions until the canonical UUID resolver is available in its schema. It preserves the existing slug-only API unchanged.
+The API installer independently reruns the same public contract and accepts only deterministic public-export bytes. `api/core/scholarly_contract.py` is a vendored copy of `scripts/scholarly.py`; update them together and compare hashes. The API deliberately rejects mappings/definitions pending integration with the recovered API UUID resolver. It preserves the existing slug-only API unchanged.
 
 ## Current coverage
 
-Imported source records: 0. Mapped canonical UUIDs: 0. Reviewed mappings: 0. Attested definitions: 0. Published records: 0. Unbound editorial pilot drafts: 2. Source inventory entries: 4 (three source families plus the separate CSTA revision). Synthetic fixtures demonstrate behavior; they never count toward coverage. The 554-concept baseline is user-reported and not verified in this checkout.
+Imported source records: 0. Mapped canonical UUIDs: 0. Reviewed mappings: 0. Attested definitions: 0. Published records: 0. Unbound editorial pilot drafts: 2. Source inventory entries: 4 (three source families plus the separate CSTA revision). Synthetic fixtures demonstrate behavior; they never count toward coverage. The 554-concept baseline is now verified from the recovered remote dev corpus; scholarly import coverage remains zero.

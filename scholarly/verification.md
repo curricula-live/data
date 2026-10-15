@@ -1,39 +1,50 @@
-# Verification and blockers — 2026-10-15
+# Verification and blockers — 2026-10-15 continuation
 
-Status: partial local development implementation; scholarly data milestone incomplete.
+Status: existing commits recovered and published; canonical PostgreSQL runtime running; **populated ACM CCS Atlas definition of done is NOT met**. No additional ingestion infrastructure was added in this continuation.
 
-## Checks
+## Remote recovery
 
-- `python scripts/sync.py check --format`: passed, unchanged 4-concept/4-relation seed.
-- Data `pytest -q`: 22 passed.
-- API `pytest -q`: 109 passed, including legacy regression suite; isolated SQLite only.
-- Django system check: passed. Migration drift: no changes detected.
-- API vendored scholarly contract: byte-identical to Data ingestion contract.
-- Web TypeScript: passed. ESLint: no errors, three existing search-loading image warnings.
-- Web production build: passed, including `/atlas`. Next.js detached TypeScript CLI returned empty output in this runtime; compiler API mode retains type checking and builds successfully.
-- PostgreSQL migration execution: blocked; Docker daemon socket denied access.
-- Live server/UI smoke: blocked; runtime refuses local listening sockets with EPERM. No visual browser verification claimed.
-- Remote dev fetch: failed for all repositories, proxy connection refused. Local dev branches were created from supplied clean work checkouts; latest remote dev ancestry is unverified. No push performed.
+All original commits are preserved in the published history. Merges preserved current remote Data/API work; no force pushes.
 
-## Coverage
+| Repository | Original scholarly commit | Verified remote dev after recovery |
+|---|---|---|
+| Data | 838778c3718f68f46a8befb599fef7df3c4d4e8b | df5b7474e6c6c55aa81b077570de5935544d82ee |
+| API | f5c449c3b0e453e9ba54c5d4de724b4c18ba7e63 | 8e8be7d8645e96771c285e1bab7735d3b4bb992f |
+| Web | c69a134e219bfa8f6e065c5acc12ab3ce1e192e0 | c69a134e219bfa8f6e065c5acc12ab3ce1e192e0 |
 
-Imported authoritative source records: **0**. Canonical UUID concepts with mappings: **0**. Reviewed mappings: **0**. Attested definitions: **0**. Published scholarly records: **0**. Unbound AI-assisted editorial drafts: **2**. Inventory: **4** entries across three source families, separating CSTA versions. Synthetic fixtures do not count as scholarly data.
+Remote SHAs were checked with `git ls-remote`. This verification update is a subsequent Data documentation commit; its SHA is reported in chat after publication.
 
-The 554 concepts / 663 statements / 19 predicates baseline is user-reported, not available in this checkout. Data has a four-concept seed and API models are slug-only. No UUIDs or canonical graph records were changed.
+## Actual corpus and runtime
 
-## Remaining work and blockers
+Recovered Data `knowledge/concepts.jsonl`: **554 concepts**, SHA-256 `307ca96200e587408cdb2a4a4e01e8ce90d08a0224873cbd68a27cc958d70285`.
+Recovered `knowledge/statements.jsonl`: **663 statements**, SHA-256 `4b13ae0ac0eefa2d6d258e7ea94471d88bcab94290802d4f0be0f875cfdeee2b`.
+Predicates: **19**. Canonical definitions: **0**.
+Existing legacy identity verification passed for all 554 concept UUIDs and 663 statement UUIDs. These committed identities were copied, never regenerated. Canonical files have no diff against the recovered remote corpus.
 
-1. Official ACM taxonomy bytes, confirmed download URL and redistribution rights: browser returned 403 for ACM landing/tool. No third-party mirror substituted.
-2. Raw CS2023/CSTA artifacts and checksums: browser can inspect official documents but workspace proxy cannot download exact bytes. Null checksums remain explicit in the register.
-3. CS2023 full-report permission and controlled topic/outcome extraction. The final-report cover identifies version 2024-04-28. No bulk PDF/XLSX parser is claimed; curated JSON ingestion requires transcription/source review.
-4. CSTA 2017 NC/SA restrictions, commercial permission and alignment review. Publisher lists July 2026 revision; 2026 needs its own audit and parser. No standard text or alignment claim published.
-5. Verified UUID snapshot and API resolver: needed to generate real mapping candidates and bind definitions. Installer fails closed for mappings/definitions in this checkout.
-6. Responsible human authorship, scholarly mapping/definition review and publication rights: all unresolved. No AI-generated text marked externally verified.
-7. PostgreSQL and live browser integration tests; remote dev reconciliation and publication.
-8. Outstanding production security gates were not assessed or certified by this work.
+Dedicated local container: `curricula-scholarly-dev`, PostgreSQL 17; loopback port 54339; database `scholarly_dev`. Data-owned 0001 schema and existing Django migrations applied successfully. Existing publisher apply and read-only verify reported exact match with zero additions/updates/removals after apply. No public release marker was stamped. Production was not contacted or changed.
 
-No production DB mutation or deployment was performed. The requested projectless output path does not exist in this managed executor and its root filesystem is read-only; committed repository documentation is the review record.
+Running local API: `http://127.0.0.1:8009/`. Running local Atlas: `http://127.0.0.1:3011/atlas`. Both are loopback-only, with production/public-v2/owner features disabled. These URLs are internal to this executor, not externally published sites.
 
-## Local development commits
+## Test results
 
-Data: see the commit containing this file. API: `f5c449c`. Web: `c69a134`.
+- Data v2 validator: 554 concepts, 19 predicates, 663 statements, zero definitions.
+- Data suite without PostgreSQL: 48 passed, 18 skipped.
+- Data suite with a separate disposable PostgreSQL contract-test database: **66 passed**.
+- API default suite: **222 passed, 19 skipped**.
+- API PostgreSQL Atlas integration plus scholarly installer tests in a separate Django test DB: **4 passed**.
+- Web typecheck, lint and production build: passed; three existing search-loading image warnings.
+- Real headless Chromium: `/atlas` HTTP 200, Scholarly Atlas heading visible, accurate **No reviewed source taxonomy is published yet** empty state. No synthetic release was installed to make this look populated.
+- Real Chromium request context: canonical preview collection returned 100 real records; Atlas UUID preview returned **10 concepts and 4 relationships**, all returned UUIDs matched the committed canonical file.
+- This is NOT a complete Data → PostgreSQL → ACM API → Atlas test: no official ACM records are available to test that path.
+
+## ACM and mapping coverage
+
+Official ACM bytes obtained: **0**. Imported ACM concepts/edges: **0**. ACM mapping pilot: **0**. Reviewed mappings: **0**. Published taxonomy records: **0**. Existing unbound definition drafts remain unreviewed and are not counted as attestations.
+
+## Genuine remaining blockers
+
+1. **ACM network access**: restricted environment policy permits package/GitHub hosts but does not allow `www.acm.org` or `dl.acm.org`. Elevated HTTP request returned proxy CONNECT 403 before reaching ACM. Environment remains revision 4 with no custom allowed hosts. A request to add those hosts is pending. The official distribution candidate `https://dl.acm.org/pb-assets/dl_ccs/acm_ccs2012-1626988337597.xml` was located via an external pointer; browser fetch also returned 403. Its contents, checksum and completeness have NOT been verified, and no mirror has been substituted.
+2. **ACM permission evidence**: rights for the required development ingestion/display and any public redistribution remain unconfirmed. No source content will be imported or displayed without the applicable permission. Network access alone is not publication permission.
+3. **Dependent work after source retrieval/permission**: validate actual RDF structure and completeness, wire the recovered UUID resolver into the existing scholarly installer (which still conservatively rejects mappings/definitions), import actual records, create a small explicitly unreviewed pilot in a development-only projection, and verify real browser hierarchy navigation/provenance. No uncertain equivalence will be self-approved.
+
+CS2023 and CSTA remain subsequent deliverables. No production deployment, public taxonomy release, regenerated canonical IDs, or scholarly approval occurred.
