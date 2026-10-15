@@ -1,0 +1,554 @@
+{"id":"333af617-f083-50c7-81ce-0b4960f66327","label":"Absolute Reference","slug":"absolute-reference"}
+{"id":"e411cc92-6074-51a3-afe2-66f18af4bcc8","label":"Abstraction","slug":"abstraction"}
+{"id":"0eca4d1e-8fb5-58da-adef-bbedf0b00c76","label":"Abstraction Skill","slug":"abstraction-skill"}
+{"id":"e16928fd-a71f-5bfd-9b7a-d1385f803c53","label":"Action","slug":"action"}
+{"id":"c68e9384-5822-574c-8d99-ec659afbbcd0","label":"Actuator","slug":"actuator"}
+{"id":"2389ac3f-1d8d-5dff-b53f-42bda05b4934","label":"Addition","slug":"addition"}
+{"id":"9c326d44-04b3-5b34-9814-4da0b984cbd5","label":"Agent","slug":"agent"}
+{"id":"02ef4418-9ed4-5aba-bff4-4ee16a7651fa","label":"Algorithm","slug":"algorithm"}
+{"id":"a5b6ce08-8a0e-5bc2-a73a-59f294143cb6","label":"Alignment","slug":"alignment"}
+{"id":"5a29f9d1-3c87-5cf1-897c-8932aef362d7","label":"Alphabet","slug":"alphabet"}
+{"id":"65848430-7c95-50f4-9899-56a4a388c2ba","label":"Ambiguity","slug":"ambiguity"}
+{"id":"a167e9af-b192-5d4d-a026-22cf579d956b","label":"Analog Signal","slug":"analog-signal"}
+{"id":"21df3757-5517-5f32-b103-8cbe1dc17f26","label":"And","slug":"and"}
+{"id":"3e28b1f2-b20b-500c-a0e8-be479e74cc0e","label":"Angle","slug":"angle"}
+{"id":"16dec266-a770-5496-990c-21321e51ef56","label":"Animation","slug":"animation"}
+{"id":"3909b974-7f76-504b-8276-e06bd1ea4ba7","label":"Answer","slug":"answer"}
+{"id":"2bb7b7ee-33a0-5937-879a-0faab1028dc1","label":"Antivirus","slug":"antivirus"}
+{"id":"f612bb4c-8657-5e7f-9249-d4c89f01d02f","label":"API","slug":"api"}
+{"id":"83a90342-355e-56f8-8d06-5cc4c65527a9","label":"App","slug":"app"}
+{"id":"ac74d946-768f-5588-a8b3-bf3165b12b41","label":"Application","slug":"application"}
+{"id":"9ae1d6b0-4d91-559f-8a6a-af7d8c184658","label":"Archive File","slug":"archive-file"}
+{"id":"223fde15-eef2-5b84-ab2d-4685164ab6ec","label":"Arduino","slug":"arduino"}
+{"id":"71f6c711-65d7-5616-9843-467d9331b136","label":"Argument","slug":"argument"}
+{"id":"ea8c3f31-8745-52b1-9e29-d5fcf6ab16ba","label":"Array","slug":"array"}
+{"id":"d3b58b20-cea9-536f-8ad4-dd42de6cc099","label":"Artificial Intelligence","slug":"artificial-intelligence"}
+{"id":"13e61ab1-f80f-5982-a5be-132dbae6b3dd","label":"Ascending Order","slug":"ascending-order"}
+{"id":"5983d5e1-8453-5ecb-a7fa-adcd55663b8a","label":"Assignment","slug":"assignment"}
+{"id":"eb5e26e6-6940-5932-af07-575d34d2a482","label":"Attachment","slug":"attachment"}
+{"id":"2e0e9d6c-bf4d-52cf-aea4-aaa9b167db6b","label":"Attribute","slug":"attribute"}
+{"id":"2a271409-6f3e-5304-a185-fe3fac1263e8","label":"Audience","slug":"audience"}
+{"id":"b548a9d4-8608-59a0-895b-d899bae5cdf5","label":"Audio File","slug":"audio-file"}
+{"id":"22888edb-0d4e-5251-8577-c2ab31ef3eff","label":"Authentication","slug":"authentication"}
+{"id":"74bfed84-7751-5840-ba95-8f4c6777c04a","label":"Authorization","slug":"authorization"}
+{"id":"492ed7cd-eeae-5832-abdf-de81eea914d4","label":"Automation","slug":"automation"}
+{"id":"8097dbea-e93d-547b-a6b5-f445a765f2bf","label":"Automation System","slug":"automation-system"}
+{"id":"5c2d57a3-93ff-58b2-a0ac-853cc48bbbd4","label":"Average","slug":"average"}
+{"id":"e0b71635-e4aa-5dab-aa8c-220f1174cf37","label":"Average Value","slug":"average-value"}
+{"id":"88186e67-efe1-50f5-910b-71ea82c0ceee","label":"Axis","slug":"axis"}
+{"id":"e894f231-1fdf-5e35-8b05-c6e5f9b1e027","label":"Backup","slug":"backup"}
+{"id":"f03f9702-85fa-5474-aa61-ad14f7dc2e52","label":"Bias","slug":"bias"}
+{"id":"19f1995e-81f8-54b0-95a8-ca4cd127767c","label":"Binary","slug":"binary"}
+{"id":"4d30adbd-4c3f-5cb0-ada2-674a80d40c2b","label":"Binary Digit","slug":"binary-digit"}
+{"id":"e89c4c89-6345-5b9a-ab4a-8d2cdf8aeb8d","label":"Binary Search","slug":"binary-search"}
+{"id":"0c24b055-25af-5073-9495-60ed4cd9f0a4","label":"Bit","slug":"bit"}
+{"id":"a9604226-d32b-53ad-b4d6-75939eb6a4f3","label":"Blog","slug":"blog"}
+{"id":"69b77236-2b3d-5965-bda1-5fc72fa36875","label":"Boolean","slug":"boolean"}
+{"id":"1030a4c1-d25a-5d6a-862e-11fef4ee8371","label":"Boolean Data","slug":"boolean-data"}
+{"id":"68f25396-111a-5540-9b2d-0c9f496b9c58","label":"Branch","slug":"branch"}
+{"id":"71bc13d7-c9d0-5f85-be9e-6eae3eae2c75","label":"Breadboard","slug":"breadboard"}
+{"id":"6d76103c-1264-5659-9510-cb1707b84d6f","label":"Browser","slug":"browser"}
+{"id":"a3b47dea-47ac-5031-b501-4f16338d1378","label":"Bug","slug":"bug"}
+{"id":"af68d4ab-6a18-5543-976b-d07f74f92cb8","label":"Button","slug":"button"}
+{"id":"b5af23b1-1a31-5762-8cb7-1a94f91055f3","label":"Byte","slug":"byte"}
+{"id":"14a7696e-8f71-5f66-8368-ceb77a79baf3","label":"Cache","slug":"cache"}
+{"id":"ebd6cf4f-30c9-5e73-bf99-bdfbcd40b5ee","label":"Calibration","slug":"calibration"}
+{"id":"cee6933d-459c-58fc-b872-929e96d6d598","label":"Camera","slug":"camera"}
+{"id":"b298a736-e2c5-5365-b4c4-5b9447b76a01","label":"Cardinality","slug":"cardinality"}
+{"id":"2b6be819-b2de-52fc-887d-6ff71e410967","label":"Cartesian Product","slug":"cartesian-product"}
+{"id":"bf864a55-4cc5-5a36-a83d-8c8c78f4b402","label":"Case","slug":"case"}
+{"id":"4380e07f-a4f1-5021-9b04-16f1aec5123f","label":"Category","slug":"category"}
+{"id":"7878e1ec-11d6-5faf-8a42-b02b1f09b78a","label":"Cell","slug":"cell"}
+{"id":"cd182792-62a1-5861-9d64-2bfa9c3428be","label":"Certificate","slug":"certificate"}
+{"id":"ff7a1c26-41ae-5b51-84ee-fc4d9b2070ed","label":"Character","slug":"character"}
+{"id":"3b6303ad-42a8-5102-bb76-e98a5ea5adec","label":"Character Data","slug":"character-data"}
+{"id":"caab473d-bf54-51ca-9c4b-2cd305f9c419","label":"Chart","slug":"chart"}
+{"id":"b34ce568-9c05-58bb-8a97-dae183c6f883","label":"Chat","slug":"chat"}
+{"id":"43437300-470c-5c6c-b8b4-a8c672d1e94e","label":"Chatbot","slug":"chatbot"}
+{"id":"ff308c20-cecc-5bb8-9b60-d7fbf06a8f43","label":"Circuit","slug":"circuit"}
+{"id":"32b1ab31-e95a-5652-94fb-c81534481b46","label":"Citation","slug":"citation"}
+{"id":"b218139f-d4f7-5810-923b-960519a5f5aa","label":"Clarity","slug":"clarity"}
+{"id":"4835a585-f0bc-50ef-83e0-634c5af1e025","label":"Class","slug":"class"}
+{"id":"15194b65-14cb-5b06-8bf7-86d9bd6d87e3","label":"Classification","slug":"classification"}
+{"id":"8ae2bc66-ba3a-5109-a4aa-199cb752410d","label":"Client","slug":"client"}
+{"id":"d8b67253-03db-51ec-b8fb-2f3d6dc92134","label":"Cloud Computing","slug":"cloud-computing"}
+{"id":"29bff365-7f38-55ba-b2a4-cb77bb41e64b","label":"Cloud Storage","slug":"cloud-storage"}
+{"id":"d1869c48-f48c-5a60-a1da-dde4ffaef75a","label":"Code","slug":"code"}
+{"id":"fc8e8feb-50d9-5675-9968-7f721a3354aa","label":"Collaboration","slug":"collaboration"}
+{"id":"7710ef99-9058-5ba5-9056-357cc1f57f72","label":"Collaborative Application","slug":"collaborative-application"}
+{"id":"c5c9fcca-3db2-56f9-bceb-ec4dabd6ee78","label":"Collection","slug":"collection"}
+{"id":"de7f90bd-dc5a-539e-836f-40a6ef532dae","label":"Color","slug":"color"}
+{"id":"1e932606-491f-5bf2-89b6-1cfb9c1a2464","label":"Column","slug":"column"}
+{"id":"bf6e5dbf-97b7-51c8-bc59-a6442c7b2bab","label":"Command","slug":"command"}
+{"id":"8438e092-e7f7-5696-bdb0-518dae1019e8","label":"Command Line Interface","slug":"command-line-interface"}
+{"id":"5043864e-5d72-52db-8487-cb4b557ad205","label":"Commit","slug":"commit"}
+{"id":"ca04477f-7058-5fcf-bf1c-ece84454a51c","label":"Communication","slug":"communication"}
+{"id":"e4f7d25e-5b52-55ab-a61c-acfeae1677c7","label":"Communication Purpose","slug":"communication-purpose"}
+{"id":"9bb1f1b4-b9c7-5f4c-bacf-b77a0978905e","label":"Comparison","slug":"comparison"}
+{"id":"edb6335f-9160-57bc-8e1f-396374b06db3","label":"Comparison Text","slug":"comparison-text"}
+{"id":"c15df0d2-ce31-5c4a-8407-82fed9325f5e","label":"Compiler","slug":"compiler"}
+{"id":"6b40afe8-1058-5707-9ba5-765d4e12762a","label":"Complexity","slug":"complexity"}
+{"id":"ec499d66-e3b9-519d-b4f2-16d1ce06992b","label":"Computation","slug":"computation"}
+{"id":"2ba477af-c9fe-503d-a446-1587668f617d","label":"Computer","slug":"computer"}
+{"id":"db28edbc-c1bf-5412-b5ec-e97d960daa7a","label":"Computer Network","slug":"computer-network"}
+{"id":"e56a033d-920e-52a8-8fb7-ca99d3f639b4","label":"Computing System","slug":"computing-system"}
+{"id":"6903bfb1-8f91-57cc-9883-b5d470d7ab85","label":"Concept","slug":"concept"}
+{"id":"5a86ef60-5db0-5fa0-9a57-71b1b7ed2c53","label":"Conclusion","slug":"conclusion"}
+{"id":"7d5dd3a9-5821-5d0f-8ea6-f0f8f18515be","label":"Condition","slug":"condition"}
+{"id":"b6244d30-36ca-50d5-9787-1e0143e4d339","label":"Condition Check","slug":"condition-check"}
+{"id":"cc6168f4-8d52-5de2-8268-a13d9503ca6f","label":"Condition Clause","slug":"condition-clause"}
+{"id":"7393bcc5-2194-5730-b12a-a000ae94b828","label":"Confidence","slug":"confidence"}
+{"id":"a5164cb4-747e-5a14-81b7-d7be15fb7bcc","label":"Configuration","slug":"configuration"}
+{"id":"84be7a67-516a-5509-b05c-b98b46cdd67a","label":"Constraint","slug":"constraint"}
+{"id":"56c572d6-952c-52fc-a7d8-7a2dfb3d46de","label":"Context","slug":"context"}
+{"id":"052920ac-e768-57d0-862f-a7ef4d6ea7e6","label":"Control","slug":"control"}
+{"id":"7a1c024d-b535-5941-8cb3-007fdc735c1d","label":"Control Structure","slug":"control-structure"}
+{"id":"3de151aa-a918-5cf7-85c6-c0df67dae9d8","label":"Controller","slug":"controller"}
+{"id":"2b2c5a10-234b-5466-a205-ef4a8a6119da","label":"Coordinate","slug":"coordinate"}
+{"id":"394c64be-c90b-5169-bacd-7be5eca0b1e5","label":"Coordinate System","slug":"coordinate-system"}
+{"id":"89a00917-54f0-5d92-a8d1-4a431134ef20","label":"Copy","slug":"copy"}
+{"id":"8479ca80-47af-5c54-b32e-59bea50c9bbd","label":"Copyright","slug":"copyright"}
+{"id":"2cc8781f-0db1-5205-a75c-027afad52fba","label":"Count","slug":"count"}
+{"id":"e0584543-7b24-552f-8179-7e2354c470cc","label":"Counterexample","slug":"counterexample"}
+{"id":"78c042d8-84a8-53fb-8d95-817f35b23547","label":"Counting","slug":"counting"}
+{"id":"e918759b-e253-5081-8640-a42c94622e65","label":"CPU","slug":"cpu"}
+{"id":"351c0a5b-7496-56d8-a6ff-39579f188c68","label":"Cybersecurity","slug":"cybersecurity"}
+{"id":"fd62ee04-4c5b-580a-99fb-6c5118bbc848","label":"Cycle","slug":"cycle"}
+{"id":"2bfccfc4-b578-5dad-a6b2-361106b178b0","label":"Data","slug":"data"}
+{"id":"eacb1508-b623-56cc-a1d6-88e88f64607c","label":"Data Model","slug":"data-model"}
+{"id":"3c8c0bc6-4941-5e21-be03-e78df7a63222","label":"Data Stream","slug":"data-stream"}
+{"id":"50484348-83a3-57b8-bbe4-114b66419300","label":"Data Structure","slug":"data-structure"}
+{"id":"5997fd4f-9f0d-5c3e-9af2-e079c713a1dc","label":"Data Table","slug":"data-table"}
+{"id":"31b79975-87c5-58ce-9c8e-291d8d9cfb22","label":"Data Type","slug":"data-type"}
+{"id":"dd4f7e9e-6515-569e-8786-2b7ec2d7767a","label":"Data Validation","slug":"data-validation"}
+{"id":"2f57bed1-a194-54a2-84b3-13b2f8e637e6","label":"Database","slug":"database"}
+{"id":"258aaec7-ebf0-51f5-aca0-08d74ea5e4ed","label":"Database Index","slug":"database-index"}
+{"id":"9f906f66-b5f6-52ad-8826-c53d3a66b4cd","label":"Database Schema","slug":"database-schema"}
+{"id":"dabdd48e-1af4-509c-92d2-c0958c38b7dd","label":"Dataset","slug":"dataset"}
+{"id":"595b2b75-ced1-587b-bf80-6cde852dd7d4","label":"Debugging","slug":"debugging"}
+{"id":"14ce4f2c-c896-5dc4-82bc-208dbde69deb","label":"Decimal","slug":"decimal"}
+{"id":"d6dccfeb-1359-5714-9400-9605adaea2f3","label":"Decision","slug":"decision"}
+{"id":"2084f2e6-ee7c-5379-81f9-6845a79946a2","label":"Decoding","slug":"decoding"}
+{"id":"dd229384-1360-5478-a240-828c847436a4","label":"Decomposition","slug":"decomposition"}
+{"id":"c3af2bf5-a428-5374-a8af-f2a545a7cc08","label":"Definition","slug":"definition"}
+{"id":"fa27d535-a892-5c0d-b09d-5e7eb558a62f","label":"Delete","slug":"delete"}
+{"id":"2eef08a0-bdd7-596a-9efa-71bebc4d39d5","label":"Delimiter","slug":"delimiter"}
+{"id":"1896ace9-215a-5b38-9136-b0b0dae80632","label":"Density","slug":"density"}
+{"id":"a3f625f7-6b51-5727-a056-d547ddb36bf8","label":"Dependency","slug":"dependency"}
+{"id":"7a602a80-5a08-5fa5-92b1-19181cc4735a","label":"Descending Order","slug":"descending-order"}
+{"id":"d0e9f5ed-7ed0-5086-a3e1-e5ba80daa2fd","label":"Description","slug":"description"}
+{"id":"c8be49fb-b3ed-5645-8ce4-8b90f7320f6e","label":"Diagram","slug":"diagram"}
+{"id":"3938dcca-8eeb-551b-9f5f-16d6154c43bf","label":"Dictionary","slug":"dictionary"}
+{"id":"ad40c81c-7fa4-5959-9fdd-d0d743d98a4d","label":"Digit","slug":"digit"}
+{"id":"2394087b-4a38-50e5-ab86-854a2e2022db","label":"Digital Animation","slug":"digital-animation"}
+{"id":"53d14372-e982-57bd-b821-1a27bd572b49","label":"Digital Device","slug":"digital-device"}
+{"id":"1a80f9be-5d15-5885-bde5-39998cc82d0e","label":"Digital Footprint","slug":"digital-footprint"}
+{"id":"9f6fe567-28df-5c22-96fb-92121c3d544e","label":"Digital Identity","slug":"digital-identity"}
+{"id":"387d85f0-7809-575e-b17a-911ab57f94f0","label":"Digital Signal","slug":"digital-signal"}
+{"id":"81f5e384-ed1a-5bd4-a162-34031fd15154","label":"Disinformation","slug":"disinformation"}
+{"id":"6cf5dc43-685c-5f6d-b94f-1e10e1f471bd","label":"Disk","slug":"disk"}
+{"id":"feb6d13d-863a-5dec-895e-a7583f818848","label":"Distance","slug":"distance"}
+{"id":"1a21155a-14d4-5e73-8276-841174f40a46","label":"Division","slug":"division"}
+{"id":"28763d96-1026-5eff-ba80-c170c0a45da5","label":"DNS","slug":"dns"}
+{"id":"69c0c3c6-53db-507a-97b1-7e4ee80afbb5","label":"Document","slug":"document"}
+{"id":"8f511de9-29f0-5bec-856a-6f29a2143e52","label":"Document File","slug":"document-file"}
+{"id":"7f00af63-4e59-5deb-8130-eb9c7b9cddc6","label":"Domain Name","slug":"domain-name"}
+{"id":"0e089f23-bc07-5c92-9696-e8119843eb82","label":"Download","slug":"download"}
+{"id":"04e690f8-7c88-5274-818b-49a4e88b2387","label":"Drawing","slug":"drawing"}
+{"id":"03f8ca0b-7b71-5398-bb4a-5957acedb125","label":"Driver","slug":"driver"}
+{"id":"22182430-6534-570d-8ddf-8e348b1e1067","label":"Edge","slug":"edge"}
+{"id":"98f5246b-8c43-51a9-8692-99c1202012ab","label":"Efficiency","slug":"efficiency"}
+{"id":"34080c6c-66cf-5292-9da0-45705cb58831","label":"Electric Circuit","slug":"electric-circuit"}
+{"id":"27d64f25-4817-5910-a3cb-7f51ea6eee90","label":"Electric Current","slug":"electric-current"}
+{"id":"ac63b2f8-c01e-54f4-a7ec-d2417421b68a","label":"Electricity","slug":"electricity"}
+{"id":"d43c3072-a9e3-53b3-8cfe-17dd7f27157f","label":"Element","slug":"element"}
+{"id":"598d9389-3b16-5bef-9624-1b66aead9941","label":"Email","slug":"email"}
+{"id":"c9e7e6dd-d49c-50f4-a6f0-7fe62ac7dc10","label":"Email Address","slug":"email-address"}
+{"id":"fd8e996b-7ba0-5e4c-b694-f0c418ebe858","label":"Embedded System","slug":"embedded-system"}
+{"id":"fc1a853f-a3cd-5c5c-94d9-4eba3f1f8afd","label":"Encapsulation","slug":"encapsulation"}
+{"id":"ced01835-711a-5b68-9de8-ac4f8288a964","label":"Encoding","slug":"encoding"}
+{"id":"c877b77c-bd75-5e69-8b03-647b1dd8eaf1","label":"Encryption","slug":"encryption"}
+{"id":"e3cf5a91-242b-50c6-937c-89fd127de8f9","label":"Energy","slug":"energy"}
+{"id":"35f550e9-7aa3-5be7-97d4-041397a87d0d","label":"Entity","slug":"entity"}
+{"id":"e0cf09cf-d25d-586f-8796-a04999b84ef2","label":"Equality","slug":"equality"}
+{"id":"4bd039f3-8e6b-5fcc-936d-f0d06148c2d7","label":"Equation","slug":"equation"}
+{"id":"76bab639-5de6-587b-b929-1bb482fcfa90","label":"Equivalence","slug":"equivalence"}
+{"id":"8f01f2c9-8f38-53bc-bb7b-c062bd7afa2f","label":"Error","slug":"error"}
+{"id":"8ab74ba4-4617-5e89-aa92-5e36acab9c09","label":"Essay","slug":"essay"}
+{"id":"9d7aab60-2d1b-5752-b989-7c791a9edd2d","label":"Estimation","slug":"estimation"}
+{"id":"2bf9b7f1-3e4b-5a52-97eb-c4bb2d48e64f","label":"Evaluation","slug":"evaluation"}
+{"id":"4cf7596b-353c-5d3e-bbce-434361e11015","label":"Event","slug":"event"}
+{"id":"0bd97fb7-c289-51ff-897f-44b6ce1c8688","label":"Evidence","slug":"evidence"}
+{"id":"ee7efba5-d558-5f3c-b6b8-6968f57b058b","label":"Example","slug":"example"}
+{"id":"eb7943fb-349b-5b44-a09e-e8bbcd596a10","label":"Executable File","slug":"executable-file"}
+{"id":"a1faaf86-248e-510f-b83a-fa0ac28eb67a","label":"Execution","slug":"execution"}
+{"id":"99d8876b-c6af-5f33-b15b-04767af048e5","label":"Explanation","slug":"explanation"}
+{"id":"56e90ea3-5e6b-57c5-b4ff-2bc5ded17f82","label":"Expression","slug":"expression"}
+{"id":"214d5303-43f3-5a2f-ac41-f2e6c0e73407","label":"Feedback","slug":"feedback"}
+{"id":"ad7f993c-defd-5ff7-a5e1-56d361c7b601","label":"Feedback Loop","slug":"feedback-loop"}
+{"id":"34380b17-e5cc-56f2-9715-d56af076c0dd","label":"Field","slug":"field"}
+{"id":"cd0ef28b-0800-5895-b85d-83ea3b7b40ba","label":"File","slug":"file"}
+{"id":"fc5e96db-5e47-5f55-958d-6a75f475e420","label":"File Extension","slug":"file-extension"}
+{"id":"77878876-3012-5cdc-9ac0-a2a195d02d6c","label":"File Format","slug":"file-format"}
+{"id":"b527fc8f-9b9a-5ed7-a57e-76547ab13a15","label":"File Name","slug":"file-name"}
+{"id":"6c1d1b5a-42cc-5598-a43b-3f64f97cc6bf","label":"File Path","slug":"file-path"}
+{"id":"a363a776-30f0-5c1d-983d-339a464062f7","label":"File System","slug":"file-system"}
+{"id":"946f5573-c066-58f5-bf45-35c01cd29777","label":"Finite Set","slug":"finite-set"}
+{"id":"98b8fb34-964c-53f9-b7bd-bf9edd15857a","label":"Firmware","slug":"firmware"}
+{"id":"745c8777-0b1a-553d-9646-7d3edd8f88a0","label":"Float","slug":"float"}
+{"id":"34bbc39e-f59e-5fcd-8229-4182623a14ea","label":"Flow Control","slug":"flow-control"}
+{"id":"b76d0092-b8dc-52f5-a363-df4d8565e147","label":"Flowchart","slug":"flowchart"}
+{"id":"7bbca579-d8b8-5330-bb20-359856cc50cc","label":"Folder","slug":"folder"}
+{"id":"1a13f239-e6e8-5a47-8761-5d747c847c3b","label":"Font","slug":"font"}
+{"id":"562a4313-5d12-5ab7-93bc-a72a88c9e96a","label":"Force","slug":"force"}
+{"id":"04d5fe29-6b4a-5a01-9141-0730246c33bb","label":"Foreign Key","slug":"foreign-key"}
+{"id":"85d45722-a56e-558a-a612-980f26f41bfa","label":"Formal Language","slug":"formal-language"}
+{"id":"b0da7d3e-a570-5dc6-9156-24606c34d271","label":"Format","slug":"format"}
+{"id":"11a47c4c-c974-585f-8766-c88be2a69ad2","label":"Formatting","slug":"formatting"}
+{"id":"8e74bb6f-7d6e-5986-b551-3321f7860076","label":"Formula","slug":"formula"}
+{"id":"9832bea2-5e58-56a8-98f8-a3ec442aaab6","label":"Forum","slug":"forum"}
+{"id":"b06e9e85-64f1-58be-bffe-248c01ee41f2","label":"Fraction","slug":"fraction"}
+{"id":"b31aa0a2-25ee-523d-93b5-6c2c0e50379a","label":"Frame","slug":"frame"}
+{"id":"08db048a-304e-5646-a19a-ccc01f73b9aa","label":"Framework","slug":"framework"}
+{"id":"67def2d5-409e-5cfc-aa85-dcf485e55664","label":"Frequency","slug":"frequency"}
+{"id":"e889347d-517f-568e-900b-b4fa60fab8dc","label":"Function","slug":"function"}
+{"id":"15aff24c-fc4b-5561-8e4d-36397ae65fb4","label":"Function Call","slug":"function-call"}
+{"id":"32df7e60-e501-5f4c-bcf8-4519ef5ea336","label":"Function Definition","slug":"function-definition"}
+{"id":"ee0240a4-b7d5-5bd1-8b84-2b033fef2eb8","label":"Generalization","slug":"generalization"}
+{"id":"98f5b7a0-9068-52ab-b54a-8058012c5fe9","label":"Geometry","slug":"geometry"}
+{"id":"e122d8e6-d27e-5d55-b6f4-2affe0580264","label":"GPU","slug":"gpu"}
+{"id":"0fa14b8b-2058-5625-b879-84cca9685dc6","label":"Grammar","slug":"grammar"}
+{"id":"5f3b3320-087a-5d36-aba3-b456eda3e87f","label":"Graph","slug":"graph"}
+{"id":"d386a1fa-6eab-5ff0-bf83-828b7dace730","label":"Graph Theory","slug":"graph-theory"}
+{"id":"72302d9e-45e9-5d82-90eb-5eeb594d43ca","label":"Graphical User Interface","slug":"graphical-user-interface"}
+{"id":"e5f6e852-529a-5f82-a038-30c051c5d27f","label":"Hallucination","slug":"hallucination"}
+{"id":"7749a47b-1175-5b77-aa3c-8840a3955b34","label":"Hardware","slug":"hardware"}
+{"id":"3d145f44-e4f2-5c35-8983-a0626d151bb9","label":"Hash Map","slug":"hash-map"}
+{"id":"bea95777-13de-56dc-832e-639e6a3ad9c0","label":"Heading","slug":"heading"}
+{"id":"1613c968-f2aa-5fd4-be46-af25aff904b2","label":"HTTP","slug":"http"}
+{"id":"b1c3da9f-5866-5a0b-9535-7dbc57582189","label":"HTTPS","slug":"https"}
+{"id":"2b450ae3-d560-53d4-9f20-68d0d9c875b4","label":"Hyperlink","slug":"hyperlink"}
+{"id":"bb208947-cfa3-541e-89d0-b8a03f7fd040","label":"Icon","slug":"icon"}
+{"id":"95c96d63-0750-5de1-b750-e2603c2082d6","label":"Idea","slug":"idea"}
+{"id":"43b6a134-0932-5372-ae85-1d68256535d7","label":"Identifier","slug":"identifier"}
+{"id":"03fbaf41-5a6f-5d92-80b9-d5d674b99251","label":"Identity","slug":"identity"}
+{"id":"278ab83c-d610-5abd-bcd8-6c60667c0250","label":"Image","slug":"image"}
+{"id":"d18a4c13-351f-5f96-b013-76d3614e7491","label":"Image File","slug":"image-file"}
+{"id":"157e8bfc-ce73-5651-8367-120f371be23f","label":"Image Formation","slug":"image-formation"}
+{"id":"f21cf1b4-e4ac-584b-adf7-b3538990a085","label":"Implication","slug":"implication"}
+{"id":"f119db4f-7aeb-5530-b80d-4b66022f56ff","label":"Inbox","slug":"inbox"}
+{"id":"b4bf30bd-361a-5121-99f9-2c18afeaa60e","label":"Index","slug":"index"}
+{"id":"03000920-4e49-5364-b0b0-45dc3b6f2b3e","label":"Inequality","slug":"inequality"}
+{"id":"e5b95a70-1ceb-52cd-9e8e-0f2541d64621","label":"Inference","slug":"inference"}
+{"id":"d2f6e159-e852-58e9-b69b-5add3e02b07c","label":"Infinite Set","slug":"infinite-set"}
+{"id":"b7a6289c-3282-5014-8228-44241e967981","label":"Information","slug":"information"}
+{"id":"ff2bab1f-4b40-554f-b8ca-d86eb982a774","label":"Inheritance","slug":"inheritance"}
+{"id":"37760887-793b-5182-8a63-45312a137b25","label":"Input","slug":"input"}
+{"id":"bec2e451-3c63-5fad-b833-5837dfeb030a","label":"Input Device","slug":"input-device"}
+{"id":"f24ceb4f-69d9-596c-aac0-b10d754fdf1f","label":"Input Signal","slug":"input-signal"}
+{"id":"5d9777d7-99f0-557d-93b2-e5f2b0764ff2","label":"Instruction","slug":"instruction"}
+{"id":"214bd3d0-f570-5d87-98c7-929d1741966f","label":"Instruction Text","slug":"instruction-text"}
+{"id":"71dfe43d-fef8-59e4-8d78-71b0cbd94ccb","label":"Integer","slug":"integer"}
+{"id":"a87f0a1c-7b78-57eb-9e64-9c319a3fb2b0","label":"Interface","slug":"interface"}
+{"id":"976679c5-ba11-59bc-a298-f6d0c7b76ad1","label":"Internet","slug":"internet"}
+{"id":"af36966b-5012-528a-8f62-99761f7a4679","label":"Interpreter","slug":"interpreter"}
+{"id":"a1eaf025-38de-502d-8625-fb05b3f347ab","label":"Intersection","slug":"intersection"}
+{"id":"a5883bc6-3008-5034-8b1b-dcc6223d639c","label":"Interval","slug":"interval"}
+{"id":"967e13ca-0b8f-59ba-8c28-3d31db7ba9e7","label":"IP Address","slug":"ip-address"}
+{"id":"8a6a4b5a-5da3-500b-80e0-ad57aa87bbd7","label":"Iteration","slug":"iteration"}
+{"id":"2b3a9ce6-3420-5c1e-9b52-2424b8d7d89d","label":"Join","slug":"join"}
+{"id":"b333b73b-35dd-519c-948c-910e54fde1c9","label":"Key","slug":"key"}
+{"id":"87d10179-6a87-54e8-b7b5-d4d6cdc731d2","label":"Key Value Pair","slug":"key-value-pair"}
+{"id":"bc8acf2e-74ac-50e2-88f5-0372d4e4aa30","label":"Keyboard","slug":"keyboard"}
+{"id":"2104dffe-febb-569c-bf52-8d3258c9403b","label":"Keyword","slug":"keyword"}
+{"id":"77cd1521-65fe-5e3e-9462-cdda1979bbe1","label":"Language","slug":"language"}
+{"id":"6a84c8b4-10fd-5f80-80ef-0f141e1e8e68","label":"Layout","slug":"layout"}
+{"id":"635ca6ed-d624-599b-a2c8-f58ba95c2d20","label":"Leaf","slug":"leaf"}
+{"id":"c17a456a-ca35-5fea-b0ec-8602634d137e","label":"Led","slug":"led"}
+{"id":"169864d9-c234-5143-9799-239cee5b0351","label":"Letter","slug":"letter"}
+{"id":"b9e748e6-2428-5e7b-9bc7-75aa529ac4e9","label":"Library","slug":"library"}
+{"id":"3e63d2e9-f30e-5fec-aae6-9d1002e5628f","label":"License","slug":"license"}
+{"id":"014f617e-3672-5899-8437-1c9ce88c5ce7","label":"Light","slug":"light"}
+{"id":"24e619cc-e304-52d7-bfa6-b54946578710","label":"Line","slug":"line"}
+{"id":"f37a0cd3-014d-5988-9cac-0630937fd8a9","label":"Linear Equation","slug":"linear-equation"}
+{"id":"ba3cb6d7-ba6a-57b9-a7d2-0b49030f7203","label":"Linear Function","slug":"linear-function"}
+{"id":"896385c6-65ad-5077-a49e-49775176e9b5","label":"Linear Search","slug":"linear-search"}
+{"id":"a7c34746-f1ee-5fba-a8e8-d9b804c64134","label":"List","slug":"list"}
+{"id":"3da45a22-1e9b-5dc3-b6ba-09d4fec2ba7a","label":"List Format","slug":"list-format"}
+{"id":"00fe4766-35c9-5439-8611-536e2ca0cddc","label":"Literal","slug":"literal"}
+{"id":"670ac0b3-dd75-56d2-bdb9-e2cca6d33f1f","label":"Lock Icon","slug":"lock-icon"}
+{"id":"6059afad-d1fb-5479-b18f-9a8e018264be","label":"Logic","slug":"logic"}
+{"id":"450651ea-0f37-559d-8f05-675cd1bb0f6c","label":"Logical Operator","slug":"logical-operator"}
+{"id":"5673f8ea-fd10-5961-be80-17e3d6dc3949","label":"Loop","slug":"loop"}
+{"id":"91bd8038-3da3-5ef5-a82b-30e652cb3803","label":"Machine Learning","slug":"machine-learning"}
+{"id":"15010dd8-2ce3-5afe-87f6-169f510e0c1d","label":"Magnetism","slug":"magnetism"}
+{"id":"281732db-4ed1-53a4-a3df-eed05736232d","label":"Malware","slug":"malware"}
+{"id":"0d9c0438-c420-591e-8db8-b3c78913caad","label":"Map","slug":"map"}
+{"id":"d77ac49e-b2cc-52f0-8c10-e6ee71dba293","label":"Mass","slug":"mass"}
+{"id":"4bfa0d3d-6ecd-5041-b1f1-0f7d9fd550b0","label":"Mathematics","slug":"mathematics"}
+{"id":"e6029fa0-e850-599e-ba08-82ad2757f000","label":"Matrix","slug":"matrix"}
+{"id":"e54013e9-d7f8-552d-a67e-8ac1250def30","label":"Maximum","slug":"maximum"}
+{"id":"6211d708-df4b-5f1b-8a8b-44d60315e26e","label":"Mean","slug":"mean"}
+{"id":"c89f6055-40c7-5031-a443-06fbce2139fe","label":"Meaning","slug":"meaning"}
+{"id":"d10f3510-6740-5bfe-b231-8e7f45a8cab6","label":"Measurement","slug":"measurement"}
+{"id":"f77c75e1-bdc3-5872-8173-beb61c285428","label":"Measurement Error","slug":"measurement-error"}
+{"id":"8563cf2e-44d7-51f2-b95f-6209671f9e48","label":"Measuring Instrument","slug":"measuring-instrument"}
+{"id":"73acfcfd-2303-5aec-89bb-ad30aed6facc","label":"Median","slug":"median"}
+{"id":"990e2cd1-cfd0-5776-94ce-1c000b46ee7f","label":"Memory","slug":"memory"}
+{"id":"6a7dfd39-d46b-5e97-810e-9d4bf830c56d","label":"Menu","slug":"menu"}
+{"id":"18efdde1-b365-5478-8556-8870829f46bd","label":"Message","slug":"message"}
+{"id":"52b56c41-779d-555b-9be1-c4fa40e41078","label":"Metadata","slug":"metadata"}
+{"id":"02c1136f-e572-5266-a000-b228f12d553d","label":"Method","slug":"method"}
+{"id":"4fd06b8f-ada3-527f-aed1-5fe36c5f768f","label":"Microcontroller","slug":"microcontroller"}
+{"id":"ede74c84-2d50-51db-9d1a-59442a025d34","label":"Microphone","slug":"microphone"}
+{"id":"edafa37a-6446-5d1d-923a-04fead692eb2","label":"Minimum","slug":"minimum"}
+{"id":"c927d12e-f765-51f6-88a9-0594356e8127","label":"Misinformation","slug":"misinformation"}
+{"id":"ad46cd2c-8681-5149-9342-ec2b37efddc6","label":"Mode","slug":"mode"}
+{"id":"61572435-9a11-5c80-9ca3-adad80396092","label":"Model","slug":"model"}
+{"id":"87770458-4498-5a2e-a39d-abb3cfbafebe","label":"Model 3d","slug":"model-3d"}
+{"id":"3c486b88-fc14-535b-b0bf-2dbbfbf275af","label":"Module","slug":"module"}
+{"id":"e532e6ed-83ed-5c13-9317-f99d6e88750c","label":"Monitor","slug":"monitor"}
+{"id":"8f4606c8-f1f0-5e73-91ec-5994a364755c","label":"Motherboard","slug":"motherboard"}
+{"id":"130d2f7b-2800-5c79-bfe4-6684c57a80d6","label":"Motion","slug":"motion"}
+{"id":"f4493d83-5a8e-5e73-ada0-686bce261f57","label":"Motor","slug":"motor"}
+{"id":"1c0f60f7-155e-5de3-a67a-7df91e4ffd37","label":"Mouse","slug":"mouse"}
+{"id":"7af8b730-7d6c-56f2-bb11-32b61fe4b845","label":"Move","slug":"move"}
+{"id":"013c86d0-2f14-5e09-9ae0-6e33faa3f043","label":"Multiplication","slug":"multiplication"}
+{"id":"d1c2cf1d-e0c5-5a23-92a5-2a900eb9acfa","label":"Name","slug":"name"}
+{"id":"b3bc2274-28d6-5ce4-be7b-1e284b6f2261","label":"Natural Language","slug":"natural-language"}
+{"id":"593366c2-20cd-5e41-9c64-7a301a02f646","label":"Natural Number","slug":"natural-number"}
+{"id":"a8738cc2-c855-5e2e-8355-c5feb5dcf388","label":"Netiquette","slug":"netiquette"}
+{"id":"60d9ffaf-b84b-5343-998e-4444dfbfb040","label":"Network","slug":"network"}
+{"id":"6a7e4fe1-58d7-5c3d-a72a-b9e95c93c3b6","label":"Network Graph","slug":"network-graph"}
+{"id":"09124f55-c602-57b4-ab5a-08642d0e9a7c","label":"Node","slug":"node"}
+{"id":"703c200a-a605-5f78-832d-bbeab1812ae3","label":"Normalization","slug":"normalization"}
+{"id":"b80964fa-1635-56d0-bb72-f0e086b31059","label":"Not","slug":"not"}
+{"id":"c09a299f-7e9a-551c-a47a-19446448c103","label":"Notation","slug":"notation"}
+{"id":"8abd53df-fcdf-5cdb-b13b-3674bc41a010","label":"Null","slug":"null"}
+{"id":"44b6cff3-2998-51b3-8b7c-deed75d01ad9","label":"Number","slug":"number"}
+{"id":"ba53b8f7-02cf-51c7-a2ac-d59e59f67f86","label":"Numeral","slug":"numeral"}
+{"id":"8e378274-6188-50bb-847f-8bdfc310fdd8","label":"Numeric Type","slug":"numeric-type"}
+{"id":"edf73a23-31e7-59be-8993-c484a5f51d82","label":"Object","slug":"object"}
+{"id":"ce2a5002-8fe4-54fe-8ed1-20f1396171d6","label":"Object Data","slug":"object-data"}
+{"id":"daf18758-ce42-53ef-a9f1-0e71486373b2","label":"Online Platform","slug":"online-platform"}
+{"id":"c74fe051-ac5e-521b-8770-3180fb0decb6","label":"Operating System","slug":"operating-system"}
+{"id":"ab560c10-646c-576b-b7ae-ea48ef8fe1b5","label":"Operation","slug":"operation"}
+{"id":"1969022c-69cf-5041-b961-642fabc55f78","label":"Operator","slug":"operator"}
+{"id":"4c8ffbf7-221a-5a76-935c-2f9f86aa4966","label":"Optimization","slug":"optimization"}
+{"id":"8adf7cd1-46d8-5c43-97dd-e41a99c267ed","label":"Or","slug":"or"}
+{"id":"698d78ef-a3e2-5939-85ab-7177b97c318b","label":"Order","slug":"order"}
+{"id":"a38d502a-b62c-5a21-a6f5-e07faf344bd9","label":"Ordered Pair","slug":"ordered-pair"}
+{"id":"28c8579a-cad5-546d-8359-3e1d44278c68","label":"Output","slug":"output"}
+{"id":"312eec31-2253-5461-84a7-bc7d55d7cfc9","label":"Output Device","slug":"output-device"}
+{"id":"7f00916a-4877-5798-8011-bb87c1624935","label":"Output Signal","slug":"output-signal"}
+{"id":"546962eb-0a1a-5785-93e3-56a9a17feed1","label":"Package","slug":"package"}
+{"id":"02b5f166-76ed-5951-be27-fa24eb1e8385","label":"Page","slug":"page"}
+{"id":"2969a076-c1de-5742-8ccc-83a01e9fc320","label":"Paragraph","slug":"paragraph"}
+{"id":"4fcc854f-857e-54d3-b20c-7dd639c0d490","label":"Parameter","slug":"parameter"}
+{"id":"e5cce881-2962-50af-bc63-c55caffdd9b7","label":"Password","slug":"password"}
+{"id":"04c5c63b-3eb9-5020-88e8-07c97d482c58","label":"Path","slug":"path"}
+{"id":"c9adb559-3db1-5ac8-ab8b-6ff80caf1d1b","label":"Pattern","slug":"pattern"}
+{"id":"49ca4e12-0070-5b28-b0cd-19fd70c243fe","label":"Pattern Recognition","slug":"pattern-recognition"}
+{"id":"2b18a11a-a2f9-5ba7-8c3c-f53bd4d8bd4d","label":"Percentage","slug":"percentage"}
+{"id":"370a76fc-f833-5412-b48d-e8426beb8f40","label":"Peripheral Device","slug":"peripheral-device"}
+{"id":"e746c285-f978-52b8-8c0c-9c9bb14db2b9","label":"Permission","slug":"permission"}
+{"id":"ad748aaa-7e11-5825-84cf-cc05d3fb0f1a","label":"Personal Data","slug":"personal-data"}
+{"id":"29833e62-bff7-5a3c-a230-8c1e8fc707d0","label":"Phishing","slug":"phishing"}
+{"id":"39b7b0ed-dde9-557f-818e-36c6cdf988d5","label":"Physical Quantity","slug":"physical-quantity"}
+{"id":"9d3f42be-d1ad-52bd-bb7f-45442db82429","label":"Physics","slug":"physics"}
+{"id":"b64f1fae-a331-5420-960e-b36f480bf2a1","label":"Pin","slug":"pin"}
+{"id":"95c9b0aa-3edc-53da-b62b-9dee53014356","label":"Pixel","slug":"pixel"}
+{"id":"0762736c-2004-587d-8ca5-6cc7b216d4e3","label":"Place Value","slug":"place-value"}
+{"id":"e3b9a14d-1bb4-57f9-a693-9ff6b663d89f","label":"Plagiarism","slug":"plagiarism"}
+{"id":"185defb4-8b98-5dbc-9a1e-4b9a252af0f3","label":"Plane","slug":"plane"}
+{"id":"e77e13a6-353d-5e37-aef6-e68b5dabb69f","label":"Point","slug":"point"}
+{"id":"1707b2a6-fbc0-57db-bdd6-54080a62fa57","label":"Port","slug":"port"}
+{"id":"b28b48f4-9e1f-5182-bffc-f7e547952372","label":"Position","slug":"position"}
+{"id":"6154e118-e1e5-5f11-a6c1-9a2f72eebca7","label":"Power","slug":"power"}
+{"id":"a7f6979b-7c32-506f-b4d7-0b0af52fcdde","label":"Predicate","slug":"predicate"}
+{"id":"2a6786a4-a3e6-55a1-b64f-a6be03e79a17","label":"Prediction","slug":"prediction"}
+{"id":"bda3f516-3df1-5eca-8262-7f0528be3625","label":"Premise","slug":"premise"}
+{"id":"b51db6f4-76ba-5989-874d-6fbcc7d7775e","label":"Presentation","slug":"presentation"}
+{"id":"99a69fca-a940-5de2-a3f6-36dcaf5018af","label":"Pressure","slug":"pressure"}
+{"id":"a5052377-c6a1-5610-b71f-29664c2de06b","label":"Primary Key","slug":"primary-key"}
+{"id":"1070a424-c64f-5ebf-b062-4ce4b8c2864a","label":"Primitive Type","slug":"primitive-type"}
+{"id":"0605854c-68c1-5dd6-bcc8-6d8192b81927","label":"Printer","slug":"printer"}
+{"id":"f2d60448-3539-5a0a-b169-21a910f83d02","label":"Privacy","slug":"privacy"}
+{"id":"53ec1071-263f-545d-a198-f105a14eb453","label":"Privacy Setting","slug":"privacy-setting"}
+{"id":"334712b1-f896-5a5d-8397-a587ab4be477","label":"Probability","slug":"probability"}
+{"id":"a2f111fc-6777-51bd-a2a6-a54a710a7d81","label":"Problem","slug":"problem"}
+{"id":"89282835-50b2-57a2-897b-a67a043ed155","label":"Procedure","slug":"procedure"}
+{"id":"9834a8b7-a6a4-5190-8388-d3874f2ef728","label":"Procedure Text","slug":"procedure-text"}
+{"id":"e9272fce-a569-5108-8def-0c35542cb640","label":"Process","slug":"process"}
+{"id":"628bb601-3435-5f31-8a1b-8334bd3ef102","label":"Processor","slug":"processor"}
+{"id":"aaa55292-1af3-5632-8f92-19407d10bdad","label":"Program","slug":"program"}
+{"id":"ac1e6afb-abae-5d2b-811c-3b0945bf0515","label":"Programming Language","slug":"programming-language"}
+{"id":"403107d6-6075-524a-adbf-fd15cbd0d93c","label":"Projection","slug":"projection"}
+{"id":"c94c4b36-7428-50de-8118-634491e2bcae","label":"Prompt","slug":"prompt"}
+{"id":"c462ba40-6e53-5e23-a450-fe6a49afb033","label":"Prompt Engineering","slug":"prompt-engineering"}
+{"id":"d0bf5d5c-4b1d-58ad-82b4-a91970093d05","label":"Property","slug":"property"}
+{"id":"c03d6a7b-039c-50a7-b3de-bacc8367069d","label":"Proportion","slug":"proportion"}
+{"id":"1840eca2-ed7a-5467-935a-67a9e463553e","label":"Proposition","slug":"proposition"}
+{"id":"e6eb6e9d-6539-5efb-af63-21d4060c49fb","label":"Protocol","slug":"protocol"}
+{"id":"54fdecc1-795f-5573-a0dd-5bb3aa082d2b","label":"Pseudocode","slug":"pseudocode"}
+{"id":"31c71332-e25c-5ea1-b1c4-859970b11f47","label":"Punctuation","slug":"punctuation"}
+{"id":"84d4c38a-d3cc-54d7-8a4f-b2b2b466f427","label":"Quantity","slug":"quantity"}
+{"id":"9aff03b3-929c-56a4-a7b4-8ba9673f2134","label":"Query","slug":"query"}
+{"id":"bfefc431-09de-5599-b006-434da2a0ab93","label":"Question","slug":"question"}
+{"id":"de9bf887-66f9-582c-ab57-4fd19be68e3d","label":"Queue","slug":"queue"}
+{"id":"0408fa81-04d1-5672-aa79-4621a4557bc1","label":"RAM","slug":"ram"}
+{"id":"6e5650ab-cdc9-5605-b544-e396627e9008","label":"Range","slug":"range"}
+{"id":"d0006b2d-f760-5ed6-adbe-00ff9098b152","label":"Ratio","slug":"ratio"}
+{"id":"2bd3c31d-c350-5c44-b746-52e91646ccfc","label":"Rational Number","slug":"rational-number"}
+{"id":"85fa7eb2-1d2f-50ab-9a9a-8dd6cea96582","label":"Real Number","slug":"real-number"}
+{"id":"fe77020c-b510-5e9e-8d54-e5ff82e1cff2","label":"Recommendation","slug":"recommendation"}
+{"id":"eed0e7ba-f271-51f4-b45f-023cd3404307","label":"Record","slug":"record"}
+{"id":"d2801087-1d0f-55c7-8f4d-e5d3e0568352","label":"Recursion","slug":"recursion"}
+{"id":"6dba21b4-294a-5cec-ae58-a85e99635563","label":"Reference System","slug":"reference-system"}
+{"id":"9503192e-b060-53c6-b9a6-249d7544db93","label":"Reflection","slug":"reflection"}
+{"id":"9d2ee9ab-3909-53c4-9e58-365935cf91d9","label":"Refraction","slug":"refraction"}
+{"id":"996e2639-e924-5933-b692-67907f8c9462","label":"Relation","slug":"relation"}
+{"id":"25f36140-3019-51ec-8ed1-5f3beef4ee99","label":"Relational Database","slug":"relational-database"}
+{"id":"ad61aaef-de2a-50f9-ae91-e25dd615c111","label":"Relationship","slug":"relationship"}
+{"id":"1b1addf0-c3f3-5ffa-88a2-bab14ecfb0c2","label":"Relative Reference","slug":"relative-reference"}
+{"id":"e1b216a9-59b1-5afe-9c20-26f3d236c711","label":"Rename","slug":"rename"}
+{"id":"74b8b20e-c1e2-5b0f-93ee-3a99100dd1cf","label":"Repetition","slug":"repetition"}
+{"id":"b5ca5670-a897-58e8-b2fa-93533c9d2c70","label":"Report","slug":"report"}
+{"id":"ae3fb050-cb66-558e-8d1f-bba355fc1ad4","label":"Repository","slug":"repository"}
+{"id":"8c3984ff-51ec-5136-a42c-e55e47f2c325","label":"Request","slug":"request"}
+{"id":"6df1ec61-e198-5f01-a0f8-35d32ec770bc","label":"Resistance","slug":"resistance"}
+{"id":"dc101ca6-f9db-5a5d-a935-627b9f2bdee5","label":"Resolution","slug":"resolution"}
+{"id":"b699bde8-d2a2-57f3-9117-84332741978a","label":"Response","slug":"response"}
+{"id":"6282ea6b-5daa-5f69-9e0f-868afa6d8b82","label":"Result","slug":"result"}
+{"id":"3dd9bc3d-2b44-5e57-aa5a-2f9c5c3e5d74","label":"Return Value","slug":"return-value"}
+{"id":"53c7a479-f7c7-5896-a803-19cd51dc5ca9","label":"Robot","slug":"robot"}
+{"id":"83bffccd-29ac-545b-82a3-58d20f6b81f8","label":"Robotics","slug":"robotics"}
+{"id":"b1aecf4f-2245-5ea7-ac1e-309c90609bbb","label":"ROM","slug":"rom"}
+{"id":"626605ba-c4da-51d8-b776-f66b28ff0064","label":"Root","slug":"root"}
+{"id":"97bd5109-223c-5ad4-8c96-4de48d59c2a9","label":"Rotation","slug":"rotation"}
+{"id":"b86fdea5-9ec6-515a-a357-b003c9425bc3","label":"Rounding","slug":"rounding"}
+{"id":"4deff21c-9c3d-5c0e-9032-183af2dbfa51","label":"Row","slug":"row"}
+{"id":"85e78314-3b59-53f6-ba4f-9a1338a60707","label":"Rule","slug":"rule"}
+{"id":"bd6fd778-5a51-5d96-ba13-4c9ee0771e16","label":"Runtime","slug":"runtime"}
+{"id":"04004c4d-ae55-58b4-a80a-6e87d2dae1d1","label":"Safe Website","slug":"safe-website"}
+{"id":"6c807044-4b22-5d26-b276-f973b91f9c6c","label":"Sample","slug":"sample"}
+{"id":"19263915-cc19-580b-b75a-2e49b4592d26","label":"Save","slug":"save"}
+{"id":"6d066ed3-6dbe-5eb6-b097-2887017ed87b","label":"Scaling","slug":"scaling"}
+{"id":"92760376-3dc8-5a52-bab6-09033c7c3e2c","label":"Scam","slug":"scam"}
+{"id":"e24fe34a-d809-5fbf-8584-d55a0837ce72","label":"Scanner","slug":"scanner"}
+{"id":"c33aa03a-20c7-5c22-8dbd-1c1ac7f9626e","label":"Scene","slug":"scene"}
+{"id":"3066d4a6-0dd7-5940-ac10-898f3d8e895d","label":"Script","slug":"script"}
+{"id":"242c03bc-5ff8-5b36-bbc1-1358d9b8975f","label":"Search","slug":"search"}
+{"id":"6a40bc1c-0f1f-530b-a0fe-e90082426c9f","label":"Search Engine","slug":"search-engine"}
+{"id":"a3dbb281-44f2-5540-846a-10cd5c7b4114","label":"Search Query","slug":"search-query"}
+{"id":"c4642733-1506-5b69-ae7c-e3838f1bc82e","label":"Security","slug":"security"}
+{"id":"ea87caaa-f1be-542b-a328-312f585661bb","label":"Selection","slug":"selection"}
+{"id":"c1cb6870-ef0e-5247-adc5-b2501026402f","label":"Semantics","slug":"semantics"}
+{"id":"7140711b-687a-5a96-9c88-b8d40ad63fe2","label":"Sensor","slug":"sensor"}
+{"id":"c6650872-9224-5063-ab3e-a3f25f1baea3","label":"Sentence","slug":"sentence"}
+{"id":"eaacc9b8-37b5-5a8a-a545-b8e1023efeb5","label":"Sequence","slug":"sequence"}
+{"id":"16bc1da9-55da-5ad4-8552-9544c2d13c9d","label":"Server","slug":"server"}
+{"id":"003b68c9-7266-5939-bc89-6f669c6ce527","label":"Servo Motor","slug":"servo-motor"}
+{"id":"6d4da759-c218-5d45-a947-1f2eccb3bda5","label":"Set","slug":"set"}
+{"id":"d1d01c4a-8436-5ea1-abee-3fa82dc4ae3a","label":"Shape","slug":"shape"}
+{"id":"ecf1795a-63ea-5ebe-90fe-4a85ccb80fb1","label":"Shortcut","slug":"shortcut"}
+{"id":"e71d6d7e-8f71-508d-b7c6-844b5f5b1fc2","label":"Si Unit","slug":"si-unit"}
+{"id":"b2bd581c-650d-5389-a0ca-6d2a25e59f8f","label":"Sign","slug":"sign"}
+{"id":"ce14f270-86ca-5185-a21e-b3586fcd0563","label":"Signal","slug":"signal"}
+{"id":"795f46b1-50c5-5a90-9b05-eed55f8beefb","label":"Simulation","slug":"simulation"}
+{"id":"0f177694-44bc-5da5-803d-8e9b0025c0d8","label":"Slide","slug":"slide"}
+{"id":"3f6c7b18-9b13-522f-8933-637691ccc53d","label":"Software","slug":"software"}
+{"id":"89a8ae1d-563d-5fd5-a01b-45f2fcdb4282","label":"Solution","slug":"solution"}
+{"id":"4daefb28-524c-540d-b286-402327e26fc4","label":"Sort Order","slug":"sort-order"}
+{"id":"d08b869c-dcd7-5775-bb30-c277cd180767","label":"Sorting","slug":"sorting"}
+{"id":"1d85b74c-1891-5a40-94ba-70de3849cff0","label":"Sound","slug":"sound"}
+{"id":"fd26b581-8249-5b28-b8f5-bdb99861eac3","label":"Source","slug":"source"}
+{"id":"2d9f69e5-82dc-5c29-9d7f-bc040e58a695","label":"Source Code","slug":"source-code"}
+{"id":"752e12d9-5a57-53e8-88c6-fc350b9417e7","label":"Source Credibility","slug":"source-credibility"}
+{"id":"a0d6bbd1-e469-5b13-b96e-be61bebe9b2c","label":"Spam","slug":"spam"}
+{"id":"b787f502-7acb-5513-9c13-1105c3b2f3bb","label":"Speaker","slug":"speaker"}
+{"id":"892521d5-a0c8-56ac-9775-f266196abd56","label":"Speed","slug":"speed"}
+{"id":"dd74b053-abdc-5746-a4ae-b541f1981a62","label":"Spreadsheet","slug":"spreadsheet"}
+{"id":"8fad1364-f9b7-5769-adc1-f053aac282ee","label":"Spreadsheet Function","slug":"spreadsheet-function"}
+{"id":"15c5eefc-8747-54b6-b27f-cce0232a31ca","label":"Ssd","slug":"ssd"}
+{"id":"de2caccc-f5b8-5e61-bcd9-a46461396fe5","label":"Stack","slug":"stack"}
+{"id":"29391296-c416-59f6-b363-1b4f822263cd","label":"State","slug":"state"}
+{"id":"0cec542d-309c-5f17-91da-183e5391d8c7","label":"Statement","slug":"statement"}
+{"id":"ada86325-be2d-517c-b53e-627884f0abae","label":"Statistics","slug":"statistics"}
+{"id":"163225a4-9c69-57a1-b1ef-83f6d2d1765f","label":"Step","slug":"step"}
+{"id":"84cf4377-cdb6-512e-87a6-5ff539ea7c49","label":"Step Count","slug":"step-count"}
+{"id":"d74ad970-9567-53f0-b14c-cc648cddda06","label":"Storage","slug":"storage"}
+{"id":"e6abc279-419a-5320-9db6-4826399aac37","label":"Storage Device","slug":"storage-device"}
+{"id":"40d3d2e4-9672-58d6-aa93-f5e7e7859c86","label":"Strategy","slug":"strategy"}
+{"id":"e5eabd91-e08f-53bc-8d09-8d6038574590","label":"String","slug":"string"}
+{"id":"1c5beeed-3612-5ab3-9609-18822f4939ce","label":"String Data","slug":"string-data"}
+{"id":"78c6bf15-5fc9-5fac-9280-7f7e38954d1a","label":"Strong Password","slug":"strong-password"}
+{"id":"bc67287b-8373-533c-8e43-e1b82bca443a","label":"Structure","slug":"structure"}
+{"id":"63693b00-36eb-5fca-8c23-a89b96101d0e","label":"Style","slug":"style"}
+{"id":"e86a4687-4b35-5f44-9324-afc181bdf1e7","label":"Subset","slug":"subset"}
+{"id":"b281b61e-d78a-52a5-a1b2-0c425ac2cea0","label":"Subtraction","slug":"subtraction"}
+{"id":"686e1919-8852-5e6b-8e3b-8193efef86c0","label":"Sum","slug":"sum"}
+{"id":"4739100f-02f7-5fbe-93af-8e8c0e1970f8","label":"Summary","slug":"summary"}
+{"id":"c93a56bb-65bd-525e-9847-62982852e6ec","label":"Switch","slug":"switch"}
+{"id":"dca7fd1b-14c1-588d-819c-3c108dbc4c5d","label":"Symbol","slug":"symbol"}
+{"id":"ae9dda6a-cec5-5d46-b13f-560bfb847c92","label":"Symmetry","slug":"symmetry"}
+{"id":"cca209a1-e926-5b51-8d0c-d202ee2cb2da","label":"Sync","slug":"sync"}
+{"id":"8049b599-0f60-52bc-81c3-9cae2d4a7a89","label":"Synonym","slug":"synonym"}
+{"id":"cb0828a9-8338-5c77-86d9-acbf8aa467f0","label":"Syntax","slug":"syntax"}
+{"id":"27188d57-dae2-5243-a8ef-2ed765571634","label":"System","slug":"system"}
+{"id":"056d79f1-5dc6-50a9-b353-f4c7a479ef5e","label":"Table","slug":"table"}
+{"id":"bdf08389-3672-530c-979c-1920ee29ae08","label":"Table Entity","slug":"table-entity"}
+{"id":"8f10948b-d7a9-5eae-b353-28097fe734b1","label":"Table Structure","slug":"table-structure"}
+{"id":"cc12988c-a529-5386-aa83-1b68d8095e81","label":"Temperature","slug":"temperature"}
+{"id":"4be91c34-4711-5f40-9f2d-f44d14d0539a","label":"Template","slug":"template"}
+{"id":"c88a65bf-5030-5703-badb-24aa50be5256","label":"Test Case","slug":"test-case"}
+{"id":"58fe6e22-8729-5341-9ab7-57d8698fee49","label":"Testing","slug":"testing"}
+{"id":"973c3940-c018-5d9a-9071-64d9e89bf46a","label":"Text","slug":"text"}
+{"id":"7b226cc9-58d7-529f-8368-ab49dc89c7b5","label":"Text Editor","slug":"text-editor"}
+{"id":"6fce754f-22a8-5da6-8295-7c37736de86e","label":"Theme","slug":"theme"}
+{"id":"6364f7df-8140-520e-875b-7aab9650d1eb","label":"Thread","slug":"thread"}
+{"id":"fea9fafe-fa73-5357-a1d2-f9966de9c30d","label":"Time","slug":"time"}
+{"id":"f3598525-da3b-5526-bb76-1a439ed3b82a","label":"Time Interval","slug":"time-interval"}
+{"id":"92d8d725-f98d-50a1-aebc-765eee6a34c7","label":"Timeline","slug":"timeline"}
+{"id":"87bef16f-2d52-56ae-87ce-2986daa38f30","label":"Title","slug":"title"}
+{"id":"12cbb5f2-f465-50f4-9933-06b42b96af93","label":"Token","slug":"token"}
+{"id":"70783eb8-ee56-5490-89de-4de5acec1bc0","label":"Tone","slug":"tone"}
+{"id":"9ce25287-c096-5539-8121-c90e251acdbe","label":"Trace","slug":"trace"}
+{"id":"e32034b7-57a7-58a8-abc2-809bf9b1c898","label":"Training Data","slug":"training-data"}
+{"id":"fdbbe464-da6e-595b-be37-a6e3c12eedb0","label":"Trajectory","slug":"trajectory"}
+{"id":"b710d9b3-9203-5e9e-8500-98903cd8415a","label":"Transformation","slug":"transformation"}
+{"id":"fc6fbc7a-b5d5-5654-9bfb-e82348bb9290","label":"Transition","slug":"transition"}
+{"id":"8ef59911-30fb-51d6-b30e-dbab2c2ec55e","label":"Translation","slug":"translation"}
+{"id":"40f5dfe3-fd63-5980-ae2b-675c86749e39","label":"Traversal","slug":"traversal"}
+{"id":"dee61021-02fb-5728-ac4a-ed1a0c840f70","label":"Tree","slug":"tree"}
+{"id":"408c6279-0327-5ee1-b255-275bbd32d2d2","label":"Truth Value","slug":"truth-value"}
+{"id":"ce5f55fa-712d-5b99-9a54-5ce65e2f448c","label":"Two Factor Authentication","slug":"two-factor-authentication"}
+{"id":"22055997-77cf-5197-9c21-dd0877332cf0","label":"Type","slug":"type"}
+{"id":"febc29b3-b8da-5451-bf23-9457f3d35548","label":"Union","slug":"union"}
+{"id":"67614e7c-23dc-5e59-8291-69b62b2bbec7","label":"Unit","slug":"unit"}
+{"id":"9b54a01f-36ed-563c-81f6-3dd69159319c","label":"Upload","slug":"upload"}
+{"id":"77769393-0b1a-59ba-9c68-23ef3f3538f0","label":"URL","slug":"url"}
+{"id":"a3ba3100-09fb-524e-a978-676627bd4c5c","label":"USB","slug":"usb"}
+{"id":"5bc15d6e-0579-5ead-8069-d3152eddcaeb","label":"User Account","slug":"user-account"}
+{"id":"4a5f5f2e-3dbd-5a1a-aa2d-4af7a8cc051e","label":"User Interface","slug":"user-interface"}
+{"id":"715f1851-a5ee-5882-8ea5-2013f723d8f6","label":"Value","slug":"value"}
+{"id":"0d6b9bd4-5bd6-5a94-8cc1-4931ed0cd077","label":"Variable","slug":"variable"}
+{"id":"50e57cb2-fccc-5059-868c-806619e7ea0d","label":"Vector","slug":"vector"}
+{"id":"570b799b-d17c-5587-a056-6b7aea4703bb","label":"Version","slug":"version"}
+{"id":"b8a17717-31b2-530f-a3cf-f9a21125945b","label":"Version History","slug":"version-history"}
+{"id":"d86a5df6-5585-52f4-aaad-9e1cd92d4378","label":"Vertex","slug":"vertex"}
+{"id":"734eef73-b6c2-5c09-92aa-5bed7304e77b","label":"Video File","slug":"video-file"}
+{"id":"60def950-5a16-5b4b-8b20-03b27c8aaa3a","label":"Virus","slug":"virus"}
+{"id":"f5a2bb95-38ad-58ec-a79b-4f9d2c9de06e","label":"Visualization","slug":"visualization"}
+{"id":"1fb02c72-2654-562e-8eb4-dc37844973af","label":"Voltage","slug":"voltage"}
+{"id":"9e7f878a-dc40-5388-8167-242ad14f3efa","label":"Wave","slug":"wave"}
+{"id":"cfacec0e-7f5b-52e6-a750-4365df909290","label":"Web","slug":"web"}
+{"id":"cc0ff498-dfb2-586f-815c-7ab707db0904","label":"Web Page","slug":"web-page"}
+{"id":"1f170533-c7bc-5b2a-81bf-027d81f32e3c","label":"Website","slug":"website"}
+{"id":"17c5a5a9-1878-52f7-a1c6-14c732c76040","label":"Wiki","slug":"wiki"}
+{"id":"a5959f87-c12f-52ae-801c-e617239e3ff6","label":"Window","slug":"window"}
+{"id":"63ad99fe-9088-58fc-9ee6-508d8e747f7f","label":"Wire","slug":"wire"}
+{"id":"76bf2bd5-dec4-5bd9-9991-5aa2b40d109b","label":"Word","slug":"word"}
+{"id":"e971c20a-3da5-574e-96ba-7464eedf58d5","label":"Word Processor","slug":"word-processor"}
+{"id":"c127728e-8268-5f05-9a07-6eb6262637b9","label":"Worksheet","slug":"worksheet"}
+{"id":"8f16fef1-a623-55c0-82ec-9663453e0034","label":"World Wide Web","slug":"world-wide-web"}

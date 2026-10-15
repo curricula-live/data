@@ -1,0 +1,27 @@
+{
+  "version": "legacy-v1-to-v2",
+  "source": {
+    "database": "production PostgreSQL runtime",
+    "schema": "public",
+    "tables": [
+      "concept",
+      "relation_type",
+      "relation"
+    ]
+  },
+  "counts": {
+    "concepts": 554,
+    "predicates": 19,
+    "statements": 663
+  },
+  "concept_namespace_uuid": "645d16b7-688a-5ffc-aa3d-8b6626ba1383",
+  "concept_identity_strategy": "UUIDv5(namespace, legacy slug) for the one-time migration; committed UUID is authoritative afterwards",
+  "statement_identity_strategy": "preserve legacy public.relation.id UUID",
+  "label_strategy": "mechanical display label derived from the legacy slug; labels are editorial identifiers, not factual descriptions",
+  "sha256": {
+    "knowledge/concepts.jsonl": "307ca96200e587408cdb2a4a4e01e8ce90d08a0224873cbd68a27cc958d70285",
+    "knowledge/predicates.jsonl": "30e6e9fb70afcb4a3879b2880404bd55dc0cbcc1a1b475936e1bdc14d3aa4536",
+    "knowledge/statements.jsonl": "4b13ae0ac0eefa2d6d258e7ea94471d88bcab94290802d4f0be0f875cfdeee2b",
+    "migration/legacy-v1/concept-identities.jsonl": "400d951874c914d057653a4f597f7d1ac786f60003de20d33ffad5719a88b1e3"
+  }
+}

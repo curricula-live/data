@@ -1,0 +1,87 @@
+{
+  "source_id": "acm-ccs",
+  "source_version": "2012-user-upload",
+  "source_sha256": "49f7911725537408517d00a3a7fef2ab5600777a9e1c1b79d9a0925b868dc045",
+  "source_provenance": "User-supplied attachment; download origin not independently verified",
+  "canonical_snapshot_sha256": "307ca96200e587408cdb2a4a4e01e8ce90d08a0224873cbd68a27cc958d70285",
+  "status": "unreviewed",
+  "publication_scope": "metadata-only",
+  "method": "exact_normalized_label_v1; suggestions only, no scholarly equivalence asserted",
+  "mappings": [
+    {
+      "canonical_slug": "abstraction",
+      "canonical_uuid": "e411cc92-6074-51a3-afe2-66f18af4bcc8",
+      "confidence": 0.5,
+      "method": "exact_normalized_label_v1",
+      "node_id": "10003752.10003790.10011119",
+      "references": [
+        {
+          "document_sha256": "49f7911725537408517d00a3a7fef2ab5600777a9e1c1b79d9a0925b868dc045",
+          "locator": "10003752.10003790.10011119"
+        }
+      ],
+      "relation": "related",
+      "status": "candidate"
+    },
+    {
+      "canonical_slug": "authentication",
+      "canonical_uuid": "22888edb-0d4e-5251-8577-c2ab31ef3eff",
+      "confidence": 0.5,
+      "method": "exact_normalized_label_v1",
+      "node_id": "10002978.10002991.10002992",
+      "references": [
+        {
+          "document_sha256": "49f7911725537408517d00a3a7fef2ab5600777a9e1c1b79d9a0925b868dc045",
+          "locator": "10002978.10002991.10002992"
+        }
+      ],
+      "relation": "related",
+      "status": "candidate"
+    },
+    {
+      "canonical_slug": "authorization",
+      "canonical_uuid": "74bfed84-7751-5840-ba95-8f4c6777c04a",
+      "confidence": 0.5,
+      "method": "exact_normalized_label_v1",
+      "node_id": "10002978.10002991.10010839",
+      "references": [
+        {
+          "document_sha256": "49f7911725537408517d00a3a7fef2ab5600777a9e1c1b79d9a0925b868dc045",
+          "locator": "10002978.10002991.10010839"
+        }
+      ],
+      "relation": "related",
+      "status": "candidate"
+    },
+    {
+      "canonical_slug": "graph-theory",
+      "canonical_uuid": "d386a1fa-6eab-5ff0-bf83-828b7dace730",
+      "confidence": 0.5,
+      "method": "exact_normalized_label_v1",
+      "node_id": "10002950.10003624.10003633",
+      "references": [
+        {
+          "document_sha256": "49f7911725537408517d00a3a7fef2ab5600777a9e1c1b79d9a0925b868dc045",
+          "locator": "10002950.10003624.10003633"
+        }
+      ],
+      "relation": "related",
+      "status": "candidate"
+    },
+    {
+      "canonical_slug": "machine-learning",
+      "canonical_uuid": "91bd8038-3da3-5ef5-a82b-30e652cb3803",
+      "confidence": 0.5,
+      "method": "exact_normalized_label_v1",
+      "node_id": "10010147.10010257",
+      "references": [
+        {
+          "document_sha256": "49f7911725537408517d00a3a7fef2ab5600777a9e1c1b79d9a0925b868dc045",
+          "locator": "10010147.10010257"
+        }
+      ],
+      "relation": "related",
+      "status": "candidate"
+    }
+  ]
+}
