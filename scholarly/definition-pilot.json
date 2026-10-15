@@ -1,0 +1,75 @@
+{
+  "status": "unbound-editorial-drafts",
+  "canonical_uuid_binding": "blocked: verified UUID snapshot unavailable",
+  "publication_scope": "restricted",
+  "drafts": [
+    {
+      "canonical_slug_hint": "queue",
+      "canonical_uuid": null,
+      "text": "An abstract collection whose removal operation selects the item that has waited longest since insertion; insertion adds an item at the other end.",
+      "kind": "editorial",
+      "author": "Codex AI-assisted draft; responsible human author pending",
+      "ai_assisted": true,
+      "externally_verified": false,
+      "review_status": "candidate",
+      "revision": 1,
+      "history": [
+        {
+          "revision": 1,
+          "date": "2026-10-15",
+          "action": "Initial AI-assisted draft; not externally verified"
+        }
+      ],
+      "supporting_source": {
+        "url": "https://xlinux.nist.gov/dads/HTML/queue.html",
+        "author": "Paul E. Black",
+        "work": "Dictionary of Algorithms and Data Structures, queue entry",
+        "modified": "2020-12-14",
+        "accessed": "2026-10-15",
+        "document_sha256": null,
+        "locator": "Definition paragraph"
+      },
+      "license": "source rights and original editorial publication permission pending",
+      "blockers": [
+        "Verified canonical UUID binding",
+        "Source bytes checksum",
+        "Human authorship and rights review",
+        "Scholarly review"
+      ]
+    },
+    {
+      "canonical_slug_hint": "fifo",
+      "canonical_uuid": null,
+      "text": "An ordering policy that processes earlier arrivals before later arrivals. For a queue, this policy determines which stored item is removed next.",
+      "kind": "editorial",
+      "author": "Codex AI-assisted draft; responsible human author pending",
+      "ai_assisted": true,
+      "externally_verified": false,
+      "review_status": "candidate",
+      "revision": 1,
+      "history": [
+        {
+          "revision": 1,
+          "date": "2026-10-15",
+          "action": "Initial AI-assisted draft; not externally verified"
+        }
+      ],
+      "supporting_source": {
+        "url": "https://xlinux.nist.gov/dads/HTML/queue.html",
+        "author": "Paul E. Black",
+        "work": "Dictionary of Algorithms and Data Structures, queue entry",
+        "modified": "2020-12-14",
+        "accessed": "2026-10-15",
+        "document_sha256": null,
+        "locator": "Definition paragraph"
+      },
+      "license": "source rights and original editorial publication permission pending",
+      "blockers": [
+        "Verified canonical UUID binding",
+        "Source bytes checksum",
+        "Human authorship and rights review",
+        "Scholarly review"
+      ]
+    }
+  ]
+}
