@@ -172,7 +172,7 @@ def to_markdown(report: dict, detail_slug: str | None = None) -> str:
         ]
         for assertion in selection["recorded_statements"]:
             lines.append(
-                f"| \`{assertion['id']}\` | {assertion['subject']} | "
+                f"| `{assertion['id']}` | {assertion['subject']} | "
                 f"{assertion['predicate']} | {assertion['object']} |"
             )
         lines += [
