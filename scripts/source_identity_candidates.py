@@ -17,6 +17,7 @@ import argparse
 import json
 from pathlib import Path
 import re
+import tempfile
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -179,8 +180,16 @@ def main() -> None:
     report = build_candidates(args.input)
     result = json.dumps(report, indent=2, ensure_ascii=False) + "\n" if args.format == "json" else to_markdown(report)
     if args.output:
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(result, encoding="utf-8")
+        temporary_root = Path(tempfile.gettempdir()).resolve()
+        if args.output.is_symlink():
+            parser.error("Refusing to follow report-output symlinks")
+        resolved = args.output.resolve()
+        if not resolved.is_relative_to(temporary_root) or resolved == temporary_root:
+            parser.error("Candidate reports must be written inside the OS temporary directory")
+        if resolved.suffix not in (".md", ".json"):
+            parser.error("Use .md or .json for a candidate report")
+        resolved.parent.mkdir(parents=True, exist_ok=True)
+        resolved.write_text(result, encoding="utf-8")
     else:
         print(result, end="")
 
