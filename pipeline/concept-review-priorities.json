@@ -1,0 +1,152 @@
+{
+  "schema_version": "concept-review-priority@1",
+  "status": "proposal_only_not_approved",
+  "notes": "Sequencing preferences for ontology/source-to-data reconciliation. Existing legacy statements are NOT independently reviewed. No record in this queue authorizes a canonical or production mutation.",
+  "priorities": [
+    {
+      "tier": "core",
+      "slug": "array",
+      "reason": "Indexed collections, data-structure classification and rigorous definitions"
+    },
+    {
+      "tier": "core",
+      "slug": "variable",
+      "reason": "Reference, binding, assignment and programming-language contexts"
+    },
+    {
+      "tier": "core",
+      "slug": "integer",
+      "reason": "Distinguish mathematical number sets from programming-language numeric types"
+    },
+    {
+      "tier": "core",
+      "slug": "number",
+      "reason": "Shared foundation for arithmetic and numeric representations"
+    },
+    {
+      "tier": "core",
+      "slug": "boolean",
+      "reason": "Truth values, predicates and data-type distinctions"
+    },
+    {
+      "tier": "core",
+      "slug": "data",
+      "reason": "High-degree conceptual hub; audit ambiguous subtype and representation relations"
+    },
+    {
+      "tier": "core",
+      "slug": "computer",
+      "reason": "ICT system, components, storage and processing"
+    },
+    {
+      "tier": "core",
+      "slug": "compiler",
+      "reason": "Transformation from source representation to executable/target artifacts"
+    },
+    {
+      "tier": "core",
+      "slug": "computer-network",
+      "reason": "Networking systems, clients and communication"
+    },
+    {
+      "tier": "core",
+      "slug": "binary",
+      "reason": "Bases, digits and encoding distinctions"
+    },
+    {
+      "tier": "core",
+      "slug": "algorithm",
+      "reason": "Requirements, steps, implementation and complexity"
+    },
+    {
+      "tier": "core",
+      "slug": "data-type",
+      "reason": "Bridge between mathematical models and implementation-specific types"
+    },
+    {
+      "tier": "supporting",
+      "slug": "index",
+      "reason": "Required to distinguish uses-index from accessed-by-index"
+    },
+    {
+      "tier": "supporting",
+      "slug": "collection",
+      "reason": "Superclass candidate for Array and mathematical collection distinctions"
+    },
+    {
+      "tier": "supporting",
+      "slug": "data-structure",
+      "reason": "Categorization needed to evaluate Array's inferred definition"
+    },
+    {
+      "tier": "supporting",
+      "slug": "value",
+      "reason": "Shared representation and numeric values"
+    },
+    {
+      "tier": "supporting",
+      "slug": "rational-number",
+      "reason": "Explicit subtype path involving Integer"
+    },
+    {
+      "tier": "supporting",
+      "slug": "real-number",
+      "reason": "Clarify mathematical vs programming numeric domains"
+    },
+    {
+      "tier": "supporting",
+      "slug": "program",
+      "reason": "Computer, Compiler and execution connection"
+    },
+    {
+      "tier": "supporting",
+      "slug": "source-code",
+      "reason": "Compiler implementation and source representations"
+    },
+    {
+      "tier": "supporting",
+      "slug": "bit",
+      "reason": "Binary encoding context"
+    },
+    {
+      "tier": "defer_unless_needed",
+      "slug": "color",
+      "reason": "May become important as a property example, but not a core dependency yet"
+    },
+    {
+      "tier": "defer_unless_needed",
+      "slug": "camera",
+      "reason": "Can later validate hardware subtype hierarchy"
+    },
+    {
+      "tier": "defer_unless_needed",
+      "slug": "animation",
+      "reason": "Potentially useful to test visual and temporal relation predicates"
+    },
+    {
+      "tier": "candidate_not_currently_canonical",
+      "slug": "tcp",
+      "reason": "Network protocol candidate; only admit against source-reviewed protocol identity and claims"
+    },
+    {
+      "tier": "candidate_not_currently_canonical",
+      "slug": "transport-protocol",
+      "reason": "Requires a reviewed class or taxonomy source distinct from curricular topical labels"
+    },
+    {
+      "tier": "candidate_not_currently_canonical",
+      "slug": "array-indexing",
+      "reason": "Potential operation concept, only after identity and semantics are reviewed"
+    }
+  ],
+  "required_gates": [
+    "approved_source_identity_and_version",
+    "rights_and_attribution",
+    "candidate_to_canonical_identity_mapping",
+    "predicate_semantics_review",
+    "evidence_validation",
+    "human_acceptance",
+    "dry_run_validation",
+    "approved_publication"
+  ]
+}
