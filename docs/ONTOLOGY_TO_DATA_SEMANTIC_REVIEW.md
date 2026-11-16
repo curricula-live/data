@@ -58,6 +58,33 @@ For each source candidate, before any canonical change:
 
 A rejected or deferred concept still exists in the source graph. It does not need to become a canonical concept to be discoverable in an external-source atlas.
 
+## Prototype source-node identity crosswalk
+
+The V2 federation's real authoritative corpus has **not** yet passed source-admission review. To prepare for it without importing the frozen V1 archive, the repository provides a read-only candidate generator:
+
+```bash
+python scripts/source_identity_candidates.py \
+  --input /tmp/versioned-v2-source-node-discovery.jsonl \
+  --format markdown
+
+python scripts/source_identity_candidates.py \
+  --input /tmp/versioned-v2-source-node-discovery.jsonl \
+  --format json --output /tmp/source-candidate-crosswalk.json
+```
+
+This is an **identity discovery contract**, not a scientific-assertion adapter. Each JSONL record contains `source_id`, `source_version`, `source_uri`, `label`, and optional `candidate_slug`, `source_checksum_sha256`, `source_locator` and `rights_status`. A valid source manifest must originate from an independently obtained/verified source; **the script itself does not fetch or certify it**.
+
+The script rejects predicate/triple fields, duplicate native identity keys, unsupported rights claims, malformed URIs and invalid slugs. Candidate identity suggestions are labeled `lexical_label_only` or `reviewer_proposed_slug`; even an exact spelling match is **never** considered verified equality. Native source URI and version remain intact. `may_publish` and `may_import_assertions` are always false. No canonical UUID or relationship is created.
+
+Illustrative **synthetic-only** JSONL example (not a source export and not approved evidence):
+
+```jsonl
+{"source_id":"synthetic-demo","source_version":"v0","source_uri":"https://example.invalid/array","label":"Array"}
+{"source_id":"synthetic-demo","source_version":"v0","source_uri":"https://example.invalid/tcp","label":"TCP"}
+```
+
+The resulting review candidates would identify the existing canonical Array UUID by **unverified lexical similarity** and leave TCP unresolved, pending an approved identity decision. Do not feed the archived ontology V1 artifacts into this bridge: their status and the ontology repository's rules prohibit claiming them as an admitted V2 source.
+
 ## Predicate-semantics audit
 
 All **19** controlled predicate types are currently listed as *review pending* by the report. Notably:
