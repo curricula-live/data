@@ -58,6 +58,25 @@ def test_dossier_contains_original_directed_assertions_and_uuid_links():
     assert all(row["id"] in text for row in assertions)
 
 
+def test_conditional_subtype_witnesses_are_exact_and_never_authoritative():
+    report = build_report(ROOT)
+    array = next(row for row in report["priority_queue"] if row["slug"] == "array")
+    hypotheses = {row["id"] for row in array["recorded_statements"]}
+    conclusions = array["conditional_subtype_candidates"]
+    assert {row["target"] for row in conclusions} == {"data", "structure"}
+    assert all(
+        row["predicate"] == "subtype_of"
+        and row["logical_status"] == "conditional_unverified_semantics"
+        and row["accepted_scientific_claim"] is False
+        and len(row["premise_ids"]) >= 2
+        and row["premise_ids"][0] in hypotheses
+        for row in conclusions
+    )
+    markdown = to_markdown(report, detail_slug="array")
+    assert "Conditional transitive subtype candidates (2)" in markdown
+    assert "Unverified conditional consequence" in markdown
+
+
 def test_duplicate_priority_entries_are_rejected(tmp_path):
     data = json.loads((ROOT / "pipeline/concept-review-priorities.json").read_text())
     data["priorities"].append(data["priorities"][0])
