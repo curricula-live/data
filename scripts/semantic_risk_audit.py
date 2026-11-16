@@ -188,11 +188,6 @@ def build_audit(root: Path = ROOT, focus: str | None = None) -> dict:
         e for e in redundant if focus is not None and
         (e["source"] == focus or e["target"] == focus)
     ]
-    if focus:
-        for edge in outgoing.get(focus, []):
-            # One witness for each reachable classification, up to the
-            # documented bound; claims and rules are NOT endorsed.
-            pass
     return {
         "schema_version": "canonical-semantic-structural-audit@1",
         "authorizes_import": False,
