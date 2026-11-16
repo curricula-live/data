@@ -39,6 +39,25 @@ def test_report_is_deterministic_and_does_not_mutate_canonical_files():
     assert before == {p.name: p.read_bytes() for p in files}
 
 
+def test_dossier_contains_original_directed_assertions_and_uuid_links():
+    report = build_report(ROOT)
+    array = next(row for row in report["priority_queue"] if row["slug"] == "array")
+    assertions = array["recorded_statements"]
+    assert len(assertions) == array["direct_statement_count"]
+    assert all(
+        row["source_verification"] == "not_established_by_core_statement_record"
+        and row["review_status"] == "pending"
+        for row in assertions
+    )
+    assert any(row["subject"] == "array" and row["predicate"] == "uses"
+               and row["object"] == "index" for row in assertions)
+    assert any(row["subject"] == "index" and row["predicate"] == "part_of"
+               and row["object"] == "array" for row in assertions)
+    text = to_markdown(report, detail_slug="array")
+    assert "Recorded statements to review: array" in text
+    assert all(row["id"] in text for row in assertions)
+
+
 def test_duplicate_priority_entries_are_rejected(tmp_path):
     data = json.loads((ROOT / "pipeline/concept-review-priorities.json").read_text())
     data["priorities"].append(data["priorities"][0])
