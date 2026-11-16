@@ -10,7 +10,7 @@ It never imports ontology snapshots, mutates canonical JSONL or contacts databas
 from __future__ import annotations
 
 import argparse
-from collections import Counter, defaultdict
+from collections import Counter, defaultdict, deque
 import json
 from pathlib import Path
 
@@ -29,6 +29,57 @@ PREDICATE_NOTE = {
 
 def read_jsonl(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
+def conditional_subtype_witnesses(
+    start_id: str,
+    statements: list[dict],
+    slug_by_id: dict[str, str],
+    *,
+    max_depth: int = 4,
+    max_results: int = 32,
+) -> list[dict]:
+    """Candidate premise paths, NOT licensed or semantically certified proofs."""
+    outgoing: dict[str, list[dict]] = defaultdict(list)
+    direct: set[str] = set()
+    for row in statements:
+        if row["predicate"] != "subtype_of":
+            continue
+        if row["subject"]["kind"] != "concept" or row["object"]["kind"] != "concept":
+            continue
+        outgoing[row["subject"]["id"]].append(row)
+        if row["subject"]["id"] == start_id:
+            direct.add(row["object"]["id"])
+    for rows in outgoing.values():
+        rows.sort(key=lambda row: (row["object"]["id"], row["id"]))
+
+    seen = {start_id}
+    queue = deque([(start_id, ())])
+    results = []
+    while queue and len(results) < max_results:
+        current, premises = queue.popleft()
+        if len(premises) >= max_depth:
+            continue
+        for row in outgoing.get(current, []):
+            target = row["object"]["id"]
+            if target in seen:
+                continue
+            seen.add(target)
+            witness = (*premises, row["id"])
+            queue.append((target, witness))
+            if len(witness) > 1 and target not in direct:
+                results.append({
+                    "subject": slug_by_id[start_id],
+                    "predicate": "subtype_of",
+                    "target": slug_by_id[target],
+                    "premise_ids": list(witness),
+                    "rule_candidate": "subtype_transitivity",
+                    "logical_status": "conditional_unverified_semantics",
+                    "accepted_scientific_claim": False,
+                })
+                if len(results) >= max_results:
+                    break
+    return results
 
 
 def build_report(root: Path = ROOT, config_path: Path | None = None) -> dict:
@@ -100,6 +151,9 @@ def build_report(root: Path = ROOT, config_path: Path | None = None) -> dict:
             "canonical_presence": "present" if concept else "missing",
             "direct_statement_count": len(related),
             "recorded_statements": recorded_statements,
+            "conditional_subtype_candidates": conditional_subtype_witnesses(
+                concept["id"], statements, {key: item["slug"] for key, item in by_id.items()}
+            ) if concept else [],
             "statement_predicates": dict(sorted(types.items())),
             "canonical_definition_present": definition,
             "source_admission": "not_established_by_this_report",
@@ -174,6 +228,20 @@ def to_markdown(report: dict, detail_slug: str | None = None) -> str:
             lines.append(
                 f"| `{assertion['id']}` | {assertion['subject']} | "
                 f"{assertion['predicate']} | {assertion['object']} |"
+            )
+        proof_candidates = selection["conditional_subtype_candidates"]
+        lines += [
+            "",
+            f"### Conditional transitive subtype candidates ({len(proof_candidates)})",
+            "",
+            "Only if all recorded premises have compatible subtype semantics.",
+            "",
+        ]
+        for index, candidate in enumerate(proof_candidates, 1):
+            refs = ", ".join("`" + key + "`" for key in candidate["premise_ids"])
+            lines.append(
+                f"{index}. `{candidate['subject']}` ⊆ `{candidate['target']}` "
+                f"— premise UUIDs: {refs}. **Unverified conditional consequence.**"
             )
         lines += [
             "",
