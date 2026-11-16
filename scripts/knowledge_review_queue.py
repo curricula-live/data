@@ -75,12 +75,31 @@ def build_report(root: Path = ROOT, config_path: Path | None = None) -> dict:
             d.get("concept") == concept["id"] or d.get("concept_id") == concept["id"]
             for d in definitions
         ) if concept else False
+        def describe_ref(ref: dict) -> str:
+            if ref["kind"] == "concept":
+                return by_id[ref["id"]]["slug"]
+            if ref["kind"] == "statement":
+                return "statement:" + ref["id"]
+            return "literal:" + ref.get("datatype", "unknown") + ":" + str(ref.get("value", ""))
+
+        recorded_statements = [
+            {
+                "id": statement["id"],
+                "subject": describe_ref(statement["subject"]),
+                "predicate": statement["predicate"],
+                "object": describe_ref(statement["object"]),
+                "source_verification": "not_established_by_core_statement_record",
+                "review_status": "pending",
+            }
+            for statement in sorted(related, key=lambda row: row["id"])
+        ]
         proposed.append({
             "tier": item["tier"],
             "slug": slug,
             "canonical_concept_id": concept["id"] if concept else None,
             "canonical_presence": "present" if concept else "missing",
             "direct_statement_count": len(related),
+            "recorded_statements": recorded_statements,
             "statement_predicates": dict(sorted(types.items())),
             "canonical_definition_present": definition,
             "source_admission": "not_established_by_this_report",
@@ -119,7 +138,7 @@ def build_report(root: Path = ROOT, config_path: Path | None = None) -> dict:
     }
 
 
-def to_markdown(report: dict) -> str:
+def to_markdown(report: dict, detail_slug: str | None = None) -> str:
     corpus = report["current_corpus"]
     lines = [
         "# Non-canonical concept review queue",
@@ -138,6 +157,29 @@ def to_markdown(report: dict) -> str:
             f"{'present' if row['canonical_definition_present'] else 'absent'} | "
             f"{'existing canonical identity' if row['canonical_concept_id'] else 'identity mapping required'} |"
         )
+    if detail_slug:
+        selection = next((row for row in report["priority_queue"] if row["slug"] == detail_slug), None)
+        if selection is None:
+            raise ValueError("Concept not found in prioritized review queue: " + detail_slug)
+        lines += [
+            "",
+            "## Recorded statements to review: " + detail_slug,
+            "",
+            "Every line below is an *existing assertion* (not newly proposed source truth).",
+            "",
+            "| Source UUID | Subject | Predicate | Object |",
+            "| --- | --- | --- | --- |",
+        ]
+        for assertion in selection["recorded_statements"]:
+            lines.append(
+                f"| \`{assertion['id']}\` | {assertion['subject']} | "
+                f"{assertion['predicate']} | {assertion['object']} |"
+            )
+        lines += [
+            "",
+            "Identity, predicate semantics, evidence and logical scope remain unreviewed.",
+        ]
+
     lines += [
         "",
         "## Predicate semantics still to be reviewed",
@@ -162,9 +204,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--format", choices=["json", "markdown"], default="markdown")
     parser.add_argument("--output", type=Path, help="Report destination (defaults to stdout)")
+    parser.add_argument("--concept", help="Append all recorded claims for one priority concept")
     args = parser.parse_args()
     report = build_report()
-    content = json.dumps(report, indent=2, ensure_ascii=False) + "\n" if args.format == "json" else to_markdown(report)
+    content = json.dumps(report, indent=2, ensure_ascii=False) + "\n" if args.format == "json" else to_markdown(report, args.concept)
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(content, encoding="utf-8")
