@@ -15,7 +15,7 @@ Thus, *candidate* discovery or review prioritization is not canonical publicatio
 
 ## Review order
 
-Run `python scripts/knowledge_review_queue.py --format markdown` for a deterministic, machine-readable-source-backed summary. JSON is available via `--format json`.
+Run `python scripts/knowledge_review_queue.py --format markdown` for a deterministic, canonical-source-backed summary. JSON is available via `--format json`. For example, `python scripts/knowledge_review_queue.py --format markdown --concept array` prints every existing Array-connected statement with its exact canonical UUID, direction and predicate for manual review; it does not claim to authenticate the underlying scientific source.
 
 The queue separates:
 
