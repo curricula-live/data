@@ -13,6 +13,24 @@ There are independent historical and current sources with different semantics.
 
 Thus, *candidate* discovery or review prioritization is not canonical publication. This branch imports no external V1 content, copies no source prose, makes no DB changes and declares no reviews complete.
 
+## Structural audit of the current corpus
+
+Run the **read-only** structural checker for all 554 canonical concepts and all 663 statements:
+
+```bash
+python scripts/semantic_risk_audit.py --format markdown
+python scripts/semantic_risk_audit.py --format json --output /tmp/curricula-semantic-audit.json
+python scripts/semantic_risk_audit.py --concept array
+python scripts/semantic_risk_audit.py --concept integer
+python scripts/semantic_risk_audit.py --concept variable
+```
+
+For this version of the corpus, the structural scan found **zero directed `subtype_of` cycle groups, six direct subtype assertions with alternative multi-edge subtype paths, and nine `uses(A,B)` / `part_of(B,A)` pairs**. Zero cycles is not evidence that any subtype classification is semantically valid. Alternate paths are not necessarily incorrect or disposable; they may be deliberately materialized classifications. Paired role predicates need explicit interpretation, not automatic replacement.
+
+The reviewed-knowledge admission procedure must preserve the original UUIDs and distinguish a structural anomaly from a scientific inconsistency. Auditing does not certify any of the 19 predicate semantics or establish source provenance.
+
+Initial manual-review dossiers: [Array](reviews/array.md), [Integer](reviews/integer.md), [Variable](reviews/variable.md).
+
 ## Review order
 
 Run `python scripts/knowledge_review_queue.py --format markdown` for a deterministic, canonical-source-backed summary. JSON is available via `--format json`. For example, `python scripts/knowledge_review_queue.py --format markdown --concept array` prints every existing Array-connected statement with its exact canonical UUID, direction and predicate for manual review; it does not claim to authenticate the underlying scientific source.
