@@ -175,8 +175,19 @@ def validate_semantic_admissions(rows: dict[str, list[dict[str, Any]]]) -> None:
         if witness in witnessed:
             raise SystemExit(f"source assertion promoted twice: {witness}")
         witnessed.add(witness)
-    if len(admissions) != 101 or len(policies) != 5:
-        raise SystemExit("semantic admission batch changed without a scoped re-review")
+    manifest_path = ROOT / "pipeline/semantic-admission/admission-manifest.json"
+    if not manifest_path.exists():
+        raise SystemExit("semantic admission batch lacks the source review manifest")
+    manifest = load_json(manifest_path)
+    if (
+        len(admissions) != manifest.get("new_statements")
+        or len(policies) != manifest.get("new_predicates")
+        or sum(a["source_id"] == "cso@3.5" for a in admissions)
+            != manifest.get("source_cso_topic_relations")
+        or sum(a["source_id"] == "curricula-historical-v1@1.0.0" for a in admissions)
+            != manifest.get("externally_corrob_historical_core")
+    ):
+        raise SystemExit("semantic admission counts differ from the reviewed batch manifest")
     ledger_ids = {r["statement_id"] for r in admissions}
     unsafe = [s["id"] for s in rows["statements"]
               if s["predicate"] in approved_policies and s["id"] not in ledger_ids]
