@@ -1,5 +1,6 @@
 from collections import Counter
 from pathlib import Path
+import gzip
 import hashlib,json,sys,tempfile
 import pytest
 
@@ -75,8 +76,14 @@ def test_single_concept_review_preserves_uncertainty():
 def test_idempotent_rebuild():
     filenames=["historical-statement-proposals.jsonl","cso-statement-proposals.jsonl.gz",
                "per-concept-coverage.jsonl","predicate-proposals.jsonl","manifest.json"]
-    before={x:hashlib.sha256((OUT/x).read_bytes()).hexdigest() for x in filenames}
+    def digest(path):
+        contents=path.read_bytes()
+        if path.suffix==".gz": contents=gzip.decompress(contents)
+        return hashlib.sha256(contents).hexdigest()
+    before={x:digest(OUT/x) for x in filenames}
     with tempfile.TemporaryDirectory() as tmp:
         path=Path(tmp);build(path)
-        after={x:hashlib.sha256((path/x).read_bytes()).hexdigest() for x in filenames}
+        after={x:digest(path/x) for x in filenames}
     assert before==after
+    m=json.loads((OUT/"manifest.json").read_text())
+    assert before["cso-statement-proposals.jsonl.gz"]==m["source_rows"]["cso"]["uncompressed_jsonl_sha256"]

@@ -40,7 +40,8 @@
         "source_only_no_canonical_identity": 98640,
         "source_or_external_object_unmapped": 42361,
         "unlabelled_subject_or_external": 375
-      }
+      },
+      "uncompressed_jsonl_sha256": "3714f788eed50a96f4d83fbcce1dbcdfd8f98577b895ddf0ec1286a194cbdf02"
     },
     "historical-v1": {
       "predicates": {

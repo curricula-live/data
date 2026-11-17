@@ -46,8 +46,16 @@ jobs:
         run: python -m pip install -r requirements.txt
       - name: Rebuild source reconciliation and verify pinned output
         run: |
+          python - <<'PYCODE'
+          import gzip,hashlib,json
+          from pathlib import Path
+          folder=Path("pipeline/source-reconciliation")
+          data=gzip.decompress((folder/"cso-statement-proposals.jsonl.gz").read_bytes())
+          recorded=json.loads((folder/"manifest.json").read_text())["source_rows"]["cso"]["uncompressed_jsonl_sha256"]
+          assert hashlib.sha256(data).hexdigest()==recorded
+          PYCODE
           python scripts/reconcile_source_relations.py > /tmp/reconciliation-manifest.json
-          git diff --exit-code -- pipeline/source-reconciliation
+          git diff --exit-code -- pipeline/source-reconciliation/manifest.json pipeline/source-reconciliation/historical-statement-proposals.jsonl pipeline/source-reconciliation/per-concept-coverage.jsonl pipeline/source-reconciliation/predicate-proposals.jsonl
           python scripts/validate_v2.py
           python -m pytest -q tests/test_source_reconciliation.py tests/test_source_staging.py
       - name: Install isolated source staging schema

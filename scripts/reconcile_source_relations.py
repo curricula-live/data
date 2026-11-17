@@ -142,6 +142,7 @@ def reconcile_cso(mapping, path):
     counts, by_predicate, map_degree = Counter(), Counter(), Counter()
     seen = set()
     edges = 0
+    content_digest = hashlib.sha256()
     with path.open("wb") as f:
         with gzip.GzipFile(filename="", mode="wb", compresslevel=9, mtime=0, fileobj=f) as gz:
             for edge in records(CSO / "uri-relations.jsonl.gz"):
@@ -177,7 +178,9 @@ def reconcile_cso(mapping, path):
                     "proposed_statement": None,
                     "inference_eligible": False,
                 }
-                gz.write(encode(result))
+                encoded = encode(result)
+                content_digest.update(encoded)
+                gz.write(encoded)
                 counts[status] += 1
                 by_predicate[p] += 1
                 map_degree[f"subject:{'mapped' if sc else 'unmapped'}"] += 1
@@ -185,6 +188,7 @@ def reconcile_cso(mapping, path):
                 edges += 1
     return {"processed": edges, "statuses": dict(sorted(counts.items())),
             "predicates": dict(sorted(by_predicate.items())),
+            "uncompressed_jsonl_sha256": content_digest.hexdigest(),
             "candidate_mapping_coverage": dict(sorted(map_degree.items()))}
 
 def build_concept_index(output):
