@@ -29,7 +29,7 @@ For this version of the corpus, the structural scan found **zero directed `subty
 
 The reviewed-knowledge admission procedure must preserve the original UUIDs and distinguish a structural anomaly from a scientific inconsistency. Auditing does not certify any of the 19 predicate semantics or establish source provenance.
 
-Initial manual-review dossiers: [Array](reviews/array.md), [Integer](reviews/integer.md), [Variable](reviews/variable.md).
+Concept analyses are **generated on request**, not kept as one maintained Markdown file per concept. Use `python scripts/knowledge_review_queue.py --concept array` and `python scripts/semantic_risk_audit.py --concept array`; substitute `integer`, `variable`, or another canonical slug as appropriate. Reports are review aids, not accepted definitions.
 
 ## Review order
 

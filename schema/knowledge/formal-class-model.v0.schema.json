@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://curricula.live/schema/knowledge/formal-class-model.v0.schema.json",
+  "title": "Experimental typed class-expression model — noncanonical",
+  "description": "Expression grammar for synthetic fixtures only. This is not an accepted canonical definition or an assertion about scientific truth.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "subject_concept_id",
+    "scope",
+    "relation",
+    "expression",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "formal-class-model.v0"
+    },
+    "subject_concept_id": {
+      "$ref": "#/$defs/uuid"
+    },
+    "scope": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,79}$"
+    },
+    "relation": {
+      "enum": [
+        "necessary",
+        "equivalent"
+      ]
+    },
+    "expression": {
+      "$ref": "#/$defs/classExpression"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "supporting_statement_ids"
+      ],
+      "properties": {
+        "status": {
+          "const": "synthetic_fixture"
+        },
+        "supporting_statement_ids": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/uuid"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "classExpression": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "concept_id"
+          ],
+          "properties": {
+            "op": {
+              "const": "concept"
+            },
+            "concept_id": {
+              "$ref": "#/$defs/uuid"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "args"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "and",
+                "or"
+              ]
+            },
+            "args": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 24,
+              "items": {
+                "$ref": "#/$defs/classExpression"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "arg"
+          ],
+          "properties": {
+            "op": {
+              "const": "not"
+            },
+            "arg": {
+              "$ref": "#/$defs/classExpression"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "property",
+            "filler"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "some",
+                "only"
+              ]
+            },
+            "property": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$",
+              "maxLength": 64
+            },
+            "filler": {
+              "$ref": "#/$defs/classExpression"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
