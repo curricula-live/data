@@ -50,12 +50,16 @@ jobs:
           python - <<'PY'
           import os
           import psycopg
+          from scripts.publish import load_canonical_state
+          canonical = load_canonical_state()
           expected = {
-              "knowledge.concept": 554,
-              "knowledge.predicate": 19,
-              "knowledge.statement": 663,
-              "knowledge.definition": 0,
-              "knowledge.definition_statement": 0,
+              "knowledge.concept": len(canonical["concepts"]),
+              "knowledge.predicate": len(canonical["predicates"]),
+              "knowledge.statement": len(canonical["statements"]),
+              "knowledge.definition": len(canonical["definitions"]),
+              "knowledge.definition_statement": sum(
+                  len(row["statement_ids"]) for row in canonical["definitions"]
+              ),
           }
           with psycopg.connect(os.environ["DATABASE_URL"], autocommit=True) as conn:
               for table, expected_count in expected.items():
