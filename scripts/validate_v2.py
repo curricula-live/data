@@ -136,6 +136,10 @@ def validate_semantic_admissions(rows: dict[str, list[dict[str, Any]]]) -> None:
                      "safe_for_prerequisite_inference", "safe_for_formal_proof"):
             if policy.get(flag) is not False:
                 raise SystemExit(f"admitted predicate is not proof-safe: {slug} {flag}")
+        translation_path = ROOT / "pipeline/semantic-admission/reviewed-predicate-logical-translations.json"
+        reviewed_translations = load_json(translation_path)
+        if policy.get("logical_translation") != reviewed_translations.get(slug):
+            raise SystemExit(f"admitted predicate logical translation differs from review: {slug}")
         approved_policies[slug] = policy
     witnessed = set()
     for admission in admissions:

@@ -216,8 +216,11 @@ def apply(*, write=False):
     existing_concepts = list(records(ROOT / "knowledge/concepts.jsonl"))
     existing_statements = list(records(ROOT / "knowledge/statements.jsonl"))
     generated, ledger = build(existing_concepts, existing_statements)
+    translations = json.loads((AREA / "reviewed-predicate-logical-translations.json").read_text())
+    if set(translations) != {p["slug"] for p in PREDICATE_POLICIES}:
+        raise ValueError("Each admitted predicate requires an explicitly reviewed logical translation")
     policy = [
-        {**p,
+        {**p, "logical_translation": translations[p["slug"]],
          "source_tier": "editorially_screened_direct_or_externally_corrob",
          "transitive": False, "symmetric": False,
          "safe_for_subtype_inference": False,

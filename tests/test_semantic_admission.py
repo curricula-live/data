@@ -159,7 +159,7 @@ def test_wave2_is_additive_and_explicitly_held_edges_stay_out():
 
 def test_held_relation_cannot_be_added_by_editing_an_allowlist(tmp_path, monkeypatch):
     import admit_semantics as admission
-    for name in ("reviewed-cso-super-topic.tsv", "reviewed-cso-wave2.tsv", "held-cso-wave2.tsv"):
+    for name in ("reviewed-cso-super-topic.tsv", "reviewed-cso-wave2.tsv", "held-cso-wave2.tsv", "reviewed-predicate-logical-translations.json"):
         (tmp_path / name).write_bytes((AREA / name).read_bytes())
     path = tmp_path / "reviewed-cso-wave2.tsv"
     rows = path.read_text().splitlines()
@@ -192,3 +192,32 @@ def test_admission_rejects_identity_or_source_witness_drift(tmp_path, monkeypatc
     monkeypatch.setattr(validate, "KNOWLEDGE", tmp_path)
     with pytest.raises(SystemExit, match=expected):
         validate.validate_semantic_admissions(state)
+
+
+def test_reviewed_logical_translations_preserve_predicate_scope_and_non_entailments():
+    policies = list(records(ROOT / "knowledge/predicate-policies.jsonl"))
+    assert len(policies) == 5
+    symbols = set()
+    for policy in policies:
+        logic = policy["logical_translation"]
+        assert logic["form"] == "scoped_binary_relation" and logic["arity"] == 2
+        assert logic["allowed_conditional_rules"] == ["conjunction_introduction", "existential_introduction"]
+        assert not logic["class_subsumption"]
+        assert not logic["closed_world_negation"]
+        assert not logic["equivalence_from_edge"]
+        assert not policy["transitive"] and not policy["safe_for_subtype_inference"]
+        symbols.add(logic["symbol"])
+    assert len(symbols) == 5
+
+
+def test_logical_translation_cannot_be_silently_changed(tmp_path, monkeypatch):
+    import scripts.validate_v2 as validate
+    for name in ("statement-admissions.jsonl", "predicate-policies.jsonl"):
+        (tmp_path / name).write_bytes((ROOT / "knowledge" / name).read_bytes())
+    policies = list(records(tmp_path / "predicate-policies.jsonl"))
+    policies[0]["logical_translation"]["class_subsumption"] = True
+    (tmp_path / "predicate-policies.jsonl").write_text(
+        "".join(json.dumps(p,sort_keys=True)+"\n" for p in policies))
+    monkeypatch.setattr(validate, "KNOWLEDGE", tmp_path)
+    with pytest.raises(SystemExit, match="logical translation differs from review"):
+        validate.validate_semantic_admissions(load_canonical_state())
