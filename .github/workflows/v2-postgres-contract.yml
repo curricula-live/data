@@ -34,8 +34,10 @@ jobs:
           cache: pip
       - name: Install pinned Python dependencies
         run: python -m pip install -r requirements.txt
-      - name: Install data-owned knowledge v2 target schema in disposable DB
-        run: psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0001_knowledge_core.sql
+      - name: Install data-owned knowledge v2 and admission schema in disposable DB
+        run: |
+          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0001_knowledge_core.sql
+          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f database/migrations/0005_knowledge_statement_admission.sql
       - name: Validate migration identities and canonical corpus
         run: |
           python scripts/validate_v2.py
@@ -56,6 +58,8 @@ jobs:
               "knowledge.concept": len(canonical["concepts"]),
               "knowledge.predicate": len(canonical["predicates"]),
               "knowledge.statement": len(canonical["statements"]),
+              "knowledge.statement_admission": len(canonical.get("admissions", [])),
+              "knowledge.predicate_semantic_policy": len(canonical.get("policies", [])),
               "knowledge.definition": len(canonical["definitions"]),
               "knowledge.definition_statement": sum(
                   len(row["statement_ids"]) for row in canonical["definitions"]

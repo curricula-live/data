@@ -107,6 +107,83 @@ def validate_references(
                 raise SystemExit(f"definition for {concept_id} references unknown statement {statement_id}")
 
 
+def validate_semantic_admissions(rows: dict[str, list[dict[str, Any]]]) -> None:
+    """Fail closed for any newly admitted source-qualified scientific statement."""
+    admissions_path = KNOWLEDGE / "statement-admissions.jsonl"
+    policies_path = KNOWLEDGE / "predicate-policies.jsonl"
+    if not admissions_path.exists() and not policies_path.exists():
+        return
+    if not admissions_path.exists() or not policies_path.exists():
+        raise SystemExit("semantic admission ledger and predicate policy must be committed together")
+    admissions = load_jsonl(admissions_path)
+    policies = load_jsonl(policies_path)
+    require_unique([r["statement_id"] for r in admissions], "admission statement UUID")
+    require_unique([r["slug"] for r in policies], "admission predicate policy")
+    require_sorted(admissions, "statement_id", "knowledge/statement-admissions.jsonl")
+    require_sorted(policies, "slug", "knowledge/predicate-policies.jsonl")
+    statement_by_id = {r["id"]: r for r in rows["statements"]}
+    predicate_by_slug = {r["slug"]: r for r in rows["predicates"]}
+    approved_policies = {}
+    for policy in policies:
+        slug = policy["slug"]
+        if slug not in predicate_by_slug or policy["label"] != predicate_by_slug[slug]["label"]:
+            raise SystemExit(f"missing or mismatched admitted predicate: {slug}")
+        if not policy.get("semantics") or not policy.get("semantic_scope"):
+            raise SystemExit(f"admitted predicate lacks a defined semantic scope: {slug}")
+        for flag in ("transitive", "symmetric", "safe_for_subtype_inference",
+                     "safe_for_prerequisite_inference", "safe_for_formal_proof"):
+            if policy.get(flag) is not False:
+                raise SystemExit(f"admitted predicate is not proof-safe: {slug} {flag}")
+        approved_policies[slug] = policy
+    witnessed = set()
+    for admission in admissions:
+        sid = admission["statement_id"]
+        stmt = statement_by_id.get(sid)
+        if stmt is None or stmt["predicate"] not in approved_policies:
+            raise SystemExit(f"admission {sid} missing a corresponding typed statement")
+        if admission["predicate_slug"] != stmt["predicate"]:
+            raise SystemExit(f"admission {sid} predicate differs from admitted statement")
+        if admission.get("native_predicate") in ("subtype_of", "prerequisite_of"):
+            raise SystemExit(f"source predicate was silently converted to canonical proof premise: {sid}")
+        source = admission["source_id"]
+        if source not in ("cso@3.5", "curricula-historical-v1@1.0.0"):
+            raise SystemExit(f"unknown source in admission {sid}")
+        if source == "cso@3.5" and (
+            admission["native_predicate"] != "http://cso.kmi.open.ac.uk/schema/cso#superTopicOf"
+            or stmt["predicate"] != "research_topic_parent_of"
+        ):
+            raise SystemExit(f"CSO predicate semantics invalid: {sid}")
+        if source != "cso@3.5" and stmt["predicate"] == "research_topic_parent_of":
+            raise SystemExit(f"archived V1 taxonomy may not be admitted: {sid}")
+        if admission.get("review_level") not in (
+            "editorially_screened_source_attested", "editorially_corrob_with_external_reference"
+        ):
+            raise SystemExit(f"unknown review tier: {sid}")
+        for flag in ("inference_eligible", "proof_eligible", "independent_expert_review"):
+            if admission.get(flag) is not False:
+                raise SystemExit(f"unsupported scientific verification claim: {sid} {flag}")
+        urls = admission.get("evidence_urls")
+        if not isinstance(urls, list) or not urls or any(
+            not isinstance(url, str) or not url.startswith("https://") for url in urls
+        ):
+            raise SystemExit(f"admission {sid} missing source evidence")
+        if not admission.get("source_assertion_witness") or not admission.get("source_archive_sha256"):
+            raise SystemExit(f"admission {sid} missing reproducible source provenance")
+        if (stmt["subject"]["kind"], stmt["object"]["kind"]) != ("concept", "concept"):
+            raise SystemExit(f"only concept-to-concept direct admissions supported: {sid}")
+        witness = (source, admission["source_assertion_witness"])
+        if witness in witnessed:
+            raise SystemExit(f"source assertion promoted twice: {witness}")
+        witnessed.add(witness)
+    if len(admissions) != 101 or len(policies) != 5:
+        raise SystemExit("semantic admission batch changed without a scoped re-review")
+    ledger_ids = {r["statement_id"] for r in admissions}
+    unsafe = [s["id"] for s in rows["statements"]
+              if s["predicate"] in approved_policies and s["id"] not in ledger_ids]
+    if unsafe:
+        raise SystemExit(f"unattested source-qualified canonical statements: {unsafe[:5]}")
+
+
 def main() -> None:
     rows = {name: load_jsonl(path) for name, path in FILES.items()}
 
@@ -129,6 +206,8 @@ def main() -> None:
         rows["statements"],
         rows["definitions"],
     )
+
+    validate_semantic_admissions(rows)
 
     print(
         "validated v2 knowledge: "

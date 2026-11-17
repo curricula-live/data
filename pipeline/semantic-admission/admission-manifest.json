@@ -1,0 +1,14 @@
+{
+  "externally_corrob_historical_core": 14,
+  "independent_expert_reviewed_statement_count": 0,
+  "input_source_version": [
+    "cso@3.5",
+    "curricula-historical-v1@1.0.0"
+  ],
+  "new_predicates": 5,
+  "new_statements": 101,
+  "proof_eligible_statement_count": 0,
+  "schema": "curricula.semantic-admission@1",
+  "source_cso_topic_relations": 87,
+  "source_relations_not_promoted": 153862
+}
