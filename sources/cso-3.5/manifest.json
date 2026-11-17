@@ -1,0 +1,29 @@
+{
+  "archive_sha256": "47e535468e3c9fb9e9da91bc97a3756d472ce8513bd72b094dcd67c65e78d5cc",
+  "archive_url": "https://cso.kmi.open.ac.uk/download/version-3.5/CSO.3.5.nt.zip",
+  "attribution": "Computer Science Ontology (CSO), The Open University, v3.5",
+  "canonical_lexical_candidate_count": 302,
+  "cross_source_identity_approved": false,
+  "curriculum_prerequisites_inferred": false,
+  "license": "CC-BY-4.0",
+  "license_url": "https://cso.kmi.open.ac.uk/faq",
+  "predicate_counts": {
+    "http://cso.kmi.open.ac.uk/schema/cso#contributesTo": 48980,
+    "http://cso.kmi.open.ac.uk/schema/cso#preferentialEquivalent": 5475,
+    "http://cso.kmi.open.ac.uk/schema/cso#relatedEquivalent": 10181,
+    "http://cso.kmi.open.ac.uk/schema/cso#superTopicOf": 44510,
+    "http://schema.org/relatedLink": 8803,
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": 14636,
+    "http://www.w3.org/2000/01/rdf-schema#label": 14636,
+    "http://www.w3.org/2002/07/owl#sameAs": 19297
+  },
+  "release_date": "2025-07-29",
+  "review_status": "source_preserved_not_canonical",
+  "schema": "curricula.source-catalog@1",
+  "source_id": "cso",
+  "source_version": "3.5",
+  "topic_count": 14636,
+  "triple_count": 166518,
+  "unlabeled_subject_count": 100,
+  "uri_relation_count": 151882
+}

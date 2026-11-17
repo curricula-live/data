@@ -1,0 +1,64 @@
+{
+  "all_sources_reconciled": true,
+  "automatic_prerequisite_inference_enabled": false,
+  "automatic_subtype_inference_enabled": false,
+  "canonical_relation_type_promotions": 0,
+  "canonical_statement_promotions": 0,
+  "cross_source_identity_join_approved": false,
+  "new_concept_coverage": {
+    "total_new_concepts": 1856,
+    "with_historical_relationship_candidates": 1854,
+    "without_historical_relationship_candidates": 2
+  },
+  "predicate_proposals": 14,
+  "schema": "curricula.source-reconciliation@1",
+  "source_archive_hashes": {
+    "cso": "47e535468e3c9fb9e9da91bc97a3756d472ce8513bd72b094dcd67c65e78d5cc",
+    "historical-v1": "4e6ff79570b68de6a6d1d1d4136dcb413e26b999af05fa0ea19cb329ab50df58"
+  },
+  "source_rows": {
+    "cso": {
+      "candidate_mapping_coverage": {
+        "object:mapped": 2267,
+        "object:unmapped": 149615,
+        "subject:mapped": 9944,
+        "subject:unmapped": 141938
+      },
+      "predicates": {
+        "http://cso.kmi.open.ac.uk/schema/cso#contributesTo": 48980,
+        "http://cso.kmi.open.ac.uk/schema/cso#preferentialEquivalent": 5475,
+        "http://cso.kmi.open.ac.uk/schema/cso#relatedEquivalent": 10181,
+        "http://cso.kmi.open.ac.uk/schema/cso#superTopicOf": 44510,
+        "http://schema.org/relatedLink": 8803,
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": 14636,
+        "http://www.w3.org/2002/07/owl#sameAs": 19297
+      },
+      "processed": 151882,
+      "statuses": {
+        "both_lexical_candidates_require_review": 437,
+        "one_lexical_candidate_requires_review": 10069,
+        "source_only_no_canonical_identity": 98640,
+        "source_or_external_object_unmapped": 42361,
+        "unlabelled_subject_or_external": 375
+      },
+      "uncompressed_jsonl_sha256": "3714f788eed50a96f4d83fbcce1dbcdfd8f98577b895ddf0ec1286a194cbdf02"
+    },
+    "historical-v1": {
+      "predicates": {
+        "broaderTopic": 2065,
+        "hasOperation": 5,
+        "hasProperty": 2,
+        "implements": 3,
+        "subtopicOf": 2,
+        "valueOfType": 4
+      },
+      "processed": 2081,
+      "statuses": {
+        "blocked_identity_collision": 3,
+        "requires_existing_concept_identity_approval": 336,
+        "two_provisional_ids_mapped": 1742
+      }
+    }
+  },
+  "status": "proposed_unreviewed_inference_prohibited"
+}
