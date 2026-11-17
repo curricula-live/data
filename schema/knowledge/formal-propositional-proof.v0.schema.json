@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://curricula.live/schema/knowledge/formal-propositional-proof.v0.schema.json",
-  "title": "Experimental propositional natural-deduction certificate v0 — synthetic only",
+  "title": "Experimental propositional natural-deduction certificate v0 \u2014 synthetic only",
   "description": "Strict AST and proof step contract. Schema validation does not prove soundness: API proof checker must verify every step and its discharged assumptions.",
   "type": "object",
   "additionalProperties": false,
@@ -348,6 +348,30 @@
               "const": "iff_elim_right"
             },
             "equivalence": {
+              "$ref": "#/$defs/stepId"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "left",
+            "right"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "iff_intro"
+            },
+            "left": {
+              "$ref": "#/$defs/stepId"
+            },
+            "right": {
               "$ref": "#/$defs/stepId"
             }
           }

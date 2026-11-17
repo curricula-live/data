@@ -86,7 +86,8 @@ The experimental natural-deduction checker currently supports:
 - `and_intro`, `and_elim_left`, `and_elim_right`;
 - `imp_elim` (modus ponens) and `imp_intro` (discharge an assumption);
 - `or_intro_left`, `or_intro_right`, without unsound selection of a disjunct;
-- `iff_elim_left`, `iff_elim_right`, without invented equivalences.
+- `iff_elim_left`, `iff_elim_right`, and `iff_intro`, which requires
+  independently justified implications in both directions.
 
 Negation and constants are accepted as **formula syntax**, not as unrestricted
 proof rules. First-order quantification, terms, equality, ring axioms,
@@ -248,3 +249,84 @@ source documents, derive unbounded closure, publish inference outputs, or
 integrate this contract with the teacher-facing concept pages. Before
 publication, context and predicate semantics need explicit authoritative
 review and typed source evidence.
+
+
+## Typed role signatures for ∃ and ∀ (v0)
+
+A **predicate name** in the recorded concept graph does *not* automatically
+carry an individual-level description-logic role interpretation. For example,
+`Array uses Index` is a relation between **concept identities** and cannot by
+itself establish `Array ⊑ ∃uses.Index` (a claim about instances), much less
+`Array ⊑ ∀uses.Index`.
+
+The research contract `schema/knowledge/formal-role-signatures.v0.schema.json`
+requires a **separate, scoped, synthetic** declaration:
+
+- An existing canonical `property_slug` whose *identity* is checked against
+  the exact SHA-256-pinned `predicates.jsonl` registry.
+- `role_sort = object_role` for binary individual-to-individual relations,
+  or `data_role` for literal-valued properties. The type checker rejects
+  `∃R.C`/`∀R.C` when `R` is a `data_role`; a separate typed datatype
+  expression would be necessary.
+- Optional `domain_concept_id` and `range_concept_id` are UUIDs or null.
+  **If present, they are hypothetical declarations**, not discovered source
+  facts or independently proven OWL range/domain axioms.
+- `scope = synthetic_...`, provenance
+  `role_semantics_origin = assumed_not_in_source`, and `may_publish = false`.
+
+The checker `scripts/validate_formal_roles.py` validates typed role use
+against a class-expression AST, without inventing quantifier evidence.
+The matching API helper `core/formal_quantified_models.py` independently
+checks the signature and outputs typed, escaped Unicode/LaTeX renderings
+without granting source verification.
+
+```bash
+python scripts/validate_formal_roles.py \
+  tests/fixtures/role-signatures.synthetic.json \
+  --model tests/fixtures/formal-array.synthetic.json
+pytest -q tests/test_formal_roles.py
+```
+
+The hypothetical model can render `Array ⊑ (Data Structure ⊓ ∃uses.Index)`
+or, with an explicitly different AST, a universal `∀uses.Index` term.
+**Neither is admitted as a scientific definition of Array**.
+
+## Equivalence needs two distinct directions
+
+In **propositional** natural deduction, `iff_intro` is now an explicit,
+assumption-tracking rule:
+
+```text
+h1 : P ⇒ Q                         [assume]
+h2 : Q ⇒ P                         [assume]
+s1 : P ⇔ Q                         [iff_intro h1 h2]
+Open assumptions: h1, h2
+```
+
+This produces a **conditional** biconditional, not a theorem, until its two
+hypotheses are discharged or justified. The API rule checker independently
+tests both implication directions and final truth-table entailment.
+
+A **different** rule applies to description-logic *class equivalence*.
+Within **one shared interpretation**, two checked subsumption proofs,
+`A ⊑ B` and `B ⊑ A`, conditionally yield `A ≡ B`.
+`core/formal_mutual_subsumption.py` checks both full proof certificates
+against identical source snapshot fingerprints, their original premise UUIDs,
+the **reverse** subject/object identities and matching hypothetical scope.
+The module has no source-backed scoped equivalences to publish and the
+tests therefore use an entirely synthetic four-class graph.
+
+These are **not interchangeable** symbols: `⇔` links propositions,
+`≡` identifies equivalent classes, `⊑` represents class subsumption,
+and `⊆` is ordinary set inclusion where its operands really are sets.
+A single `subtype_of` edge never warrants either sort of equivalence.
+
+```bash
+python scripts/validate_formal_proposition.py \
+  tests/fixtures/propositional-biconditional.synthetic.json
+pytest -q tests/test_formal_biconditional_schema.py
+```
+
+There is still **no new public page formula** for `⇔`, `≡`, `∃` or
+`∀` unless the canonical semantic property and its bidirectional evidence
+are properly admitted. Client notation support is not a scientific source.

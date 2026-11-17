@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://curricula.live/schema/knowledge/formal-role-signatures.v0.schema.json",
+  "title": "Synthetic typed role signatures for description-logic class restrictions",
+  "description": "Explicitly hypothetical declarations for how canonical predicate slugs MAY be interpreted as binary roles. Not automatically inferred from a recorded concept-to-concept relation, and never published.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "scope",
+    "provenance",
+    "snapshot",
+    "signatures"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "formal-role-signatures.v0"
+    },
+    "scope": {
+      "type": "string",
+      "pattern": "^synthetic_[a-z][a-z0-9_]{0,71}$"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "role_semantics_origin"
+      ],
+      "properties": {
+        "status": {
+          "const": "synthetic_fixture"
+        },
+        "role_semantics_origin": {
+          "const": "assumed_not_in_source"
+        }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "concepts_sha256",
+        "predicates_sha256"
+      ],
+      "properties": {
+        "concepts_sha256": {
+          "$ref": "#/$defs/digest"
+        },
+        "predicates_sha256": {
+          "$ref": "#/$defs/digest"
+        }
+      }
+    },
+    "signatures": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 24,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "property_slug",
+          "role_sort",
+          "domain_concept_id",
+          "range_concept_id"
+        ],
+        "properties": {
+          "property_slug": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "role_sort": {
+            "enum": [
+              "object_role",
+              "data_role"
+            ]
+          },
+          "domain_concept_id": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/uuid"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "range_concept_id": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/uuid"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "role_sort": {
+                  "const": "data_role"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "range_concept_id": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  }
+}
