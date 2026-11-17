@@ -1,0 +1,61 @@
+{
+  "schema_version": "formal-propositional-proof.v0",
+  "scope": "boolean_propositional_schemas",
+  "provenance": {
+    "status": "synthetic_fixture"
+  },
+  "goal": {
+    "op": "implies",
+    "left": {
+      "op": "iff",
+      "left": {
+        "op": "atom",
+        "name": "P"
+      },
+      "right": {
+        "op": "atom",
+        "name": "Q"
+      }
+    },
+    "right": {
+      "op": "implies",
+      "left": {
+        "op": "atom",
+        "name": "P"
+      },
+      "right": {
+        "op": "atom",
+        "name": "Q"
+      }
+    }
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "rule": "assume",
+      "formula": {
+        "op": "iff",
+        "left": {
+          "op": "atom",
+          "name": "P"
+        },
+        "right": {
+          "op": "atom",
+          "name": "Q"
+        }
+      }
+    },
+    {
+      "id": "s2",
+      "rule": "iff_elim_left",
+      "equivalence": "s1"
+    },
+    {
+      "id": "s3",
+      "rule": "imp_intro",
+      "assumption": "s1",
+      "conclusion": "s2"
+    }
+  ],
+  "conclusion_step_id": "s3"
+}

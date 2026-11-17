@@ -1,0 +1,76 @@
+{
+  "schema_version": "formal-propositional-proof.v0",
+  "scope": "synthetic_propositional",
+  "provenance": {
+    "status": "synthetic_fixture"
+  },
+  "goal": {
+    "op": "implies",
+    "left": {
+      "op": "atom",
+      "name": "P"
+    },
+    "right": {
+      "op": "implies",
+      "left": {
+        "op": "implies",
+        "left": {
+          "op": "atom",
+          "name": "P"
+        },
+        "right": {
+          "op": "atom",
+          "name": "Q"
+        }
+      },
+      "right": {
+        "op": "atom",
+        "name": "Q"
+      }
+    }
+  },
+  "steps": [
+    {
+      "id": "h1",
+      "rule": "assume",
+      "formula": {
+        "op": "atom",
+        "name": "P"
+      }
+    },
+    {
+      "id": "h2",
+      "rule": "assume",
+      "formula": {
+        "op": "implies",
+        "left": {
+          "op": "atom",
+          "name": "P"
+        },
+        "right": {
+          "op": "atom",
+          "name": "Q"
+        }
+      }
+    },
+    {
+      "id": "s1",
+      "rule": "imp_elim",
+      "implication": "h2",
+      "antecedent": "h1"
+    },
+    {
+      "id": "s2",
+      "rule": "imp_intro",
+      "assumption": "h2",
+      "conclusion": "s1"
+    },
+    {
+      "id": "s3",
+      "rule": "imp_intro",
+      "assumption": "h1",
+      "conclusion": "s2"
+    }
+  ],
+  "conclusion_step_id": "s3"
+}

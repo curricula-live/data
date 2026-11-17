@@ -1,0 +1,20 @@
+{
+  "schema_version": "formal-role-signatures.v0",
+  "scope": "synthetic_abstract_programming",
+  "provenance": {
+    "status": "synthetic_fixture",
+    "role_semantics_origin": "assumed_not_in_source"
+  },
+  "snapshot": {
+    "concepts_sha256": "sha256:307ca96200e587408cdb2a4a4e01e8ce90d08a0224873cbd68a27cc958d70285",
+    "predicates_sha256": "sha256:30e6e9fb70afcb4a3879b2880404bd55dc0cbcc1a1b475936e1bdc14d3aa4536"
+  },
+  "signatures": [
+    {
+      "property_slug": "uses",
+      "role_sort": "object_role",
+      "domain_concept_id": null,
+      "range_concept_id": null
+    }
+  ]
+}

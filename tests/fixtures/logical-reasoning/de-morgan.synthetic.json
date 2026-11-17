@@ -1,0 +1,132 @@
+{
+  "schema_version": "formal-propositional-proof.v0",
+  "scope": "boolean_propositional_schemas",
+  "provenance": {
+    "status": "synthetic_fixture"
+  },
+  "goal": {
+    "op": "implies",
+    "left": {
+      "op": "not",
+      "arg": {
+        "op": "or",
+        "left": {
+          "op": "atom",
+          "name": "P"
+        },
+        "right": {
+          "op": "atom",
+          "name": "Q"
+        }
+      }
+    },
+    "right": {
+      "op": "and",
+      "left": {
+        "op": "not",
+        "arg": {
+          "op": "atom",
+          "name": "P"
+        }
+      },
+      "right": {
+        "op": "not",
+        "arg": {
+          "op": "atom",
+          "name": "Q"
+        }
+      }
+    }
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "rule": "assume",
+      "formula": {
+        "op": "not",
+        "arg": {
+          "op": "or",
+          "left": {
+            "op": "atom",
+            "name": "P"
+          },
+          "right": {
+            "op": "atom",
+            "name": "Q"
+          }
+        }
+      }
+    },
+    {
+      "id": "s2",
+      "rule": "assume",
+      "formula": {
+        "op": "atom",
+        "name": "P"
+      }
+    },
+    {
+      "id": "s3",
+      "rule": "or_intro_left",
+      "premise": "s2",
+      "other": {
+        "op": "atom",
+        "name": "Q"
+      }
+    },
+    {
+      "id": "s4",
+      "rule": "not_elim",
+      "positive": "s3",
+      "negative": "s1"
+    },
+    {
+      "id": "s5",
+      "rule": "not_intro",
+      "assumption": "s2",
+      "conclusion": "s4"
+    },
+    {
+      "id": "s6",
+      "rule": "assume",
+      "formula": {
+        "op": "atom",
+        "name": "Q"
+      }
+    },
+    {
+      "id": "s7",
+      "rule": "or_intro_right",
+      "premise": "s6",
+      "other": {
+        "op": "atom",
+        "name": "P"
+      }
+    },
+    {
+      "id": "s8",
+      "rule": "not_elim",
+      "positive": "s7",
+      "negative": "s1"
+    },
+    {
+      "id": "s9",
+      "rule": "not_intro",
+      "assumption": "s6",
+      "conclusion": "s8"
+    },
+    {
+      "id": "s10",
+      "rule": "and_intro",
+      "left": "s5",
+      "right": "s9"
+    },
+    {
+      "id": "s11",
+      "rule": "imp_intro",
+      "assumption": "s1",
+      "conclusion": "s10"
+    }
+  ],
+  "conclusion_step_id": "s11"
+}

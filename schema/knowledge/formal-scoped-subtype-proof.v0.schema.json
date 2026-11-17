@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://curricula.live/schema/knowledge/formal-scoped-subtype-proof.v0.schema.json",
+  "title": "Provisional scoped subtype proof certificate v0",
+  "description": "Proof-checking an explicitly assumed uniform subtype-of semantics on recorded UUID-identified assertions. Scoped semantics are hypotheses, not inferred from unreviewed canonical files.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "scope",
+    "provenance",
+    "snapshot",
+    "goal",
+    "steps",
+    "conclusion_step_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "formal-scoped-subtype-proof.v0"
+    },
+    "scope": {
+      "type": "string",
+      "pattern": "^hypothetical_[a-z][a-z0-9_]{0,61}$"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "source_scientific_review",
+        "scope_origin"
+      ],
+      "properties": {
+        "status": {
+          "const": "synthetic_fixture"
+        },
+        "source_scientific_review": {
+          "const": "not_established"
+        },
+        "scope_origin": {
+          "const": "assumed_not_in_source"
+        }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "concepts_sha256",
+        "statements_sha256"
+      ],
+      "properties": {
+        "concepts_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "statements_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    },
+    "goal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject_concept_id",
+        "predicate",
+        "object_concept_id"
+      ],
+      "properties": {
+        "subject_concept_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "predicate": {
+          "const": "subtype_of"
+        },
+        "object_concept_id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 64,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "rule",
+              "statement_id",
+              "assumed_scope"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,31}$"
+              },
+              "rule": {
+                "const": "recorded_subtype"
+              },
+              "statement_id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "assumed_scope": {
+                "type": "string",
+                "pattern": "^hypothetical_[a-z][a-z0-9_]{0,61}$"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "rule",
+              "left",
+              "right"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,31}$"
+              },
+              "rule": {
+                "const": "subtype_transitivity"
+              },
+              "left": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,31}$"
+              },
+              "right": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,31}$"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "conclusion_step_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,31}$"
+    }
+  }
+}
