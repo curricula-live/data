@@ -1,0 +1,43 @@
+{
+  "schema_version": "formal-propositional-proof.v0",
+  "scope": "synthetic_propositional",
+  "provenance": {
+    "status": "synthetic_fixture"
+  },
+  "goal": {
+    "op": "and",
+    "left": {
+      "op": "atom",
+      "name": "P"
+    },
+    "right": {
+      "op": "atom",
+      "name": "Q"
+    }
+  },
+  "steps": [
+    {
+      "id": "h1",
+      "rule": "assume",
+      "formula": {
+        "op": "atom",
+        "name": "P"
+      }
+    },
+    {
+      "id": "h2",
+      "rule": "assume",
+      "formula": {
+        "op": "atom",
+        "name": "Q"
+      }
+    },
+    {
+      "id": "s1",
+      "rule": "and_intro",
+      "left": "h1",
+      "right": "h2"
+    }
+  ],
+  "conclusion_step_id": "s1"
+}

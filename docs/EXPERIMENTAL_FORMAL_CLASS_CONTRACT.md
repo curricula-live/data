@@ -119,3 +119,67 @@ pytest -q tests/test_formal_proposition.py
 
 No canonical statements/definitions, database publication, public web
 endpoints, or per-concept Markdown records are involved.
+
+
+## Experimental canonical-statement → propositional-atom bridge
+
+This stage is **not** a scientific facts import. It connects an abstract
+propositional atom to an *existing recorded* canonical statement UUID, with
+full-file SHA-256 snapshot fingerprints to detect changes in either concept
+identities or recorded assertions.
+
+`formal-statement-bindings.v0.schema.json` includes:
+
+- `scope = provisional_canonical_graph`;
+- `provenance.status = synthetic_fixture` and `source_scientific_review = not_established`;
+- checksums of exact `concepts.jsonl` and `statements.jsonl` bytes;
+- a bounded list of `atom` → `statement_id` bindings.
+
+There is **no concept-specific source adapter**. A single reader verifies
+the source snapshot, resolves original subject/predicate/object identities,
+then projects any selected recorded concept-to-concept claim into a named atom.
+The paired API checker independently validates the mapping against supplied
+source JSONL bytes and validates each proof step. A complex assumed formula
+cannot masquerade as a single recorded statement in this prototype.
+
+For a small example, both selected recorded UUIDs already exist in the
+canonical graph:
+
+```text
+P := recorded UUID 048adf33-...    (Array subtype_of Collection)
+Q := recorded UUID 15ead31d-...    (Collection subtype_of Data)
+h1: P                              [recorded assertion used as assumption]
+h2: Q                              [recorded assertion used as assumption]
+s1: P ∧ Q                          [and_intro h1 h2]
+```
+
+The resulting entailment is **conditional** (`P,Q ⊢ P∧Q`). No new
+concept-to-concept statement is created. In particular,
+`Array subtype_of Data` is **not** obtained merely by propositional
+conjunction; it requires a *separately specified* and scoped
+`subtype_of` transitivity rule whose semantic applicability has been
+reviewed. The older teacher-graph API has a provisional subtype inference;
+this new prototype is not an alternative publisher for it.
+
+To reproduce the review with canonical bytes in this checkout:
+
+```bash
+python scripts/validate_statement_bindings.py tests/fixtures/recorded-array-bindings.synthetic.json
+python scripts/validate_formal_proposition.py tests/fixtures/recorded-array-conjunction.synthetic.json
+```
+
+In a checkout of the paired API formal PR (paths may vary):
+
+```bash
+python -m core.formal_recorded_statement_bridge \
+  --concepts ../data/knowledge/concepts.jsonl \
+  --statements ../data/knowledge/statements.jsonl \
+  --bindings tests/fixtures/recorded-array-bindings.synthetic.json \
+  --proof tests/fixtures/recorded-array-conjunction.synthetic.json
+```
+
+The runtime of this helper is deliberately **read-only and local**: no API
+route, no automatic canonical knowledge writer, no source-rights approval,
+and no database edits. In the future the canonical adapter may consume a
+stable DB snapshot rather than Git JSONL, but it must retain the UUID and
+source-version guarantees.

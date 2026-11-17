@@ -1,0 +1,22 @@
+{
+  "schema_version": "formal-statement-bindings.v0",
+  "scope": "provisional_canonical_graph",
+  "provenance": {
+    "status": "synthetic_fixture",
+    "source_scientific_review": "not_established"
+  },
+  "snapshot": {
+    "concepts_sha256": "sha256:307ca96200e587408cdb2a4a4e01e8ce90d08a0224873cbd68a27cc958d70285",
+    "statements_sha256": "sha256:4b13ae0ac0eefa2d6d258e7ea94471d88bcab94290802d4f0be0f875cfdeee2b"
+  },
+  "bindings": [
+    {
+      "atom": "P",
+      "statement_id": "048adf33-0701-43de-998f-20c299388f51"
+    },
+    {
+      "atom": "Q",
+      "statement_id": "15ead31d-e970-4aad-a4f8-7c9fccf3097a"
+    }
+  ]
+}

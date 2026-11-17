@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://curricula.live/schema/knowledge/formal-statement-bindings.v0.schema.json",
+  "title": "Synthetic recorded-statement atom bindings v0",
+  "description": "Maps abstract atoms onto existing UUID-identified canonical graph statements for a non-publishing conditional proof demonstration. Does not certify source truth or predicate semantics.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "scope",
+    "provenance",
+    "snapshot",
+    "bindings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "formal-statement-bindings.v0"
+    },
+    "scope": {
+      "const": "provisional_canonical_graph"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "source_scientific_review"
+      ],
+      "properties": {
+        "status": {
+          "const": "synthetic_fixture"
+        },
+        "source_scientific_review": {
+          "const": "not_established"
+        }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "concepts_sha256",
+        "statements_sha256"
+      ],
+      "properties": {
+        "concepts_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "statements_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    },
+    "bindings": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "atom",
+          "statement_id"
+        ],
+        "properties": {
+          "atom": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Za-z0-9_]{0,31}$"
+          },
+          "statement_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      }
+    }
+  }
+}
