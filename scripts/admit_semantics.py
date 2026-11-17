@@ -85,7 +85,16 @@ def build(existing_concepts, existing_statements):
         if policy["slug"] in existing_p and existing_p[policy["slug"]]["label"] != policy["label"]:
             raise ValueError("Admission predicate definition changed without review.")
     cso_topics = {t["uri"]: t["label"] for t in records(CSO / "topics.jsonl")}
-    pairs = parse_allowlist(AREA / "reviewed-cso-super-topic.tsv", 87)
+    wave1_pairs = parse_allowlist(AREA / "reviewed-cso-super-topic.tsv", 87)
+    wave2_pairs = parse_allowlist(AREA / "reviewed-cso-wave2.tsv", 25)
+    pairs = wave1_pairs + wave2_pairs
+    if len({tuple(row) for row in pairs}) != len(pairs):
+        raise ValueError("Admission waves contain duplicate reviewed pairs")
+    held_rows = parse_allowlist(AREA / "held-cso-wave2.tsv", 10)
+    if any(len(row) != 3 or not row[2].strip() for row in held_rows):
+        raise ValueError("Held relationships require a specific review reason")
+    if {tuple(row[:2]) for row in held_rows} & {tuple(row) for row in pairs}:
+        raise ValueError("Held relationship cannot enter the admitted allowlist")
     accepted_pairs = {tuple(row) for row in pairs}
     matches = defaultdict(list)
     for row in records(OUT / "cso-statement-proposals.jsonl.gz"):
@@ -188,8 +197,8 @@ def build(existing_concepts, existing_statements):
             "evidence_urls": [ref],
             "scope_note": "Specific ADT/Boolean claim corroborated by a separate educational/standards reference; no claim of formal proof or expert peer review.",
         })
-    if len(stmt) != 101 or len(reviews) != 101 or len({s["id"] for s in stmt}) != len(stmt):
-        raise ValueError("Expected 101 independently keyed admitted statements")
+    if len(stmt) != 126 or len(reviews) != 126 or len({s["id"] for s in stmt}) != len(stmt):
+        raise ValueError("Expected 126 independently keyed admitted statements")
     for candidate in stmt:
         prev = original.get(candidate["id"])
         if prev is not None and prev != candidate:
@@ -220,6 +229,8 @@ def apply(*, write=False):
         "schema": "curricula.semantic-admission@1",
         "input_source_version": ["cso@3.5","curricula-historical-v1@1.0.0"],
         "new_predicates": len(policy), "new_statements": len(generated),
+        "admission_waves": {"wave1": 101, "wave2": 25},
+        "wave2_explicitly_held_relations": 10,
         "source_cso_topic_relations": sum(x["source_id"] == CSO_ID for x in ledger),
         "externally_corrob_historical_core": sum(x["source_id"] == V1_ID for x in ledger),
         "proof_eligible_statement_count": 0,

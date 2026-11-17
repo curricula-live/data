@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from pathlib import Path
 from typing import Any
 
@@ -123,6 +124,7 @@ def validate_semantic_admissions(rows: dict[str, list[dict[str, Any]]]) -> None:
     require_sorted(policies, "slug", "knowledge/predicate-policies.jsonl")
     statement_by_id = {r["id"]: r for r in rows["statements"]}
     predicate_by_slug = {r["slug"]: r for r in rows["predicates"]}
+    concept_by_id = {r["id"]: r for r in rows["concepts"]}
     approved_policies = {}
     for policy in policies:
         slug = policy["slug"]
@@ -171,6 +173,21 @@ def validate_semantic_admissions(rows: dict[str, list[dict[str, Any]]]) -> None:
             raise SystemExit(f"admission {sid} missing reproducible source provenance")
         if (stmt["subject"]["kind"], stmt["object"]["kind"]) != ("concept", "concept"):
             raise SystemExit(f"only concept-to-concept direct admissions supported: {sid}")
+        for endpoint in ("subject", "object"):
+            concept = concept_by_id.get(stmt[endpoint]["id"])
+            reviewed_label = admission.get(endpoint + "_label")
+            if (concept is None or not isinstance(reviewed_label, str)
+                    or concept["label"].casefold() != reviewed_label.casefold()):
+                raise SystemExit(f"admission {sid} endpoint differs from reviewed identity: {endpoint}")
+        if source == "cso@3.5":
+            subject_uri = admission.get("subject_source_uri")
+            object_uri = admission.get("object_source_uri")
+            if not isinstance(subject_uri, str) or not isinstance(object_uri, str):
+                raise SystemExit(f"admission {sid} missing original CSO endpoints")
+            triple = f'<{subject_uri}> <{admission["native_predicate"]}> <{object_uri}> .'
+            expected = "sha256:" + hashlib.sha256(triple.encode("utf-8")).hexdigest()
+            if admission["source_assertion_witness"] != expected:
+                raise SystemExit(f"admission {sid} source witness differs from original triple")
         witness = (source, admission["source_assertion_witness"])
         if witness in witnessed:
             raise SystemExit(f"source assertion promoted twice: {witness}")

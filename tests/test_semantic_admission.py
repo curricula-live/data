@@ -9,24 +9,24 @@ import pytest
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"scripts"))
-from admit_semantics import apply,CSO_PARENT_IRI,CSO,V1,AREA,uri_witness,records
+from admit_semantics import apply,CSO_PARENT_IRI,CSO,V1,AREA,uri_witness,records,parse_allowlist
 from scripts.publish import load_canonical_state,build_plan
 
-def test_wave1_counts_and_reproducibility():
+def test_admission_wave_counts_and_reproducibility():
     manifest=apply(write=False)
     assert manifest["new_predicates"]==5
-    assert manifest["new_statements"]==101
-    assert manifest["source_cso_topic_relations"]==87
+    assert manifest["new_statements"]==126
+    assert manifest["source_cso_topic_relations"]==112
     assert manifest["externally_corrob_historical_core"]==14
     assert manifest["proof_eligible_statement_count"]==0
     assert json.loads((AREA/"admission-manifest.json").read_text())==manifest
     state=load_canonical_state()
     assert len(state["concepts"])==2410
     assert len(state["predicates"])==24
-    assert len(state["statements"])==764
-    assert len(state["admissions"])==101
+    assert len(state["statements"])==789
+    assert len(state["admissions"])==126
     assert len(state["policies"])==5
-    assert len({x["statement_id"] for x in state["admissions"]})==101
+    assert len({x["statement_id"] for x in state["admissions"]})==126
     assert len({x["slug"] for x in state["policies"]})==5
 
 def test_every_admitted_cso_source_witness_is_in_original_nt_zip():
@@ -37,7 +37,7 @@ def test_every_admitted_cso_source_witness_is_in_original_nt_zip():
     statements={x["id"]:x for x in records(ROOT/"knowledge/statements.jsonl")}
     cso_admissions=[x for x in records(ROOT/"knowledge/statement-admissions.jsonl")
                     if x["source_id"]=="cso@3.5"]
-    assert len(cso_admissions)==87
+    assert len(cso_admissions)==112
     for a in cso_admissions:
         triple=f'<{a["subject_source_uri"]}> <{a["native_predicate"]}> <{a["object_source_uri"]}> .'
         assert triple in corpus_lines
@@ -139,3 +139,56 @@ def test_predicate_cannot_claim_automatic_class_subsumption(tmp_path,monkeypatch
     monkeypatch.setattr(validate,"KNOWLEDGE",tmp_path)
     with pytest.raises(SystemExit,match="admitted predicate is not proof-safe"):
         validate.validate_semantic_admissions(load_canonical_state())
+
+
+def test_wave2_is_additive_and_explicitly_held_edges_stay_out():
+    old = {tuple(row) for row in parse_allowlist(
+        AREA / "reviewed-cso-super-topic.tsv", 87)}
+    added = {tuple(row) for row in parse_allowlist(
+        AREA / "reviewed-cso-wave2.tsv", 25)}
+    held = parse_allowlist(AREA / "held-cso-wave2.tsv", 10)
+    assert not old & added
+    assert not (old | added) & {tuple(row[:2]) for row in held}
+    assert all(len(row) == 3 and row[2].strip() for row in held)
+    admitted = {(a["subject_label"], a["object_label"]) for a in records(
+        ROOT / "knowledge/statement-admissions.jsonl") if a["source_id"] == "cso@3.5"}
+    assert admitted == old | added
+    assert ("statistics", "logistic regression") in added
+    assert ("statistics", "regression testing") not in admitted
+
+
+def test_held_relation_cannot_be_added_by_editing_an_allowlist(tmp_path, monkeypatch):
+    import admit_semantics as admission
+    for name in ("reviewed-cso-super-topic.tsv", "reviewed-cso-wave2.tsv", "held-cso-wave2.tsv"):
+        (tmp_path / name).write_bytes((AREA / name).read_bytes())
+    path = tmp_path / "reviewed-cso-wave2.tsv"
+    rows = path.read_text().splitlines()
+    rows[0] = "gpu|cpu"
+    path.write_text("\n".join(rows) + "\n")
+    monkeypatch.setattr(admission, "AREA", tmp_path)
+    with pytest.raises(ValueError, match="Held relationship"):
+        admission.apply(write=False)
+
+
+@pytest.mark.parametrize("tamper", ["endpoint", "witness"])
+def test_admission_rejects_identity_or_source_witness_drift(tmp_path, monkeypatch, tamper):
+    import scripts.validate_v2 as validate
+    for name in ("statement-admissions.jsonl", "predicate-policies.jsonl"):
+        (tmp_path / name).write_bytes((ROOT / "knowledge" / name).read_bytes())
+    state = load_canonical_state()
+    admissions = list(records(tmp_path / "statement-admissions.jsonl"))
+    record = next(a for a in admissions if a["source_id"] == "cso@3.5")
+    if tamper == "endpoint":
+        statement = next(s for s in state["statements"] if s["id"] == record["statement_id"])
+        replacement = next(c for c in state["concepts"]
+                           if c["label"].casefold() != record["subject_label"].casefold())
+        statement["subject"] = {"kind": "concept", "id": replacement["id"]}
+        expected = "endpoint differs from reviewed identity"
+    else:
+        record["object_source_uri"] += "_tampered"
+        (tmp_path / "statement-admissions.jsonl").write_text(
+            "".join(json.dumps(a, sort_keys=True) + "\n" for a in admissions))
+        expected = "source witness differs from original triple"
+    monkeypatch.setattr(validate, "KNOWLEDGE", tmp_path)
+    with pytest.raises(SystemExit, match=expected):
+        validate.validate_semantic_admissions(state)
