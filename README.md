@@ -126,3 +126,10 @@ promoting any of the newly proposed concept labels. Exploration commands:
     python scripts/source_topic_paths.py --source cso --term "computer science" --depth 2
 
 Source paths are recorded edge witnesses, not subtype or prerequisite proofs.
+
+### Large-scale source relation review (draft)
+
+The `knowledge_source` staging schema and source-scoped reconciliation ledger
+cover 153,963 source URI assertions and 14 proposed source predicate mappings.
+Read [SOURCE_RECONCILIATION.md](docs/SOURCE_RECONCILIATION.md) before using this
+material. These are **not** new canonical factual statements or inference rules.
