@@ -375,6 +375,106 @@
               "$ref": "#/$defs/stepId"
             }
           }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "disjunction",
+            "left_case",
+            "right_case"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "or_elim"
+            },
+            "disjunction": {
+              "$ref": "#/$defs/stepId"
+            },
+            "left_case": {
+              "$ref": "#/$defs/stepId"
+            },
+            "right_case": {
+              "$ref": "#/$defs/stepId"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "assumption",
+            "conclusion"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "not_intro"
+            },
+            "assumption": {
+              "$ref": "#/$defs/stepId"
+            },
+            "conclusion": {
+              "$ref": "#/$defs/stepId"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "positive",
+            "negative"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "not_elim"
+            },
+            "positive": {
+              "$ref": "#/$defs/stepId"
+            },
+            "negative": {
+              "$ref": "#/$defs/stepId"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "contradiction",
+            "formula"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "bottom_elim"
+            },
+            "contradiction": {
+              "$ref": "#/$defs/stepId"
+            },
+            "formula": {
+              "$ref": "#/$defs/formula"
+            }
+          }
         }
       ]
     }

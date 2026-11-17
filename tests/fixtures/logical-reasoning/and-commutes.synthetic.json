@@ -1,0 +1,115 @@
+{
+  "schema_version": "formal-propositional-proof.v0",
+  "scope": "boolean_propositional_schemas",
+  "provenance": {
+    "status": "synthetic_fixture"
+  },
+  "goal": {
+    "op": "iff",
+    "left": {
+      "op": "and",
+      "left": {
+        "op": "atom",
+        "name": "P"
+      },
+      "right": {
+        "op": "atom",
+        "name": "Q"
+      }
+    },
+    "right": {
+      "op": "and",
+      "left": {
+        "op": "atom",
+        "name": "Q"
+      },
+      "right": {
+        "op": "atom",
+        "name": "P"
+      }
+    }
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "rule": "assume",
+      "formula": {
+        "op": "and",
+        "left": {
+          "op": "atom",
+          "name": "P"
+        },
+        "right": {
+          "op": "atom",
+          "name": "Q"
+        }
+      }
+    },
+    {
+      "id": "s2",
+      "rule": "and_elim_left",
+      "conjunction": "s1"
+    },
+    {
+      "id": "s3",
+      "rule": "and_elim_right",
+      "conjunction": "s1"
+    },
+    {
+      "id": "s4",
+      "rule": "and_intro",
+      "left": "s3",
+      "right": "s2"
+    },
+    {
+      "id": "s5",
+      "rule": "imp_intro",
+      "assumption": "s1",
+      "conclusion": "s4"
+    },
+    {
+      "id": "s6",
+      "rule": "assume",
+      "formula": {
+        "op": "and",
+        "left": {
+          "op": "atom",
+          "name": "Q"
+        },
+        "right": {
+          "op": "atom",
+          "name": "P"
+        }
+      }
+    },
+    {
+      "id": "s7",
+      "rule": "and_elim_left",
+      "conjunction": "s6"
+    },
+    {
+      "id": "s8",
+      "rule": "and_elim_right",
+      "conjunction": "s6"
+    },
+    {
+      "id": "s9",
+      "rule": "and_intro",
+      "left": "s8",
+      "right": "s7"
+    },
+    {
+      "id": "s10",
+      "rule": "imp_intro",
+      "assumption": "s6",
+      "conclusion": "s9"
+    },
+    {
+      "id": "s11",
+      "rule": "iff_intro",
+      "left": "s5",
+      "right": "s10"
+    }
+  ],
+  "conclusion_step_id": "s11"
+}

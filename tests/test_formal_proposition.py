@@ -68,3 +68,19 @@ def test_raw_proof_does_not_touch_canonical_definitions_or_statements():
 
 def test_proof_is_deterministically_validated_without_external_context():
     assert validate_propositional_proof(sample()) == validate_propositional_proof(deepcopy(sample()))
+
+
+def test_concept_page_logical_schemas_validate_against_data_contract():
+    from pathlib import Path
+    import json
+    from scripts.validate_formal_proposition import validate_propositional_proof
+    fixtures = sorted((Path(__file__).parent / 'fixtures/logical-reasoning').glob('*.json'))
+    assert len(fixtures) == 6
+    operators = set()
+    for fixture in fixtures:
+        certificate = json.loads(fixture.read_text())
+        report = validate_propositional_proof(certificate)
+        assert report['well_formed']
+        assert not report['may_publish']
+        operators.update(s['rule'] for s in certificate['steps'])
+    assert {'or_elim', 'not_intro', 'not_elim', 'iff_intro', 'imp_elim'} <= operators

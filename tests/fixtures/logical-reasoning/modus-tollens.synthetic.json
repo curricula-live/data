@@ -1,0 +1,105 @@
+{
+  "schema_version": "formal-propositional-proof.v0",
+  "scope": "boolean_propositional_schemas",
+  "provenance": {
+    "status": "synthetic_fixture"
+  },
+  "goal": {
+    "op": "implies",
+    "left": {
+      "op": "implies",
+      "left": {
+        "op": "atom",
+        "name": "P"
+      },
+      "right": {
+        "op": "atom",
+        "name": "Q"
+      }
+    },
+    "right": {
+      "op": "implies",
+      "left": {
+        "op": "not",
+        "arg": {
+          "op": "atom",
+          "name": "Q"
+        }
+      },
+      "right": {
+        "op": "not",
+        "arg": {
+          "op": "atom",
+          "name": "P"
+        }
+      }
+    }
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "rule": "assume",
+      "formula": {
+        "op": "implies",
+        "left": {
+          "op": "atom",
+          "name": "P"
+        },
+        "right": {
+          "op": "atom",
+          "name": "Q"
+        }
+      }
+    },
+    {
+      "id": "s2",
+      "rule": "assume",
+      "formula": {
+        "op": "not",
+        "arg": {
+          "op": "atom",
+          "name": "Q"
+        }
+      }
+    },
+    {
+      "id": "s3",
+      "rule": "assume",
+      "formula": {
+        "op": "atom",
+        "name": "P"
+      }
+    },
+    {
+      "id": "s4",
+      "rule": "imp_elim",
+      "implication": "s1",
+      "antecedent": "s3"
+    },
+    {
+      "id": "s5",
+      "rule": "not_elim",
+      "positive": "s4",
+      "negative": "s2"
+    },
+    {
+      "id": "s6",
+      "rule": "not_intro",
+      "assumption": "s3",
+      "conclusion": "s5"
+    },
+    {
+      "id": "s7",
+      "rule": "imp_intro",
+      "assumption": "s2",
+      "conclusion": "s6"
+    },
+    {
+      "id": "s8",
+      "rule": "imp_intro",
+      "assumption": "s1",
+      "conclusion": "s7"
+    }
+  ],
+  "conclusion_step_id": "s8"
+}

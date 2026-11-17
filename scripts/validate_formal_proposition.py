@@ -60,6 +60,7 @@ def validate_propositional_proof(proof: dict[str, Any]) -> dict[str, Any]:
         for field in (
             "left", "right", "conjunction", "implication", "antecedent",
             "assumption", "conclusion", "premise", "equivalence",
+            "disjunction", "left_case", "right_case", "positive", "negative", "contradiction",
         ):
             if field in step and step[field] not in seen:
                 raise PropositionalSchemaError(
@@ -69,6 +70,7 @@ def validate_propositional_proof(proof: dict[str, Any]) -> dict[str, Any]:
         rule_counts[rule] = rule_counts.get(rule, 0) + 1
         if rule == "assume":
             assumptions += 1
+        if "formula" in step:
             sizes.append(_formula_size(step["formula"]))
         if "other" in step:
             sizes.append(_formula_size(step["other"]))

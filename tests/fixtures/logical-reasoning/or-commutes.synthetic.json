@@ -1,0 +1,189 @@
+{
+  "schema_version": "formal-propositional-proof.v0",
+  "scope": "boolean_propositional_schemas",
+  "provenance": {
+    "status": "synthetic_fixture"
+  },
+  "goal": {
+    "op": "iff",
+    "left": {
+      "op": "or",
+      "left": {
+        "op": "atom",
+        "name": "P"
+      },
+      "right": {
+        "op": "atom",
+        "name": "Q"
+      }
+    },
+    "right": {
+      "op": "or",
+      "left": {
+        "op": "atom",
+        "name": "Q"
+      },
+      "right": {
+        "op": "atom",
+        "name": "P"
+      }
+    }
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "rule": "assume",
+      "formula": {
+        "op": "or",
+        "left": {
+          "op": "atom",
+          "name": "P"
+        },
+        "right": {
+          "op": "atom",
+          "name": "Q"
+        }
+      }
+    },
+    {
+      "id": "s2",
+      "rule": "assume",
+      "formula": {
+        "op": "atom",
+        "name": "P"
+      }
+    },
+    {
+      "id": "s3",
+      "rule": "or_intro_right",
+      "premise": "s2",
+      "other": {
+        "op": "atom",
+        "name": "Q"
+      }
+    },
+    {
+      "id": "s4",
+      "rule": "imp_intro",
+      "assumption": "s2",
+      "conclusion": "s3"
+    },
+    {
+      "id": "s5",
+      "rule": "assume",
+      "formula": {
+        "op": "atom",
+        "name": "Q"
+      }
+    },
+    {
+      "id": "s6",
+      "rule": "or_intro_left",
+      "premise": "s5",
+      "other": {
+        "op": "atom",
+        "name": "P"
+      }
+    },
+    {
+      "id": "s7",
+      "rule": "imp_intro",
+      "assumption": "s5",
+      "conclusion": "s6"
+    },
+    {
+      "id": "s8",
+      "rule": "or_elim",
+      "disjunction": "s1",
+      "left_case": "s4",
+      "right_case": "s7"
+    },
+    {
+      "id": "s9",
+      "rule": "imp_intro",
+      "assumption": "s1",
+      "conclusion": "s8"
+    },
+    {
+      "id": "s10",
+      "rule": "assume",
+      "formula": {
+        "op": "or",
+        "left": {
+          "op": "atom",
+          "name": "Q"
+        },
+        "right": {
+          "op": "atom",
+          "name": "P"
+        }
+      }
+    },
+    {
+      "id": "s11",
+      "rule": "assume",
+      "formula": {
+        "op": "atom",
+        "name": "Q"
+      }
+    },
+    {
+      "id": "s12",
+      "rule": "or_intro_right",
+      "premise": "s11",
+      "other": {
+        "op": "atom",
+        "name": "P"
+      }
+    },
+    {
+      "id": "s13",
+      "rule": "imp_intro",
+      "assumption": "s11",
+      "conclusion": "s12"
+    },
+    {
+      "id": "s14",
+      "rule": "assume",
+      "formula": {
+        "op": "atom",
+        "name": "P"
+      }
+    },
+    {
+      "id": "s15",
+      "rule": "or_intro_left",
+      "premise": "s14",
+      "other": {
+        "op": "atom",
+        "name": "Q"
+      }
+    },
+    {
+      "id": "s16",
+      "rule": "imp_intro",
+      "assumption": "s14",
+      "conclusion": "s15"
+    },
+    {
+      "id": "s17",
+      "rule": "or_elim",
+      "disjunction": "s10",
+      "left_case": "s13",
+      "right_case": "s16"
+    },
+    {
+      "id": "s18",
+      "rule": "imp_intro",
+      "assumption": "s10",
+      "conclusion": "s17"
+    },
+    {
+      "id": "s19",
+      "rule": "iff_intro",
+      "left": "s9",
+      "right": "s18"
+    }
+  ],
+  "conclusion_step_id": "s19"
+}
