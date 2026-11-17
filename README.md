@@ -113,3 +113,16 @@ Database migrations remain a separate reviewed release step. The current v2 targ
 The previous Supabase-first snapshot/synchronization workflow is retired. The historical exporter and identity ledger remain under `migration/legacy-v1/` and `scripts/migrate_legacy.py` so the origin of the initial canonical UUID-backed corpus stays reproducible and auditable.
 
 Never commit database credentials, private source documents, or user/admin secrets.
+
+
+## Source coverage expansion (draft)
+
+The bulk-ingestion prototype keeps source triples and identity proposals distinct
+from reviewed canonical facts. Read docs/BULK_CONCEPT_COVERAGE.md before
+promoting any of the newly proposed concept labels. Exploration commands:
+
+    python scripts/source_coverage_search.py "binary tree"
+    python scripts/source_coverage_search.py "TCP"
+    python scripts/source_topic_paths.py --source cso --term "computer science" --depth 2
+
+Source paths are recorded edge witnesses, not subtype or prerequisite proofs.

@@ -1,0 +1,23 @@
+{
+  "canonical_lexical_candidate_count": 1998,
+  "cross_source_identity_approved": false,
+  "curriculum_prerequisites_inferred": false,
+  "independent_scientific_approval": false,
+  "input_name": "ontology-consolidated.json",
+  "input_sha256": "4e6ff79570b68de6a6d1d1d4136dcb413e26b999af05fa0ea19cb329ab50df58",
+  "predicate_counts": {
+    "broaderTopic": 2065,
+    "hasOperation": 5,
+    "hasProperty": 2,
+    "implements": 3,
+    "subtopicOf": 2,
+    "valueOfType": 4
+  },
+  "review_status": "archived_unreviewed_not_canonical",
+  "schema": "curricula.source-catalog@1",
+  "source_id": "curricula-ontology-archived-v1",
+  "source_repository": "https://github.com/curricula-live/ontology",
+  "source_version": "1.0.0",
+  "topic_count": 2001,
+  "uri_relation_count": 2081
+}
