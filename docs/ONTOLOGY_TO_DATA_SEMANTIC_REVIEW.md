@@ -110,3 +110,46 @@ A reviewed source dossier should first decide which senses of *Array*, *Index*, 
 ## What this branch does *not* do
 
 It does not import the archived ontology; create new canonical concepts, definitions, predicates, statements or source alignments; change the database; authenticate sources; assert rights; or publish anything. The queue and report are reproducible **review aids**.
+
+
+## Read-only comparative audit: historical native ontology versus canonical data
+
+Do **not** equate `ontology/native-v2` with the active federated V2 direction.
+The native release manifest explicitly says `published: false` and
+`automaticPublicationAllowed: false`. Its 161,108 statements are largely
+its own formal-expression encoding, rather than scientific links between two
+concepts. Neither a shared slug nor an archived `broader_topic` is a reviewed
+crosswalk or a `subtype_of` entailment.
+
+The generic (not per-concept) audit helper is:
+
+```bash
+python scripts/compare_historical_ontology.py \\
+  --historical-native ../ontology/native-v2 \\
+  --concept algorithm --concept computer-network --format markdown
+
+python scripts/compare_historical_ontology.py \\
+  --historical-native ../ontology/native-v2 \\
+  --concept function --concept operating-system --format json
+```
+
+Its report includes canonical and historical concept counts, predicate
+families (formal grammar vs other predicates), *actual* concept-to-concept
+edge types, per-concept incoming/outgoing relations, original recorded UUIDs,
+selected historical formal-record kinds and limited scope annotations.
+It never imports or creates claims and never writes to PostgreSQL. A matching
+slug is presented as an **unverified lexical match**, not identity alignment.
+
+In the 2026-11-17 sampled audit, the historical native release had 120
+predicates; 92 began with `formal_`; 161,108 total statements but only 2,081
+concept-to-concept statements, of which 2,065 use `broader_topic` (a topic
+hierarchy, not automatically class subsumption). Canonical `data` had 554
+concepts, 19 predicates and 663 concept-to-concept assertions. These scopes
+should never be conflated in a migration-readiness calculation.
+
+Proposed next investigation targets are **Algorithm** (rich interaction of
+implementation, parts, representations, complexity and correctness) and
+**Computer Network** (network classification, components, communications and
+roles). They are *benchmarks*, not pre-approved canonical import targets.
+The source directory can be changed for other archived releases; assertions
+from other repos remain noncanonical until individually reconciled.
