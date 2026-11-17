@@ -183,3 +183,68 @@ route, no automatic canonical knowledge writer, no source-rights approval,
 and no database edits. In the future the canonical adapter may consume a
 stable DB snapshot rather than Git JSONL, but it must retain the UUID and
 source-version guarantees.
+
+
+## Hypothetical scoped subtype inference v0
+
+The following is a **research-only** mechanism for making an actual, inspectable
+graph deduction, distinct from a purely propositional conjunction of recorded
+claims.
+
+`schema/knowledge/formal-scoped-subtype-proof.v0.schema.json` stores a
+bounded, ordered proof of a `subtype_of` relationship. A source premise
+`recorded_subtype` points to an **existing canonical statement UUID**.
+A derived step applies **only** `subtype_transitivity`:
+
+```text
+subtype_of(A,B) [scope S]   subtype_of(B,C) [scope S]
+-----------------------------------------------------  subtype_transitivity
+              subtype_of(A,C) [scope S]
+```
+
+A proof is checked against SHA-256-pinned canonical `concepts.jsonl` and
+`statements.jsonl` bytes. The checker verifies the exact source predicate,
+direction, shared intermediate concept, declared scope, ordered premise UUID
+chain and claimed goal. It explicitly rejects `uses`, inverted relations,
+unknown/missing source IDs, future-referenced steps and mismatched contexts.
+
+**Important scope limitation:** canonical legacy statements do not yet carry
+reviewed semantic scopes. For now `scope = hypothetical_...` is an
+**external assumption included in the certificate**, not a property certified
+by the graph. `scope_origin = assumed_not_in_source` is mandatory. Thus the
+deduction is *procedurally valid under a hypothetical common subtype meaning*,
+but its science is not established and it must not create a canonical fact.
+
+A sample certificate is checked by:
+
+```bash
+python scripts/validate_scoped_subtype_proof.py tests/fixtures/scoped-array-subtype.synthetic.json
+pytest -q tests/test_scoped_subtype_proof.py
+```
+
+On the paired API branch, **generic discovery** constructs the certificate
+from the recorded graph, so there is no per-concept adapter or maintained
+Markdown page:
+
+```bash
+python -m core.formal_subtype_discovery \
+  --concepts ../data/knowledge/concepts.jsonl \
+  --statements ../data/knowledge/statements.jsonl \
+  --subject array --target data
+
+python -m core.formal_subtype_discovery \
+  --concepts ../data/knowledge/concepts.jsonl \
+  --statements ../data/knowledge/statements.jsonl \
+  --subject integer --target real-number
+```
+
+Both examples yield exact UUID-backed, **conditional** transitivity proofs.
+The integer-to-real-number chain is a useful reminder that this apparent
+mathematical inclusion cannot be promoted as a programming-language type
+relation without a reviewed model and context.
+
+The engine does not yet claim to perform general classification, certify
+source documents, derive unbounded closure, publish inference outputs, or
+integrate this contract with the teacher-facing concept pages. Before
+publication, context and predicate semantics need explicit authoritative
+review and typed source evidence.

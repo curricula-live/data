@@ -1,0 +1,39 @@
+{
+  "schema_version": "formal-scoped-subtype-proof.v0",
+  "scope": "hypothetical_shared_taxonomy",
+  "provenance": {
+    "status": "synthetic_fixture",
+    "source_scientific_review": "not_established",
+    "scope_origin": "assumed_not_in_source"
+  },
+  "snapshot": {
+    "concepts_sha256": "sha256:307ca96200e587408cdb2a4a4e01e8ce90d08a0224873cbd68a27cc958d70285",
+    "statements_sha256": "sha256:4b13ae0ac0eefa2d6d258e7ea94471d88bcab94290802d4f0be0f875cfdeee2b"
+  },
+  "goal": {
+    "subject_concept_id": "ea8c3f31-8745-52b1-9e29-d5fcf6ab16ba",
+    "predicate": "subtype_of",
+    "object_concept_id": "2bfccfc4-b578-5dad-a6b2-361106b178b0"
+  },
+  "steps": [
+    {
+      "id": "h1",
+      "rule": "recorded_subtype",
+      "statement_id": "048adf33-0701-43de-998f-20c299388f51",
+      "assumed_scope": "hypothetical_shared_taxonomy"
+    },
+    {
+      "id": "h2",
+      "rule": "recorded_subtype",
+      "statement_id": "15ead31d-e970-4aad-a4f8-7c9fccf3097a",
+      "assumed_scope": "hypothetical_shared_taxonomy"
+    },
+    {
+      "id": "s1",
+      "rule": "subtype_transitivity",
+      "left": "h1",
+      "right": "h2"
+    }
+  ],
+  "conclusion_step_id": "s1"
+}
