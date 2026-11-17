@@ -1,0 +1,358 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://curricula.live/schema/knowledge/formal-propositional-proof.v0.schema.json",
+  "title": "Experimental propositional natural-deduction certificate v0 — synthetic only",
+  "description": "Strict AST and proof step contract. Schema validation does not prove soundness: API proof checker must verify every step and its discharged assumptions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "scope",
+    "provenance",
+    "goal",
+    "steps",
+    "conclusion_step_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "formal-propositional-proof.v0"
+    },
+    "scope": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,79}$"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "const": "synthetic_fixture"
+        }
+      }
+    },
+    "goal": {
+      "$ref": "#/$defs/formula"
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 96,
+      "items": {
+        "$ref": "#/$defs/proofStep"
+      }
+    },
+    "conclusion_step_id": {
+      "$ref": "#/$defs/stepId"
+    }
+  },
+  "$defs": {
+    "stepId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,31}$"
+    },
+    "formula": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "name"
+          ],
+          "properties": {
+            "op": {
+              "const": "atom"
+            },
+            "name": {
+              "type": "string",
+              "pattern": "^[A-Z][A-Za-z0-9_]{0,31}$"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "top",
+                "bottom"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "arg"
+          ],
+          "properties": {
+            "op": {
+              "const": "not"
+            },
+            "arg": {
+              "$ref": "#/$defs/formula"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "left",
+            "right"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "and",
+                "or",
+                "implies",
+                "iff"
+              ]
+            },
+            "left": {
+              "$ref": "#/$defs/formula"
+            },
+            "right": {
+              "$ref": "#/$defs/formula"
+            }
+          }
+        }
+      ]
+    },
+    "proofStep": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "formula"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "assume"
+            },
+            "formula": {
+              "$ref": "#/$defs/formula"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "left",
+            "right"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "and_intro"
+            },
+            "left": {
+              "$ref": "#/$defs/stepId"
+            },
+            "right": {
+              "$ref": "#/$defs/stepId"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "conjunction"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "and_elim_left"
+            },
+            "conjunction": {
+              "$ref": "#/$defs/stepId"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "conjunction"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "and_elim_right"
+            },
+            "conjunction": {
+              "$ref": "#/$defs/stepId"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "implication",
+            "antecedent"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "imp_elim"
+            },
+            "implication": {
+              "$ref": "#/$defs/stepId"
+            },
+            "antecedent": {
+              "$ref": "#/$defs/stepId"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "assumption",
+            "conclusion"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "imp_intro"
+            },
+            "assumption": {
+              "$ref": "#/$defs/stepId"
+            },
+            "conclusion": {
+              "$ref": "#/$defs/stepId"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "premise",
+            "other"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "or_intro_left"
+            },
+            "premise": {
+              "$ref": "#/$defs/stepId"
+            },
+            "other": {
+              "$ref": "#/$defs/formula"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "premise",
+            "other"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "or_intro_right"
+            },
+            "premise": {
+              "$ref": "#/$defs/stepId"
+            },
+            "other": {
+              "$ref": "#/$defs/formula"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "equivalence"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "iff_elim_left"
+            },
+            "equivalence": {
+              "$ref": "#/$defs/stepId"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "rule",
+            "equivalence"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/stepId"
+            },
+            "rule": {
+              "const": "iff_elim_right"
+            },
+            "equivalence": {
+              "$ref": "#/$defs/stepId"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

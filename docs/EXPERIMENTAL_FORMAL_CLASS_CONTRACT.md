@@ -67,3 +67,55 @@ Before expanding beyond synthetic fixtures, settle source provenance, identity
 crosswalk, role/property semantics, context/sort checking and necessary versus
 sufficient conditions. The current schema deliberately does not allow an
 `approved` status, canonical publication, or an untyped bag of metadata.
+
+
+## Experimental propositional proof language v0
+
+This is deliberately **separate** from description-logic class expressions.
+The formula AST uses `atom`, `top`, `bottom`, `not`, `and`, `or`,
+`implies`, and `iff`; these denote propositional connectives, not
+`subtype_of` or class union/intersection. Variables `P` and `Q`
+represent abstract truth-valued atoms, **not** canonical concept identities or
+facts imported from the ontology.
+
+A synthetic proof certificate lists bounded, numbered steps. Each step can
+reference only earlier steps; there is no `axiom` or `trust_me` shortcut.
+The experimental natural-deduction checker currently supports:
+
+- `assume`: open an explicitly tracked hypothesis;
+- `and_intro`, `and_elim_left`, `and_elim_right`;
+- `imp_elim` (modus ponens) and `imp_intro` (discharge an assumption);
+- `or_intro_left`, `or_intro_right`, without unsound selection of a disjunct;
+- `iff_elim_left`, `iff_elim_right`, without invented equivalences.
+
+Negation and constants are accepted as **formula syntax**, not as unrestricted
+proof rules. First-order quantification, terms, equality, ring axioms,
+connection to semantic graph claims, and other proof rules are outside v0.
+
+A worked synthetic proof certificate shows:
+
+```text
+h1: P                          [assume]
+h2: P ⇒ Q                      [assume]
+s1: Q                          [imp_elim h2 h1]
+s2: (P ⇒ Q) ⇒ Q                [imp_intro h2 s1; h2 discharged]
+s3: P ⇒ ((P ⇒ Q) ⇒ Q)          [imp_intro h1 s2; h1 discharged]
+```
+
+The checker returns a trace with exact premise-step IDs and current open
+assumptions. A **closed** derivation has none; an **open** derivation is only a
+conditional consequence of its hypotheses. For at most eight atom names the
+API additionally checks the conclusion against every Boolean valuation.
+These verifications establish validity *within the experimental calculus*.
+They **do not** establish whether any source-backed claim is scientifically
+true or whether its canonical identity is correct.
+
+Reproduction (the paired API proof checker lives in the separate API PR):
+
+```bash
+python scripts/validate_formal_proposition.py tests/fixtures/propositional-deduction.synthetic.json
+pytest -q tests/test_formal_proposition.py
+```
+
+No canonical statements/definitions, database publication, public web
+endpoints, or per-concept Markdown records are involved.
