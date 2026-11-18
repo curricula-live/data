@@ -813,6 +813,7 @@
 {"id":"5a0074e3-5fd4-5b04-ab08-fd72f4295591","label":"File management","slug":"file-management"}
 {"id":"b527fc8f-9b9a-5ed7-a57e-76547ab13a15","label":"File Name","slug":"file-name"}
 {"id":"e958cba7-f910-52aa-b83f-59d1349e91bf","label":"File open","slug":"file-open"}
+{"id":"f9d2cc8b-de26-5780-a290-004dd8fe4e59","label":"File operation","slug":"file-operation"}
 {"id":"6c1d1b5a-42cc-5598-a43b-3f64f97cc6bf","label":"File Path","slug":"file-path"}
 {"id":"97b7bcf8-122b-5dc8-9b51-ec526f6abd13","label":"File permission","slug":"file-permission"}
 {"id":"ee2b9999-330d-5387-bf18-6004c3d293a2","label":"File read","slug":"file-read"}
@@ -1434,6 +1435,7 @@
 {"id":"ba53b8f7-02cf-51c7-a2ac-d59e59f67f86","label":"Numeral","slug":"numeral"}
 {"id":"b3520028-31c6-5f01-80ea-3350c8d27e38","label":"Numeral base conversion","slug":"numeral-base-conversion"}
 {"id":"175ed949-51ba-580e-ba4a-c997ae9cdad7","label":"Numeral system","slug":"numeral-system"}
+{"id":"36849e15-5cdc-55de-9cbd-46ab7f098947","label":"Numeric representation","slug":"numeric-representation"}
 {"id":"8e378274-6188-50bb-847f-8bdfc310fdd8","label":"Numeric Type","slug":"numeric-type"}
 {"id":"01c4a2ac-eda7-5556-ba1d-ab647ebe2fa2","label":"Numerical algorithm","slug":"numerical-algorithm"}
 {"id":"df4aa363-1b81-5c7f-8d14-f62d6eb58662","label":"Numerical data","slug":"numerical-data"}
@@ -2350,7 +2352,7 @@
 {"id":"734eef73-b6c2-5c09-92aa-5bed7304e77b","label":"Video File","slug":"video-file"}
 {"id":"182c87fd-bd5c-5c63-833e-e5a714d31359","label":"Video frame","slug":"video-frame"}
 {"id":"166cbf7f-9f55-5bc9-b722-0c52aefe10e6","label":"Video timeline","slug":"video-timeline"}
-{"id":"cd4e287d-7493-58b3-8d3d-e905788e21f3","label":"Vigenère cipher","slug":"vigenere-cipher"}
+{"id":"cd4e287d-7493-58b3-8d3d-e905788e21f3","label":"Vigen\u00e8re cipher","slug":"vigenere-cipher"}
 {"id":"597a2d38-8207-5079-9a2b-c5a3887fae12","label":"Virtual address","slug":"virtual-address"}
 {"id":"5a9164b3-b2c1-533e-b733-a550165a9ae2","label":"Virtual assistant","slug":"virtual-assistant"}
 {"id":"d733c67b-4aa0-5bc0-83cc-99a9e7fd9556","label":"Virtual machine","slug":"virtual-machine"}

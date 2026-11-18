@@ -19,12 +19,14 @@
 {"id":"0604c970-44fd-4b58-95b8-8c71985efac1","object":{"id":"18efdde1-b365-5478-8556-8870829f46bd","kind":"concept"},"predicate":"uses","subject":{"id":"29833e62-bff7-5a3c-a230-8c1e8fc707d0","kind":"concept"}}
 {"id":"065cb79e-69f5-56ca-a83d-2d0ffe2110f9","object":{"id":"4e7b373c-ee65-5a4a-9e1d-85d96b51b9e6","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"d386a1fa-6eab-5ff0-bf83-828b7dace730","kind":"concept"}}
 {"id":"067e7656-bab2-59ad-85b7-7aaa18338936","object":{"id":"cf7b266c-773c-53c7-b78e-22c86aba33bd","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"25f36140-3019-51ec-8ed1-5f3beef4ee99","kind":"concept"}}
+{"id":"070ba612-c736-5fd1-837d-696f3646f6fe","object":{"id":"3c52ac72-c87c-5caf-94ee-4ad754aa62cd","kind":"concept"},"predicate":"subtype_of","subject":{"id":"4575c63f-17b6-55a5-b96b-475c0403519c","kind":"concept"}}
 {"id":"07181f4c-ba21-5b11-9301-5957396ab230","object":{"id":"6a29e173-de71-57a9-b8d1-b6b562cf83b9","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"d386a1fa-6eab-5ff0-bf83-828b7dace730","kind":"concept"}}
 {"id":"0754fe8a-e4ff-4139-94df-79f1ae50087c","object":{"id":"69c0c3c6-53db-507a-97b1-7e4ee80afbb5","kind":"concept"},"predicate":"subtype_of","subject":{"id":"8ab74ba4-4617-5e89-aa92-5e36acab9c09","kind":"concept"}}
 {"id":"078b183e-6982-4904-850a-b26092682365","object":{"id":"990e2cd1-cfd0-5776-94ce-1c000b46ee7f","kind":"concept"},"predicate":"subtype_of","subject":{"id":"b1aecf4f-2245-5ea7-ac1e-309c90609bbb","kind":"concept"}}
 {"id":"07d87b7c-0c1f-4099-9879-579981678ad0","object":{"id":"546962eb-0a1a-5785-93e3-56a9a17feed1","kind":"concept"},"predicate":"related_to","subject":{"id":"a3f625f7-6b51-5727-a056-d547ddb36bf8","kind":"concept"}}
 {"id":"07de6d1f-4afa-4e08-8861-6559b7ca37fa","object":{"id":"77769393-0b1a-59ba-9c68-23ef3f3538f0","kind":"concept"},"predicate":"part_of","subject":{"id":"7f00af63-4e59-5deb-8130-eb9c7b9cddc6","kind":"concept"}}
 {"id":"08e67a27-1fe1-4540-bd22-28de6545fd07","object":{"id":"967e13ca-0b8f-59ba-8c28-3d31db7ba9e7","kind":"concept"},"predicate":"related_to","subject":{"id":"28763d96-1026-5eff-ba80-c170c0a45da5","kind":"concept"}}
+{"id":"09a028ec-1084-59d4-9949-fc062986f44e","object":{"id":"36849e15-5cdc-55de-9cbd-46ab7f098947","kind":"concept"},"predicate":"subtype_of","subject":{"id":"aea4b5e5-c92b-5701-84c3-7c6c81dc1e51","kind":"concept"}}
 {"id":"09a299c0-4275-49f3-836a-9b600c4b6e24","object":{"id":"27188d57-dae2-5243-a8ef-2ed765571634","kind":"concept"},"predicate":"part_of","subject":{"id":"e9272fce-a569-5108-8def-0c35542cb640","kind":"concept"}}
 {"id":"0a0e89ef-9637-4962-8abd-0987592824a9","object":{"id":"7d5dd3a9-5821-5d0f-8ea6-f0f8f18515be","kind":"concept"},"predicate":"uses","subject":{"id":"d6dccfeb-1359-5714-9400-9605adaea2f3","kind":"concept"}}
 {"id":"0a1ef28a-0e32-4119-91bc-3da62e2ee4a7","object":{"id":"71f6c711-65d7-5616-9843-467d9331b136","kind":"concept"},"predicate":"part_of","subject":{"id":"0bd97fb7-c289-51ff-897f-44b6ce1c8688","kind":"concept"}}
@@ -76,6 +78,7 @@
 {"id":"16923126-9070-5813-b3a8-224d87f15941","object":{"id":"9dd7b58d-52cd-55f8-8891-550a14ee5186","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"f90160ee-2bd0-5ec5-9470-0a3fcd707c45","kind":"concept"}}
 {"id":"16c0846b-da63-441a-b954-d553c3c5d31f","object":{"id":"e5cce881-2962-50af-bc63-c55caffdd9b7","kind":"concept"},"predicate":"subtype_of","subject":{"id":"78c6bf15-5fc9-5fac-9280-7f7e38954d1a","kind":"concept"}}
 {"id":"16f4cb3f-0623-447c-897b-e57e70a17d9c","object":{"id":"d3b58b20-cea9-536f-8ad4-dd42de6cc099","kind":"concept"},"predicate":"subtype_of","subject":{"id":"91bd8038-3da3-5ef5-a82b-30e652cb3803","kind":"concept"}}
+{"id":"1731543a-a3e7-5407-b3bb-b2191be90b81","object":{"id":"e277eaea-a38d-5107-afab-3241e612a65f","kind":"concept"},"predicate":"subtype_of","subject":{"id":"44a78654-d6ce-5bfe-b7e8-3569f2c24fa5","kind":"concept"}}
 {"id":"178b3a7d-f35a-4201-9dc4-e2627c6ed1b2","object":{"id":"02ef4418-9ed4-5aba-bff4-4ee16a7651fa","kind":"concept"},"predicate":"subtype_of","subject":{"id":"40f5dfe3-fd63-5980-ae2b-675c86749e39","kind":"concept"}}
 {"id":"17cefc6b-bc9e-586c-b8e4-d7740e06bc8c","object":{"id":"83bffccd-29ac-545b-82a3-58d20f6b81f8","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"5ae0da93-591f-51ce-aaf6-e27df64f6f7d","kind":"concept"}}
 {"id":"181f9dff-646d-493b-9100-71ff92480dcc","object":{"id":"6d4da759-c218-5d45-a947-1f2eccb3bda5","kind":"concept"},"predicate":"subtype_of","subject":{"id":"946f5573-c066-58f5-bf45-35c01cd29777","kind":"concept"}}
@@ -132,6 +135,7 @@
 {"id":"278056ce-953e-4d0e-a3ab-a1d840d3a54b","object":{"id":"f24ceb4f-69d9-596c-aac0-b10d754fdf1f","kind":"concept"},"predicate":"produces","subject":{"id":"7140711b-687a-5a96-9c88-b8d40ad63fe2","kind":"concept"}}
 {"id":"27a8bcb6-8290-4937-a479-53284fec5455","object":{"id":"32b1ab31-e95a-5652-94fb-c81534481b46","kind":"concept"},"predicate":"related_to","subject":{"id":"e3b9a14d-1bb4-57f9-a693-9ff6b663d89f","kind":"concept"}}
 {"id":"27d55fb9-aa44-476f-8fe9-ddd1f167bc20","object":{"id":"e889347d-517f-568e-900b-b4fa60fab8dc","kind":"concept"},"predicate":"part_of","subject":{"id":"32df7e60-e501-5f4c-bcf8-4519ef5ea336","kind":"concept"}}
+{"id":"28c97d1d-1f2c-5de1-90a9-6b192e274c78","object":{"id":"e54d6659-c10f-5bfc-be10-96475e851e9a","kind":"concept"},"predicate":"subtype_of","subject":{"id":"a7604bb9-aa98-55ce-82b6-727251dc8a73","kind":"concept"}}
 {"id":"28c9fd3f-1f0e-44f2-9cf3-802ba58b5dc7","object":{"id":"a363a776-30f0-5c1d-983d-339a464062f7","kind":"concept"},"predicate":"part_of","subject":{"id":"cd0ef28b-0800-5895-b85d-83ea3b7b40ba","kind":"concept"}}
 {"id":"28fdc310-837d-4621-9f19-edc5e8cffbc1","object":{"id":"ce14f270-86ca-5185-a21e-b3586fcd0563","kind":"concept"},"predicate":"subtype_of","subject":{"id":"a167e9af-b192-5d4d-a026-22cf579d956b","kind":"concept"}}
 {"id":"296cd3d6-ec63-4212-9e88-67df11a7e241","object":{"id":"7878e1ec-11d6-5faf-8a42-b02b1f09b78a","kind":"concept"},"predicate":"uses","subject":{"id":"6e5650ab-cdc9-5605-b544-e396627e9008","kind":"concept"}}
@@ -153,6 +157,7 @@
 {"id":"2deecf36-f8b8-4467-962a-38eb90dd70c1","object":{"id":"39b7b0ed-dde9-557f-818e-36c6cdf988d5","kind":"concept"},"predicate":"subtype_of","subject":{"id":"27d64f25-4817-5910-a3cb-7f51ea6eee90","kind":"concept"}}
 {"id":"2e3212c3-a445-41c7-a1e5-ac9ceef199cc","object":{"id":"5c2d57a3-93ff-58b2-a0ac-853cc48bbbd4","kind":"concept"},"predicate":"subtype_of","subject":{"id":"6211d708-df4b-5f1b-8a8b-44d60315e26e","kind":"concept"}}
 {"id":"2e431fab-88cf-4a10-8cef-8ac4874826b9","object":{"id":"69c0c3c6-53db-507a-97b1-7e4ee80afbb5","kind":"concept"},"predicate":"stores","subject":{"id":"8f511de9-29f0-5bec-856a-6f29a2143e52","kind":"concept"}}
+{"id":"2e448da1-70aa-5af7-b43d-c967350506bc","object":{"id":"a7604bb9-aa98-55ce-82b6-727251dc8a73","kind":"concept"},"predicate":"subtype_of","subject":{"id":"ee9b354e-7100-5db7-bac0-b4651078a35b","kind":"concept"}}
 {"id":"2eb40b20-6358-4467-a31b-fb7ec9e48745","object":{"id":"16dec266-a770-5496-990c-21321e51ef56","kind":"concept"},"predicate":"prerequisite_of","subject":{"id":"130d2f7b-2800-5c79-bfe4-6684c57a80d6","kind":"concept"}}
 {"id":"2f9c48f2-4668-4447-b7cc-469c5eba7ca3","object":{"id":"bdf08389-3672-530c-979c-1920ee29ae08","kind":"concept"},"predicate":"part_of","subject":{"id":"1e932606-491f-5bf2-89b6-1cfb9c1a2464","kind":"concept"}}
 {"id":"2fd77dc4-ae54-497c-b2e6-04a08d638ae8","object":{"id":"8f01f2c9-8f38-53bc-bb7b-c062bd7afa2f","kind":"concept"},"predicate":"uses","subject":{"id":"595b2b75-ced1-587b-bf80-6cde852dd7d4","kind":"concept"}}
@@ -180,13 +185,16 @@
 {"id":"35d53b1a-9373-4f8c-be29-da41641cccf8","object":{"id":"03000920-4e49-5364-b0b0-45dc3b6f2b3e","kind":"concept"},"predicate":"uses","subject":{"id":"a5883bc6-3008-5034-8b1b-dcc6223d639c","kind":"concept"}}
 {"id":"36b14d31-766d-4483-b7d7-c71eec41d6ed","object":{"id":"eaacc9b8-37b5-5a8a-a545-b8e1023efeb5","kind":"concept"},"predicate":"uses","subject":{"id":"16dec266-a770-5496-990c-21321e51ef56","kind":"concept"}}
 {"id":"36c41232-08a9-5565-98eb-b658b7608829","object":{"id":"29833e62-bff7-5a3c-a230-8c1e8fc707d0","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"6df11c4f-c53a-552a-adec-d9d629dc57b2","kind":"concept"}}
+{"id":"376ef963-52c8-5bb1-9077-0129a9e77c8b","object":{"id":"f9d2cc8b-de26-5780-a290-004dd8fe4e59","kind":"concept"},"predicate":"subtype_of","subject":{"id":"ee2b9999-330d-5387-bf18-6004c3d293a2","kind":"concept"}}
 {"id":"379f2d85-41df-5917-943c-16e5b9277130","object":{"id":"137f730d-63e3-5fbd-9284-d7b144e41f72","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"d3b58b20-cea9-536f-8ad4-dd42de6cc099","kind":"concept"}}
 {"id":"38fb204d-30fe-5a64-967b-951b06d0e1cc","object":{"id":"448faccd-796e-59eb-b511-fc8f40358d72","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"91bd8038-3da3-5ef5-a82b-30e652cb3803","kind":"concept"}}
+{"id":"3a2cb5b5-c223-5e1f-96a7-c71ad5192f53","object":{"id":"e277eaea-a38d-5107-afab-3241e612a65f","kind":"concept"},"predicate":"subtype_of","subject":{"id":"a83511f8-6806-5d88-b598-60a3edb89ab5","kind":"concept"}}
 {"id":"3aff2fac-55c6-4cd2-9680-088f67aa05a6","object":{"id":"cd0ef28b-0800-5895-b85d-83ea3b7b40ba","kind":"concept"},"predicate":"subtype_of","subject":{"id":"b548a9d4-8608-59a0-895b-d899bae5cdf5","kind":"concept"}}
 {"id":"3b06e1d4-c4dc-496b-98ee-cd5444e5ebc0","object":{"id":"2bfccfc4-b578-5dad-a6b2-361106b178b0","kind":"concept"},"predicate":"uses","subject":{"id":"a5164cb4-747e-5a14-81b7-d7be15fb7bcc","kind":"concept"}}
 {"id":"3b436b62-e187-4aee-bde7-7335f24cee39","object":{"id":"69c0c3c6-53db-507a-97b1-7e4ee80afbb5","kind":"concept"},"predicate":"subtype_of","subject":{"id":"b51db6f4-76ba-5989-874d-6fbcc7d7775e","kind":"concept"}}
 {"id":"3b59624f-16f0-459c-9728-b50121b3c0de","object":{"id":"dee61021-02fb-5728-ac4a-ed1a0c840f70","kind":"concept"},"predicate":"part_of","subject":{"id":"626605ba-c4da-51d8-b776-f66b28ff0064","kind":"concept"}}
 {"id":"3b8d82fb-3ccf-56e7-adb7-574bcb575cbc","object":{"id":"95d1fa23-89ae-5806-893a-9fa456aba8ab","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"1a93a235-84a5-5eda-9a1e-a90f28ec00b3","kind":"concept"}}
+{"id":"3c22d978-2a29-55af-8c3e-81bd28dd9ec7","object":{"id":"a7604bb9-aa98-55ce-82b6-727251dc8a73","kind":"concept"},"predicate":"subtype_of","subject":{"id":"af2c87a3-af5d-5241-ab60-b7a7cf2da5b5","kind":"concept"}}
 {"id":"3c239d11-6ac7-4797-a30e-1ebb9baebb91","object":{"id":"014f617e-3672-5899-8437-1c9ce88c5ce7","kind":"concept"},"predicate":"related_to","subject":{"id":"9d2ee9ab-3909-53c4-9e58-365935cf91d9","kind":"concept"}}
 {"id":"3c301253-b1d9-4dd7-a128-b951e8e7bdaa","object":{"id":"61572435-9a11-5c80-9ca3-adad80396092","kind":"concept"},"predicate":"uses","subject":{"id":"d3b58b20-cea9-536f-8ad4-dd42de6cc099","kind":"concept"}}
 {"id":"3c441dcb-eeaa-411d-96f9-9dccf0b256e5","object":{"id":"dca7fd1b-14c1-588d-819c-3c108dbc4c5d","kind":"concept"},"predicate":"subtype_of","subject":{"id":"b2bd581c-650d-5389-a0ca-6d2a25e59f8f","kind":"concept"}}
@@ -200,6 +208,7 @@
 {"id":"3ecc38bc-e5ec-40b6-9e38-8da5aec1a15f","object":{"id":"c74fe051-ac5e-521b-8770-3180fb0decb6","kind":"concept"},"predicate":"part_of","subject":{"id":"03f8ca0b-7b71-5398-bb4a-5957acedb125","kind":"concept"}}
 {"id":"3ed19f5d-3263-4809-adc2-ffefc468d6f1","object":{"id":"53c7a479-f7c7-5896-a803-19cd51dc5ca9","kind":"concept"},"predicate":"uses","subject":{"id":"83bffccd-29ac-545b-82a3-58d20f6b81f8","kind":"concept"}}
 {"id":"3eee4b03-9ce4-4357-bf5a-222a39a062d6","object":{"id":"ac74d946-768f-5588-a8b3-bf3165b12b41","kind":"concept"},"predicate":"subtype_of","subject":{"id":"7b226cc9-58d7-529f-8368-ab49dc89c7b5","kind":"concept"}}
+{"id":"3f09201a-b82c-57dc-a3b9-5717279376af","object":{"id":"19857242-ddb1-5fb2-921e-76405f69805b","kind":"concept"},"predicate":"subtype_of","subject":{"id":"36849e15-5cdc-55de-9cbd-46ab7f098947","kind":"concept"}}
 {"id":"3f0ca526-3473-4d2c-a1fe-c35b65fcef22","object":{"id":"b1c3da9f-5866-5a0b-9535-7dbc57582189","kind":"concept"},"predicate":"uses","subject":{"id":"04004c4d-ae55-58b4-a80a-6e87d2dae1d1","kind":"concept"}}
 {"id":"3f9ec411-2831-506e-81b0-c6df2f3a33de","object":{"id":"e3df431e-492b-54df-8326-403a0a28aaea","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"d386a1fa-6eab-5ff0-bf83-828b7dace730","kind":"concept"}}
 {"id":"3fef7d9f-6658-40c8-b95c-4fac85b69895","object":{"id":"dd74b053-abdc-5746-a4ae-b541f1981a62","kind":"concept"},"predicate":"part_of","subject":{"id":"c127728e-8268-5f05-9a07-6eb6262637b9","kind":"concept"}}
@@ -209,6 +218,7 @@
 {"id":"4175cf96-2ca0-4d4a-a310-8082c72763a7","object":{"id":"27188d57-dae2-5243-a8ef-2ed765571634","kind":"concept"},"predicate":"represents","subject":{"id":"61572435-9a11-5c80-9ca3-adad80396092","kind":"concept"}}
 {"id":"417ab5a7-e66c-4e53-bbf4-bcf8cb5dd3f2","object":{"id":"7b226cc9-58d7-529f-8368-ab49dc89c7b5","kind":"concept"},"predicate":"subtype_of","subject":{"id":"e971c20a-3da5-574e-96ba-7464eedf58d5","kind":"concept"}}
 {"id":"41a35e6a-195a-4943-b5ad-4a1ced9021a4","object":{"id":"cd0ef28b-0800-5895-b85d-83ea3b7b40ba","kind":"concept"},"predicate":"uses","subject":{"id":"fa27d535-a892-5c0d-b09d-5e7eb558a62f","kind":"concept"}}
+{"id":"41b9f8f0-70ec-5482-9294-22189bf9b3aa","object":{"id":"a7604bb9-aa98-55ce-82b6-727251dc8a73","kind":"concept"},"predicate":"subtype_of","subject":{"id":"afe9363a-0bbf-5fa7-848b-9fb4c824955c","kind":"concept"}}
 {"id":"429f7cfd-7d6f-4e1d-b789-e1325f543f79","object":{"id":"715f1851-a5ee-5882-8ea5-2013f723d8f6","kind":"concept"},"predicate":"produces","subject":{"id":"56e90ea3-5e6b-57c5-b4ff-2bc5ded17f82","kind":"concept"}}
 {"id":"42a96f63-9649-5cdc-be7a-04e6d08c7f33","object":{"id":"9d0fe333-7a06-59d9-8e75-f2bf293af1b0","kind":"concept"},"predicate":"value_of_type","subject":{"id":"440618c4-d753-5d45-a67d-fe06e07c6cb7","kind":"concept"}}
 {"id":"42f0931e-ac8a-422c-9a63-1af32090635f","object":{"id":"5673f8ea-fd10-5961-be80-17e3d6dc3949","kind":"concept"},"predicate":"part_of","subject":{"id":"74b8b20e-c1e2-5b0f-93ee-3a99100dd1cf","kind":"concept"}}
@@ -260,6 +270,7 @@
 {"id":"4e5364c0-946e-436c-9413-680fbacb108c","object":{"id":"72302d9e-45e9-5d82-90eb-5eeb594d43ca","kind":"concept"},"predicate":"part_of","subject":{"id":"a5959f87-c12f-52ae-801c-e617239e3ff6","kind":"concept"}}
 {"id":"4e6c9ae1-d135-413b-a1e8-300c1570585a","object":{"id":"c9adb559-3db1-5ac8-ab8b-6ff80caf1d1b","kind":"concept"},"predicate":"uses","subject":{"id":"ee0240a4-b7d5-5bd1-8b84-2b033fef2eb8","kind":"concept"}}
 {"id":"4efa738e-1ecb-56d9-948e-9935eb44be88","object":{"id":"4a5f5f2e-3dbd-5a1a-aa2d-4af7a8cc051e","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"3015433c-78e0-51fd-a6d9-32e20e73fe3c","kind":"concept"}}
+{"id":"4f62800e-8c28-5822-92dc-326a2fb22954","object":{"id":"e54d6659-c10f-5bfc-be10-96475e851e9a","kind":"concept"},"predicate":"subtype_of","subject":{"id":"3c52ac72-c87c-5caf-94ee-4ad754aa62cd","kind":"concept"}}
 {"id":"4f73a09b-189d-496a-99ea-f7eb03433c4d","object":{"id":"88186e67-efe1-50f5-910b-71ea82c0ceee","kind":"concept"},"predicate":"uses","subject":{"id":"394c64be-c90b-5169-bacd-7be5eca0b1e5","kind":"concept"}}
 {"id":"4fd7a566-ded5-4eda-8b7f-386b3f0e6ba4","object":{"id":"98f5246b-8c43-51a9-8692-99c1202012ab","kind":"concept"},"predicate":"uses","subject":{"id":"4c8ffbf7-221a-5a76-935c-2f9f86aa4966","kind":"concept"}}
 {"id":"5036b9a5-dfff-479c-b214-5827ff641c2f","object":{"id":"39b7b0ed-dde9-557f-818e-36c6cdf988d5","kind":"concept"},"predicate":"subtype_of","subject":{"id":"1fb02c72-2654-562e-8eb4-dc37844973af","kind":"concept"}}
@@ -277,6 +288,7 @@
 {"id":"57a08fbc-cf2a-4c68-ac72-89a3c9e676d6","object":{"id":"ff308c20-cecc-5bb8-9b60-d7fbf06a8f43","kind":"concept"},"predicate":"part_of","subject":{"id":"71bc13d7-c9d0-5f85-be9e-6eae3eae2c75","kind":"concept"}}
 {"id":"57aa0065-a58a-59cf-93a4-573ef0e1914d","object":{"id":"760f3a60-25b0-52b3-9787-f72864c1df2e","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"2f719c8a-2a16-5d88-8f50-3709b2beff18","kind":"concept"}}
 {"id":"57adccad-bfd7-446b-980c-c9af8f82c365","object":{"id":"b28b48f4-9e1f-5182-bffc-f7e547952372","kind":"concept"},"predicate":"uses","subject":{"id":"130d2f7b-2800-5c79-bfe4-6684c57a80d6","kind":"concept"}}
+{"id":"5801317e-ae23-56b4-8710-da807c7bbb19","object":{"id":"e54d6659-c10f-5bfc-be10-96475e851e9a","kind":"concept"},"predicate":"subtype_of","subject":{"id":"e277eaea-a38d-5107-afab-3241e612a65f","kind":"concept"}}
 {"id":"580dd487-c6f9-4197-8721-9d9be0ad7c7f","object":{"id":"72302d9e-45e9-5d82-90eb-5eeb594d43ca","kind":"concept"},"predicate":"part_of","subject":{"id":"bb208947-cfa3-541e-89d0-b8a03f7fd040","kind":"concept"}}
 {"id":"58170ef2-3c68-4a0e-99bf-1fae28bd06e1","object":{"id":"f3598525-da3b-5526-bb76-1a439ed3b82a","kind":"concept"},"predicate":"uses","subject":{"id":"892521d5-a0c8-56ac-9775-f266196abd56","kind":"concept"}}
 {"id":"5819d39f-023a-49a9-bea0-09f6a1d69e56","object":{"id":"9bb1f1b4-b9c7-5f4c-bacf-b77a0978905e","kind":"concept"},"predicate":"related_to","subject":{"id":"698d78ef-a3e2-5939-85ab-7177b97c318b","kind":"concept"}}
@@ -310,6 +322,7 @@
 {"id":"608fbcb1-b206-4b60-bb6e-b398aa5cf477","object":{"id":"aaa55292-1af3-5632-8f92-19407d10bdad","kind":"concept"},"predicate":"uses","subject":{"id":"58fe6e22-8729-5341-9ab7-57d8698fee49","kind":"concept"}}
 {"id":"60a103cf-42f1-4232-988a-2f8fa1e1feef","object":{"id":"12cbb5f2-f465-50f4-9933-06b42b96af93","kind":"concept"},"predicate":"subtype_of","subject":{"id":"00fe4766-35c9-5439-8611-536e2ca0cddc","kind":"concept"}}
 {"id":"60aa6645-4391-4b3c-85f2-53d078aa7681","object":{"id":"c127728e-8268-5f05-9a07-6eb6262637b9","kind":"concept"},"predicate":"part_of","subject":{"id":"7878e1ec-11d6-5faf-8a42-b02b1f09b78a","kind":"concept"}}
+{"id":"60bc7db6-60b3-556a-890b-1f21a2fe988e","object":{"id":"ced01835-711a-5b68-9de8-ac4f8288a964","kind":"concept"},"predicate":"subtype_of","subject":{"id":"aea4b5e5-c92b-5701-84c3-7c6c81dc1e51","kind":"concept"}}
 {"id":"60fda20d-d4d6-421c-91dd-c488054bda98","object":{"id":"e9272fce-a569-5108-8def-0c35542cb640","kind":"concept"},"predicate":"part_of","subject":{"id":"37760887-793b-5182-8a63-45312a137b25","kind":"concept"}}
 {"id":"6114cf3f-6dff-42f8-9d40-584a75554530","object":{"id":"3f6c7b18-9b13-522f-8933-637691ccc53d","kind":"concept"},"predicate":"subtype_of","subject":{"id":"281732db-4ed1-53a4-a3df-eed05736232d","kind":"concept"}}
 {"id":"611902f3-356c-4d88-87d8-a8fd2044d0ce","object":{"id":"dca7fd1b-14c1-588d-819c-3c108dbc4c5d","kind":"concept"},"predicate":"subtype_of","subject":{"id":"0d6b9bd4-5bd6-5a94-8cc1-4931ed0cd077","kind":"concept"}}
@@ -337,12 +350,15 @@
 {"id":"69536d3e-dc7a-4e3b-b9f4-6263d6e7f7f7","object":{"id":"cd0ef28b-0800-5895-b85d-83ea3b7b40ba","kind":"concept"},"predicate":"subtype_of","subject":{"id":"d18a4c13-351f-5f96-b013-76d3614e7491","kind":"concept"}}
 {"id":"69739e67-ad79-43d4-9809-f743152d4f85","object":{"id":"7749a47b-1175-5b77-aa3c-8840a3955b34","kind":"concept"},"predicate":"part_of","subject":{"id":"628bb601-3435-5f31-8a1b-8334bd3ef102","kind":"concept"}}
 {"id":"69abd106-d06c-41c4-8f6b-e4fd876fec65","object":{"id":"8fad1364-f9b7-5769-adc1-f053aac282ee","kind":"concept"},"predicate":"subtype_of","subject":{"id":"2cc8781f-0db1-5205-a75c-027afad52fba","kind":"concept"}}
+{"id":"69d5833e-a17c-5cdd-a3d1-1518d7239507","object":{"id":"3c52ac72-c87c-5caf-94ee-4ad754aa62cd","kind":"concept"},"predicate":"subtype_of","subject":{"id":"12ed8567-0499-53b5-a5e1-c4a7eb21e3a8","kind":"concept"}}
 {"id":"69f311b6-8085-452b-9f80-0f63b450499d","object":{"id":"7a1c024d-b535-5941-8cb3-007fdc735c1d","kind":"concept"},"predicate":"uses","subject":{"id":"34bbc39e-f59e-5fcd-8229-4182623a14ea","kind":"concept"}}
 {"id":"6b2ed69b-4a42-5aae-a4ca-934fe99b5791","object":{"id":"a321e935-9527-54f1-af9a-2fb7142a6387","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"25f36140-3019-51ec-8ed1-5f3beef4ee99","kind":"concept"}}
 {"id":"6b4c5298-ad35-496a-97ce-1fc88bb1a490","object":{"id":"b7a6289c-3282-5014-8228-44241e967981","kind":"concept"},"predicate":"uses","subject":{"id":"bfefc431-09de-5599-b006-434da2a0ab93","kind":"concept"}}
 {"id":"6c37ab29-9cef-5476-8a21-4b06b23721f2","object":{"id":"863e55aa-b232-5206-bf6b-cd972125188e","kind":"concept"},"predicate":"adt_supports_operation","subject":{"id":"5269fa0c-6d07-528c-9459-9a3c1064e416","kind":"concept"}}
 {"id":"6c426985-22b4-4573-b43d-72c198176ffc","object":{"id":"56e90ea3-5e6b-57c5-b4ff-2bc5ded17f82","kind":"concept"},"predicate":"part_of","subject":{"id":"1969022c-69cf-5041-b961-642fabc55f78","kind":"concept"}}
+{"id":"6c7a58bd-17e0-52e7-9541-61a4de16111b","object":{"id":"36849e15-5cdc-55de-9cbd-46ab7f098947","kind":"concept"},"predicate":"subtype_of","subject":{"id":"cf74820a-5ea4-528b-b04a-790451abcdac","kind":"concept"}}
 {"id":"6c968508-1bd3-4bf1-97c8-ff425b1f4a6a","object":{"id":"c6650872-9224-5063-ab3e-a3f25f1baea3","kind":"concept"},"predicate":"uses","subject":{"id":"2969a076-c1de-5742-8ccc-83a01e9fc320","kind":"concept"}}
+{"id":"6ca05aea-3a9d-58b8-b869-2c1e0a4cce90","object":{"id":"3c52ac72-c87c-5caf-94ee-4ad754aa62cd","kind":"concept"},"predicate":"subtype_of","subject":{"id":"3662219e-0654-5067-9b6b-22225c7d44f8","kind":"concept"}}
 {"id":"6cd7a38d-8d66-4c0c-a0a0-4d6f88ab699a","object":{"id":"04004c4d-ae55-58b4-a80a-6e87d2dae1d1","kind":"concept"},"predicate":"part_of","subject":{"id":"cd182792-62a1-5861-9d64-2bfa9c3428be","kind":"concept"}}
 {"id":"6d274145-e51f-4403-b55d-49eef6011095","object":{"id":"278ab83c-d610-5abd-bcd8-6c60667c0250","kind":"concept"},"predicate":"subtype_of","subject":{"id":"04e690f8-7c88-5274-818b-49a4e88b2387","kind":"concept"}}
 {"id":"6d3433e6-e038-4e47-b023-047dddfafc0c","object":{"id":"b06e9e85-64f1-58be-bffe-248c01ee41f2","kind":"concept"},"predicate":"uses","subject":{"id":"2b18a11a-a2f9-5ba7-8c3c-f53bd4d8bd4d","kind":"concept"}}
@@ -356,10 +372,12 @@
 {"id":"6f5e5641-a5c7-5752-a780-f93499195998","object":{"id":"ba2f4c7d-f9ab-5995-b501-d34106c6852b","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"448faccd-796e-59eb-b511-fc8f40358d72","kind":"concept"}}
 {"id":"702a8908-5454-59c2-81cf-4c0e1cec9659","object":{"id":"312daaf9-1176-5dda-b061-94898fa010ed","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"db28edbc-c1bf-5412-b5ec-e97d960daa7a","kind":"concept"}}
 {"id":"7081f842-11e0-4cc8-917c-bfd44dbbd08e","object":{"id":"0f177694-44bc-5da5-803d-8e9b0025c0d8","kind":"concept"},"predicate":"part_of","subject":{"id":"6a84c8b4-10fd-5f80-80ef-0f141e1e8e68","kind":"concept"}}
+{"id":"71a2b769-a3c6-56d3-ab14-bcffa0a88493","object":{"id":"a7604bb9-aa98-55ce-82b6-727251dc8a73","kind":"concept"},"predicate":"subtype_of","subject":{"id":"0932ab7b-fe8f-52f0-9457-5cec22c2dae8","kind":"concept"}}
 {"id":"725b8894-b418-4a58-b356-a630f249fea5","object":{"id":"89a00917-54f0-5d92-a8d1-4a431134ef20","kind":"concept"},"predicate":"uses","subject":{"id":"e894f231-1fdf-5e35-8b05-c6e5f9b1e027","kind":"concept"}}
 {"id":"726cf5cd-e2f7-437c-8dec-48511cd90dab","object":{"id":"2f57bed1-a194-54a2-84b3-13b2f8e637e6","kind":"concept"},"predicate":"part_of","subject":{"id":"9f906f66-b5f6-52ad-8826-c53d3a66b4cd","kind":"concept"}}
 {"id":"72e7c112-6d1b-4560-9b51-52ae30e5a78f","object":{"id":"09124f55-c602-57b4-ab5a-08642d0e9a7c","kind":"concept"},"predicate":"subtype_of","subject":{"id":"d86a5df6-5585-52f4-aaad-9e1cd92d4378","kind":"concept"}}
 {"id":"73870eea-b1e1-4ade-8d01-e358dec70d75","object":{"id":"0d6b9bd4-5bd6-5a94-8cc1-4931ed0cd077","kind":"concept"},"predicate":"uses","subject":{"id":"5983d5e1-8453-5ecb-a7fa-adcd55663b8a","kind":"concept"}}
+{"id":"73b060b4-c131-5e05-b4d2-71248661f0d1","object":{"id":"a7604bb9-aa98-55ce-82b6-727251dc8a73","kind":"concept"},"predicate":"subtype_of","subject":{"id":"221da26a-36eb-5419-b64f-2b69fb7255ee","kind":"concept"}}
 {"id":"73facdad-efd1-4872-99da-062fcc4fe877","object":{"id":"44b6cff3-2998-51b3-8b7c-deed75d01ad9","kind":"concept"},"predicate":"uses","subject":{"id":"4bfa0d3d-6ecd-5041-b1f1-0f7d9fd550b0","kind":"concept"}}
 {"id":"743d4f72-a21c-495b-8981-756571bbae97","object":{"id":"a87f0a1c-7b78-57eb-9e64-9c319a3fb2b0","kind":"concept"},"predicate":"subtype_of","subject":{"id":"f612bb4c-8657-5e7f-9249-d4c89f01d02f","kind":"concept"}}
 {"id":"744d4dac-fff2-4a37-84c7-89e397d1859b","object":{"id":"77cd1521-65fe-5e3e-9462-cdda1979bbe1","kind":"concept"},"predicate":"uses","subject":{"id":"d1869c48-f48c-5a60-a1da-dde4ffaef75a","kind":"concept"}}
@@ -395,12 +413,14 @@
 {"id":"7c64b2ec-7aef-490a-8de6-2de270d4fba7","object":{"id":"11a47c4c-c974-585f-8766-c88be2a69ad2","kind":"concept"},"predicate":"part_of","subject":{"id":"3da45a22-1e9b-5dc3-b6ba-09d4fec2ba7a","kind":"concept"}}
 {"id":"7c6de023-a1d3-42ac-9d6a-a7b6f1ab9a5a","object":{"id":"bec2e451-3c63-5fad-b833-5837dfeb030a","kind":"concept"},"predicate":"uses","subject":{"id":"2ba477af-c9fe-503d-a446-1587668f617d","kind":"concept"}}
 {"id":"7cc20676-88fb-4e22-826f-8162351eb857","object":{"id":"e411cc92-6074-51a3-afe2-66f18af4bcc8","kind":"concept"},"predicate":"subtype_of","subject":{"id":"61572435-9a11-5c80-9ca3-adad80396092","kind":"concept"}}
+{"id":"7d1441ef-621c-57c2-b65a-968ba33cbca2","object":{"id":"f9d2cc8b-de26-5780-a290-004dd8fe4e59","kind":"concept"},"predicate":"subtype_of","subject":{"id":"3f4fbbda-6e5c-536f-858e-77636b1ab4b1","kind":"concept"}}
 {"id":"7d36c7b5-251a-4a71-9161-64a773856a0e","object":{"id":"56e90ea3-5e6b-57c5-b4ff-2bc5ded17f82","kind":"concept"},"predicate":"uses","subject":{"id":"8e74bb6f-7d6e-5986-b551-3321f7860076","kind":"concept"}}
 {"id":"7d57f266-a96e-41e7-a0f9-1d2373277db2","object":{"id":"25f36140-3019-51ec-8ed1-5f3beef4ee99","kind":"concept"},"predicate":"part_of","subject":{"id":"bdf08389-3672-530c-979c-1920ee29ae08","kind":"concept"}}
 {"id":"7db3d785-5678-46f9-94f1-3364e0756bdb","object":{"id":"2bfccfc4-b578-5dad-a6b2-361106b178b0","kind":"concept"},"predicate":"stores","subject":{"id":"990e2cd1-cfd0-5776-94ce-1c000b46ee7f","kind":"concept"}}
 {"id":"7df21d26-6499-4b10-aff3-3544a4362687","object":{"id":"c5c9fcca-3db2-56f9-bceb-ec4dabd6ee78","kind":"concept"},"predicate":"subtype_of","subject":{"id":"6d4da759-c218-5d45-a947-1f2eccb3bda5","kind":"concept"}}
 {"id":"7e2be6f3-c00e-490c-9898-079579da9f52","object":{"id":"60def950-5a16-5b4b-8b20-03b27c8aaa3a","kind":"concept"},"predicate":"protects_against","subject":{"id":"2bb7b7ee-33a0-5937-879a-0faab1028dc1","kind":"concept"}}
 {"id":"7eb5f609-69a5-4ce2-8995-de0aef751088","object":{"id":"feb6d13d-863a-5dec-895e-a7583f818848","kind":"concept"},"predicate":"uses","subject":{"id":"892521d5-a0c8-56ac-9775-f266196abd56","kind":"concept"}}
+{"id":"7ef726a3-6103-57d2-908e-449a4a346edb","object":{"id":"a7604bb9-aa98-55ce-82b6-727251dc8a73","kind":"concept"},"predicate":"subtype_of","subject":{"id":"1955cf9a-080c-597f-8f36-6e168747c1f8","kind":"concept"}}
 {"id":"7f01ca2d-efd3-4a90-9a0d-71e11689a872","object":{"id":"9bb1f1b4-b9c7-5f4c-bacf-b77a0978905e","kind":"concept"},"predicate":"uses","subject":{"id":"7d5dd3a9-5821-5d0f-8ea6-f0f8f18515be","kind":"concept"}}
 {"id":"802c013f-9684-4121-8803-c03fc0493fa9","object":{"id":"e5cce881-2962-50af-bc63-c55caffdd9b7","kind":"concept"},"predicate":"uses","subject":{"id":"22888edb-0d4e-5251-8577-c2ab31ef3eff","kind":"concept"}}
 {"id":"80328da9-4bb8-4453-8eb3-aace0331153e","object":{"id":"7749a47b-1175-5b77-aa3c-8840a3955b34","kind":"concept"},"predicate":"part_of","subject":{"id":"1707b2a6-fbc0-57db-bdd6-54080a62fa57","kind":"concept"}}
@@ -416,6 +436,7 @@
 {"id":"82d6a38e-4343-5293-a3ca-bf67b035c66d","object":{"id":"56951582-3296-522f-aed7-ea797365728e","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"d386a1fa-6eab-5ff0-bf83-828b7dace730","kind":"concept"}}
 {"id":"82fbde60-c503-4c56-ae60-8c6ea12b8e3d","object":{"id":"5a86ef60-5db0-5fa0-9a57-71b1b7ed2c53","kind":"concept"},"predicate":"uses","subject":{"id":"71f6c711-65d7-5616-9843-467d9331b136","kind":"concept"}}
 {"id":"83615fd7-ea02-5054-909d-e3e1c2f7f98c","object":{"id":"d8b67253-03db-51ec-b8fb-2f3d6dc92134","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"7511fe23-f469-5ab4-814b-118a4b0ad5f0","kind":"concept"}}
+{"id":"83932fab-5de9-52da-9e7a-d04d6ac046d6","object":{"id":"f9d2cc8b-de26-5780-a290-004dd8fe4e59","kind":"concept"},"predicate":"subtype_of","subject":{"id":"79937f25-605d-5ab4-9270-b3d8f8e53e00","kind":"concept"}}
 {"id":"84859d76-18b9-51ba-af0b-d064ee3f2e76","object":{"id":"7717e829-8ca3-5684-ad07-f1496f08d5d1","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"91bd8038-3da3-5ef5-a82b-30e652cb3803","kind":"concept"}}
 {"id":"84a5cfa3-3da0-4168-8f01-327116015101","object":{"id":"d3b58b20-cea9-536f-8ad4-dd42de6cc099","kind":"concept"},"predicate":"related_to","subject":{"id":"e5f6e852-529a-5f82-a038-30c051c5d27f","kind":"concept"}}
 {"id":"84bdb386-6869-4e1c-998c-77c980a3e605","object":{"id":"9f906f66-b5f6-52ad-8826-c53d3a66b4cd","kind":"concept"},"predicate":"related_to","subject":{"id":"eacb1508-b623-56cc-a1d6-88e88f64607c","kind":"concept"}}
@@ -463,6 +484,7 @@
 {"id":"93e77080-fe5c-4d86-a73c-af3c744ccf88","object":{"id":"d77ac49e-b2cc-52f0-8c10-e6ee71dba293","kind":"concept"},"predicate":"uses","subject":{"id":"1896ace9-215a-5b38-9136-b0b0dae80632","kind":"concept"}}
 {"id":"93fb9bbb-97af-567a-95fe-11b8197d994c","object":{"id":"ee5bbf98-82f7-58c8-95b4-f5f354159d86","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"6df11c4f-c53a-552a-adec-d9d629dc57b2","kind":"concept"}}
 {"id":"942bc948-3e2f-4d54-973d-3d9125107e11","object":{"id":"214d5303-43f3-5a2f-ac41-f2e6c0e73407","kind":"concept"},"predicate":"uses","subject":{"id":"ad7f993c-defd-5ff7-a5e1-56d361c7b601","kind":"concept"}}
+{"id":"9492a904-da72-50c6-bdf7-b33a5e1d99bf","object":{"id":"a7604bb9-aa98-55ce-82b6-727251dc8a73","kind":"concept"},"predicate":"subtype_of","subject":{"id":"b6bb4f97-1164-5b0e-9813-774e21297aa9","kind":"concept"}}
 {"id":"949f5378-1652-4128-b5f3-1209f28fc540","object":{"id":"02ef4418-9ed4-5aba-bff4-4ee16a7651fa","kind":"concept"},"predicate":"represents","subject":{"id":"54fdecc1-795f-5573-a0dd-5bb3aa082d2b","kind":"concept"}}
 {"id":"9505da5a-5261-4ff6-894a-880e47a9f19f","object":{"id":"996e2639-e924-5933-b692-67907f8c9462","kind":"concept"},"predicate":"uses","subject":{"id":"99d8876b-c6af-5f33-b15b-04767af048e5","kind":"concept"}}
 {"id":"952dc7d3-7918-4a43-9cfa-bd6d31de7937","object":{"id":"31b79975-87c5-58ce-9c8e-291d8d9cfb22","kind":"concept"},"predicate":"subtype_of","subject":{"id":"1c5beeed-3612-5ab3-9609-18822f4939ce","kind":"concept"}}
@@ -492,6 +514,7 @@
 {"id":"9cc3a525-5d3e-42ac-a105-66e46bdaf1ef","object":{"id":"02ef4418-9ed4-5aba-bff4-4ee16a7651fa","kind":"concept"},"predicate":"prerequisite_of","subject":{"id":"0eca4d1e-8fb5-58da-adef-bbedf0b00c76","kind":"concept"}}
 {"id":"9ccbcac0-1b17-4b7e-b0cf-c693826cdae7","object":{"id":"2bfccfc4-b578-5dad-a6b2-361106b178b0","kind":"concept"},"predicate":"subtype_of","subject":{"id":"ce2a5002-8fe4-54fe-8ed1-20f1396171d6","kind":"concept"}}
 {"id":"9d0a9763-4d72-4ca3-a378-fc477f02e328","object":{"id":"11a47c4c-c974-585f-8766-c88be2a69ad2","kind":"concept"},"predicate":"part_of","subject":{"id":"a5b6ce08-8a0e-5bc2-a73a-59f294143cb6","kind":"concept"}}
+{"id":"9d26327f-7211-5ce9-a469-9f8e44552e5a","object":{"id":"e54d6659-c10f-5bfc-be10-96475e851e9a","kind":"concept"},"predicate":"subtype_of","subject":{"id":"f9d2cc8b-de26-5780-a290-004dd8fe4e59","kind":"concept"}}
 {"id":"9d32ddfd-c431-447f-beba-b3503fbc6611","object":{"id":"ca04477f-7058-5fcf-bf1c-ece84454a51c","kind":"concept"},"predicate":"uses","subject":{"id":"fc8e8feb-50d9-5675-9968-7f721a3354aa","kind":"concept"}}
 {"id":"9d6ccd60-2b3f-41af-9ea1-45a2273b15ec","object":{"id":"2bfccfc4-b578-5dad-a6b2-361106b178b0","kind":"concept"},"predicate":"uses","subject":{"id":"aaa55292-1af3-5632-8f92-19407d10bdad","kind":"concept"}}
 {"id":"9d985546-db90-5077-bb79-b04141087a1b","object":{"id":"351c0a5b-7496-56d8-a6ff-39579f188c68","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"eb6fe453-f654-5332-9acf-b12b7b876f26","kind":"concept"}}
@@ -521,6 +544,7 @@
 {"id":"a3f74b9e-a275-4c2c-9f20-a43fc6ca3a7b","object":{"id":"18efdde1-b365-5478-8556-8870829f46bd","kind":"concept"},"predicate":"related_to","subject":{"id":"e4f7d25e-5b52-55ab-a61c-acfeae1677c7","kind":"concept"}}
 {"id":"a41d5bb9-0850-4405-a96a-0b86b8a7009a","object":{"id":"edf73a23-31e7-59be-8993-c484a5f51d82","kind":"concept"},"predicate":"part_of","subject":{"id":"d0bf5d5c-4b1d-58ad-82b4-a91970093d05","kind":"concept"}}
 {"id":"a4446e60-bdd0-4597-8455-6bd9c851a144","object":{"id":"22182430-6534-570d-8ddf-8e348b1e1067","kind":"concept"},"predicate":"uses","subject":{"id":"5f3b3320-087a-5d36-aba3-b456eda3e87f","kind":"concept"}}
+{"id":"a46dbcf5-0e58-56d6-9e50-11ad1ba2419a","object":{"id":"3c52ac72-c87c-5caf-94ee-4ad754aa62cd","kind":"concept"},"predicate":"subtype_of","subject":{"id":"48315dd9-6f76-542d-a091-de776bd15814","kind":"concept"}}
 {"id":"a66399c7-b7c0-4ae2-9aba-046b09ed2d9d","object":{"id":"44b6cff3-2998-51b3-8b7c-deed75d01ad9","kind":"concept"},"predicate":"subtype_of","subject":{"id":"85fa7eb2-1d2f-50ab-9a9a-8dd6cea96582","kind":"concept"}}
 {"id":"a6c98c09-c1e5-4532-a58b-213d69298f78","object":{"id":"3f6c7b18-9b13-522f-8933-637691ccc53d","kind":"concept"},"predicate":"related_to","subject":{"id":"570b799b-d17c-5587-a056-6b7aea4703bb","kind":"concept"}}
 {"id":"a72a5c84-3f41-42db-b672-f51dcc4a9b01","object":{"id":"83bffccd-29ac-545b-82a3-58d20f6b81f8","kind":"concept"},"predicate":"prerequisite_of","subject":{"id":"50e57cb2-fccc-5059-868c-806619e7ea0d","kind":"concept"}}
@@ -541,6 +565,7 @@
 {"id":"ab36ce12-483c-5582-8abe-ff119cb28599","object":{"id":"f4144389-a316-55ad-b780-0a79a772750d","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"dfb98458-e8cc-592b-b58e-6b24414f6fff","kind":"concept"}}
 {"id":"abc05c39-bc5a-479f-a0a9-d161a4475f7c","object":{"id":"312eec31-2253-5461-84a7-bc7d55d7cfc9","kind":"concept"},"predicate":"subtype_of","subject":{"id":"c68e9384-5822-574c-8d99-ec659afbbcd0","kind":"concept"}}
 {"id":"abc54054-1912-432f-95ee-299505e328ea","object":{"id":"04e690f8-7c88-5274-818b-49a4e88b2387","kind":"concept"},"predicate":"part_of","subject":{"id":"d1d01c4a-8436-5ea1-abee-3fa82dc4ae3a","kind":"concept"}}
+{"id":"abfacda9-02bb-59af-8478-934d98c91ed1","object":{"id":"f9d2cc8b-de26-5780-a290-004dd8fe4e59","kind":"concept"},"predicate":"subtype_of","subject":{"id":"26597231-ebce-5799-927a-c2e45dab8b8f","kind":"concept"}}
 {"id":"aca7334a-6605-49b3-b88f-bbd9eb29cd0d","object":{"id":"3f6c7b18-9b13-522f-8933-637691ccc53d","kind":"concept"},"predicate":"subtype_of","subject":{"id":"ac74d946-768f-5588-a8b3-bf3165b12b41","kind":"concept"}}
 {"id":"acac1fb3-b65f-45d3-abb3-f5c3f21f5b80","object":{"id":"35f550e9-7aa3-5be7-97d4-041397a87d0d","kind":"concept"},"predicate":"subtype_of","subject":{"id":"edf73a23-31e7-59be-8993-c484a5f51d82","kind":"concept"}}
 {"id":"ad2686d0-d071-4167-9c0c-cd2c43e9a6b6","object":{"id":"ab560c10-646c-576b-b7ae-ea48ef8fe1b5","kind":"concept"},"predicate":"subtype_of","subject":{"id":"6154e118-e1e5-5f11-a6c1-9a2f72eebca7","kind":"concept"}}
@@ -552,6 +577,7 @@
 {"id":"aeee087c-19a8-5c7b-8825-83007bb215df","object":{"id":"844d8678-476e-5217-90fb-c533604831d7","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"f2b39f1e-a3cc-5937-8dad-8644fead2ad9","kind":"concept"}}
 {"id":"af4ae491-0299-5b14-b9e9-3746f6f95377","object":{"id":"31bcce55-805d-5def-9180-1a65fb3fba3e","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"91bd8038-3da3-5ef5-a82b-30e652cb3803","kind":"concept"}}
 {"id":"b05020cd-d95e-4694-bf0a-1b2d19e52b2c","object":{"id":"aaa55292-1af3-5632-8f92-19407d10bdad","kind":"concept"},"predicate":"part_of","subject":{"id":"3c486b88-fc14-535b-b0bf-2dbbfbf275af","kind":"concept"}}
+{"id":"b07b1f6b-873d-510e-a161-1d55d33af158","object":{"id":"f9d2cc8b-de26-5780-a290-004dd8fe4e59","kind":"concept"},"predicate":"subtype_of","subject":{"id":"0c8cea75-98c1-5759-9412-e53d335069bb","kind":"concept"}}
 {"id":"b0885ce5-4893-420b-800e-b8d0abbfb128","object":{"id":"628bb601-3435-5f31-8a1b-8334bd3ef102","kind":"concept"},"predicate":"uses","subject":{"id":"2ba477af-c9fe-503d-a446-1587668f617d","kind":"concept"}}
 {"id":"b12f2c4c-9c8e-4411-b1f1-4174bfb39159","object":{"id":"02ef4418-9ed4-5aba-bff4-4ee16a7651fa","kind":"concept"},"predicate":"related_to","subject":{"id":"02c1136f-e572-5266-a000-b228f12d553d","kind":"concept"}}
 {"id":"b1910529-1ef7-4c5f-a657-cade1f32f806","object":{"id":"598d9389-3b16-5bef-9624-1b66aead9941","kind":"concept"},"predicate":"part_of","subject":{"id":"eb5e26e6-6940-5932-af07-575d34d2a482","kind":"concept"}}
@@ -573,8 +599,10 @@
 {"id":"b7eaa057-fb3a-4b14-af61-b88b464c6864","object":{"id":"cd0ef28b-0800-5895-b85d-83ea3b7b40ba","kind":"concept"},"predicate":"stores","subject":{"id":"29bff365-7f38-55ba-b2a4-cb77bb41e64b","kind":"concept"}}
 {"id":"b82a50ee-1c9c-4db7-94e6-629eaf3d0cfa","object":{"id":"6df1ec61-e198-5f01-a0f8-35d32ec770bc","kind":"concept"},"predicate":"uses","subject":{"id":"ac63b2f8-c01e-54f4-a7ec-d2417421b68a","kind":"concept"}}
 {"id":"b8341ad1-7533-5193-96b4-d5a9b36476de","object":{"id":"951bc6e0-0c8f-5697-be7d-5b91c340174b","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"7511fe23-f469-5ab4-814b-118a4b0ad5f0","kind":"concept"}}
+{"id":"b84ea217-f898-5086-a05e-329675cf1d15","object":{"id":"e277eaea-a38d-5107-afab-3241e612a65f","kind":"concept"},"predicate":"subtype_of","subject":{"id":"ee3485c6-a55f-5d1b-8a3a-643602699396","kind":"concept"}}
 {"id":"b87b1eb9-0153-42f1-b4e2-c7916b8ee3c0","object":{"id":"12cbb5f2-f465-50f4-9933-06b42b96af93","kind":"concept"},"predicate":"subtype_of","subject":{"id":"2104dffe-febb-569c-bf52-8d3258c9403b","kind":"concept"}}
 {"id":"b8a7dd02-30f3-5d8b-b085-198d2cdf59c5","object":{"id":"52b10597-7898-5044-8423-c9b9d45a6f1d","kind":"concept"},"predicate":"logic_gate_implements_operation","subject":{"id":"3fbf0933-f6af-5362-8cd0-a12f118088ee","kind":"concept"}}
+{"id":"b8d2d9e6-1926-5921-952e-cf8dd399c818","object":{"id":"a7604bb9-aa98-55ce-82b6-727251dc8a73","kind":"concept"},"predicate":"subtype_of","subject":{"id":"5871e199-6fe9-5243-a289-6a7599e9a9f3","kind":"concept"}}
 {"id":"b9683006-ca5a-4c03-b986-d0df03d2f621","object":{"id":"2d9f69e5-82dc-5c29-9d7f-bc040e58a695","kind":"concept"},"predicate":"uses","subject":{"id":"c15df0d2-ce31-5c4a-8407-82fed9325f5e","kind":"concept"}}
 {"id":"b96d440f-9e44-5fb4-ad41-a94f91e647f0","object":{"id":"fd8e996b-7ba0-5e4c-b694-f0c418ebe858","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"7511fe23-f469-5ab4-814b-118a4b0ad5f0","kind":"concept"}}
 {"id":"b98c812b-3f69-4989-b3b3-c209a703ba0e","object":{"id":"77769393-0b1a-59ba-9c68-23ef3f3538f0","kind":"concept"},"predicate":"uses","subject":{"id":"2b450ae3-d560-53d4-9f20-68d0d9c875b4","kind":"concept"}}
@@ -624,6 +652,7 @@
 {"id":"c6cb993c-62d3-4dbb-8ca9-e029f468771b","object":{"id":"278ab83c-d610-5abd-bcd8-6c60667c0250","kind":"concept"},"predicate":"subtype_of","subject":{"id":"c8be49fb-b3ed-5645-8ce4-8b90f7320f6e","kind":"concept"}}
 {"id":"c735e4a6-d7b8-4920-8c69-2305c170234a","object":{"id":"312eec31-2253-5461-84a7-bc7d55d7cfc9","kind":"concept"},"predicate":"subtype_of","subject":{"id":"c17a456a-ca35-5fea-b0ec-8602634d137e","kind":"concept"}}
 {"id":"c749d7b2-e732-4ea5-ba33-f131295d1420","object":{"id":"d0bf5d5c-4b1d-58ad-82b4-a91970093d05","kind":"concept"},"predicate":"uses","subject":{"id":"d0e9f5ed-7ed0-5086-a3e1-e5ba80daa2fd","kind":"concept"}}
+{"id":"c7a9fabf-3c12-5c9a-ac38-97e6039b2dbc","object":{"id":"36849e15-5cdc-55de-9cbd-46ab7f098947","kind":"concept"},"predicate":"subtype_of","subject":{"id":"96de649d-2a19-54a5-b6a5-d1d2247409a3","kind":"concept"}}
 {"id":"c80f2bdd-20fb-41f3-a688-1fc6a0eb0db6","object":{"id":"cd0ef28b-0800-5895-b85d-83ea3b7b40ba","kind":"concept"},"predicate":"subtype_of","subject":{"id":"9ae1d6b0-4d91-559f-8a6a-af7d8c184658","kind":"concept"}}
 {"id":"c8452ca9-ae75-58d2-b352-e704d7ad74e3","object":{"id":"733ee7fa-c6f1-5bf1-a938-adba0f9a908c","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"312daaf9-1176-5dda-b061-94898fa010ed","kind":"concept"}}
 {"id":"c8bd704c-f18c-45dd-b25d-e4361860987a","object":{"id":"a5052377-c6a1-5610-b71f-29664c2de06b","kind":"concept"},"predicate":"uses","subject":{"id":"04d5fe29-6b4a-5a01-9141-0730246c33bb","kind":"concept"}}
@@ -643,6 +672,7 @@
 {"id":"cf6c224e-ae75-4860-aebb-e282f9612950","object":{"id":"2bfccfc4-b578-5dad-a6b2-361106b178b0","kind":"concept"},"predicate":"protects","subject":{"id":"c4642733-1506-5b69-ae7c-e3838f1bc82e","kind":"concept"}}
 {"id":"cf9248f9-7ba6-5258-a966-02155fd89875","object":{"id":"69ced58a-4347-550a-bb1c-6be340bfdc55","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"5a39edb5-891c-5f9f-8c96-701a3601635f","kind":"concept"}}
 {"id":"cfa84b00-e589-42a6-b4f3-e54b41921bcf","object":{"id":"29391296-c416-59f6-b363-1b4f822263cd","kind":"concept"},"predicate":"changes","subject":{"id":"4cf7596b-353c-5d3e-bbce-434361e11015","kind":"concept"}}
+{"id":"d00a6d2a-834b-5110-9d74-488d396e08e6","object":{"id":"f9d2cc8b-de26-5780-a290-004dd8fe4e59","kind":"concept"},"predicate":"subtype_of","subject":{"id":"e958cba7-f910-52aa-b83f-59d1349e91bf","kind":"concept"}}
 {"id":"d052b2e0-e8c1-47db-b625-f9968f2e2afe","object":{"id":"1e932606-491f-5bf2-89b6-1cfb9c1a2464","kind":"concept"},"predicate":"uses","subject":{"id":"e6029fa0-e850-599e-ba08-82ad2757f000","kind":"concept"}}
 {"id":"d0e80691-4dbb-5e97-8b0e-dd92e1820c90","object":{"id":"f30f8f9d-2190-5fee-9ccb-1a502688743d","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"312daaf9-1176-5dda-b061-94898fa010ed","kind":"concept"}}
 {"id":"d10e83eb-fa92-4e0d-9066-a8d0d591242d","object":{"id":"61572435-9a11-5c80-9ca3-adad80396092","kind":"concept"},"predicate":"subtype_of","subject":{"id":"87770458-4498-5a2e-a39d-abb3cfbafebe","kind":"concept"}}
@@ -650,6 +680,7 @@
 {"id":"d2577c3c-73e6-4689-a364-d2095ea621ff","object":{"id":"69b77236-2b3d-5965-bda1-5fc72fa36875","kind":"concept"},"predicate":"uses","subject":{"id":"7d5dd3a9-5821-5d0f-8ea6-f0f8f18515be","kind":"concept"}}
 {"id":"d278008c-743a-496d-b95d-5728d897c1da","object":{"id":"ac74d946-768f-5588-a8b3-bf3165b12b41","kind":"concept"},"predicate":"subtype_of","subject":{"id":"7710ef99-9058-5ba5-9056-357cc1f57f72","kind":"concept"}}
 {"id":"d2d92351-3981-420b-89cc-5e411127fd0b","object":{"id":"bec2e451-3c63-5fad-b833-5837dfeb030a","kind":"concept"},"predicate":"subtype_of","subject":{"id":"af68d4ab-6a18-5543-976b-d07f74f92cb8","kind":"concept"}}
+{"id":"d30bc894-d24b-50ff-a081-61d1d3e5adf1","object":{"id":"e277eaea-a38d-5107-afab-3241e612a65f","kind":"concept"},"predicate":"subtype_of","subject":{"id":"ce8ab006-8e26-5bd3-a53b-b8e5f199452b","kind":"concept"}}
 {"id":"d3a43bb6-78d3-4591-a6ef-da4155a803e4","object":{"id":"67614e7c-23dc-5e59-8291-69b62b2bbec7","kind":"concept"},"predicate":"subtype_of","subject":{"id":"e71d6d7e-8f71-508d-b7c6-844b5f5b1fc2","kind":"concept"}}
 {"id":"d3e88261-7e1f-4998-bd91-e98403617235","object":{"id":"2bfccfc4-b578-5dad-a6b2-361106b178b0","kind":"concept"},"predicate":"subtype_of","subject":{"id":"52b56c41-779d-555b-9be1-c4fa40e41078","kind":"concept"}}
 {"id":"d4c5e4ea-527c-4202-950d-935272b87b75","object":{"id":"7f00af63-4e59-5deb-8130-eb9c7b9cddc6","kind":"concept"},"predicate":"uses","subject":{"id":"28763d96-1026-5eff-ba80-c170c0a45da5","kind":"concept"}}
@@ -679,6 +710,7 @@
 {"id":"df5d4c10-226e-4d30-aaaa-0b2ed7ee097c","object":{"id":"02ef4418-9ed4-5aba-bff4-4ee16a7651fa","kind":"concept"},"predicate":"subtype_of","subject":{"id":"242c03bc-5ff8-5b36-bbc1-1358d9b8975f","kind":"concept"}}
 {"id":"df6d11c9-1b06-4f4f-9752-1b15a3f8062e","object":{"id":"02ef4418-9ed4-5aba-bff4-4ee16a7651fa","kind":"concept"},"predicate":"related_to","subject":{"id":"d2801087-1d0f-55c7-8f4d-e5d3e0568352","kind":"concept"}}
 {"id":"dfcdef9f-4758-4e06-b58a-2e3b150eb222","object":{"id":"8479ca80-47af-5c54-b32e-59bea50c9bbd","kind":"concept"},"predicate":"related_to","subject":{"id":"3e63d2e9-f30e-5fec-aae6-9d1002e5628f","kind":"concept"}}
+{"id":"e012828f-c48e-5186-a8fc-7257a2818a00","object":{"id":"a7604bb9-aa98-55ce-82b6-727251dc8a73","kind":"concept"},"predicate":"subtype_of","subject":{"id":"24829178-1076-5906-9b27-8e5e079dd933","kind":"concept"}}
 {"id":"e06663c6-f2bb-4bd5-928c-5f73b7ae4109","object":{"id":"28c8579a-cad5-546d-8359-3e1d44278c68","kind":"concept"},"predicate":"uses","subject":{"id":"c88a65bf-5030-5703-badb-24aa50be5256","kind":"concept"}}
 {"id":"e0ce3538-7678-4823-aaa1-bfbe696f7c8b","object":{"id":"0d6b9bd4-5bd6-5a94-8cc1-4931ed0cd077","kind":"concept"},"predicate":"uses","subject":{"id":"a7f6979b-7c32-506f-b4d7-0b0af52fcdde","kind":"concept"}}
 {"id":"e10d43a8-a4c6-415a-a992-914aa2bd50bb","object":{"id":"cd0ef28b-0800-5895-b85d-83ea3b7b40ba","kind":"concept"},"predicate":"part_of","subject":{"id":"b527fc8f-9b9a-5ed7-a57e-76547ab13a15","kind":"concept"}}
@@ -717,6 +749,7 @@
 {"id":"eb5879bb-279f-4680-b04d-9cc696de6954","object":{"id":"0d9c0438-c420-591e-8db8-b3c78913caad","kind":"concept"},"predicate":"subtype_of","subject":{"id":"3938dcca-8eeb-551b-9f5f-16d6154c43bf","kind":"concept"}}
 {"id":"eb7dae63-30a1-587b-b298-90ab1d9db5d0","object":{"id":"4063b4f8-33fd-5732-9875-1a61f6442651","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"c74fe051-ac5e-521b-8770-3180fb0decb6","kind":"concept"}}
 {"id":"eb939795-2820-48b5-93db-4ed1734e8147","object":{"id":"c68e9384-5822-574c-8d99-ec659afbbcd0","kind":"concept"},"predicate":"subtype_of","subject":{"id":"f4493d83-5a8e-5e73-ada0-686bce261f57","kind":"concept"}}
+{"id":"ec93eb42-4cb4-551e-bd40-7c7174072b1a","object":{"id":"e277eaea-a38d-5107-afab-3241e612a65f","kind":"concept"},"predicate":"subtype_of","subject":{"id":"6d3b32f4-c0f8-5e32-b428-fcd8648e382d","kind":"concept"}}
 {"id":"ecc5585d-2cb7-5ab6-a954-35a746467566","object":{"id":"6bfc714f-329f-5da4-814e-7c88510455cd","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"7140711b-687a-5a96-9c88-b8d40ad63fe2","kind":"concept"}}
 {"id":"ed19728a-370d-42c1-935b-159aa4433a3b","object":{"id":"31b79975-87c5-58ce-9c8e-291d8d9cfb22","kind":"concept"},"predicate":"subtype_of","subject":{"id":"3b6303ad-42a8-5102-bb76-e98a5ea5adec","kind":"concept"}}
 {"id":"ed910e84-9e90-505c-85de-429688de188d","object":{"id":"7749a47b-1175-5b77-aa3c-8840a3955b34","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"5ae0da93-591f-51ce-aaf6-e27df64f6f7d","kind":"concept"}}
@@ -755,12 +788,14 @@
 {"id":"f7e2acdd-1bb0-4cb6-b2b1-6770afc1d809","object":{"id":"60d9ffaf-b84b-5343-998e-4444dfbfb040","kind":"concept"},"predicate":"subtype_of","subject":{"id":"db28edbc-c1bf-5412-b5ec-e97d960daa7a","kind":"concept"}}
 {"id":"f7e7452b-4fb1-467c-b9d9-bfe76b484861","object":{"id":"a363a776-30f0-5c1d-983d-339a464062f7","kind":"concept"},"predicate":"part_of","subject":{"id":"7bbca579-d8b8-5330-bb20-359856cc50cc","kind":"concept"}}
 {"id":"f81843e8-da82-4d3b-8c1a-b78e78817291","object":{"id":"e746c285-f978-52b8-8c0c-9c9bb14db2b9","kind":"concept"},"predicate":"uses","subject":{"id":"74bfed84-7751-5840-ba95-8f4c6777c04a","kind":"concept"}}
+{"id":"f876d2f5-6087-56fe-8279-00fe94bbe270","object":{"id":"e277eaea-a38d-5107-afab-3241e612a65f","kind":"concept"},"predicate":"subtype_of","subject":{"id":"04a1ad38-b526-5c80-af1c-10664647b502","kind":"concept"}}
 {"id":"f886ffee-8624-4f48-b025-d41738857181","object":{"id":"87d10179-6a87-54e8-b7b5-d4d6cdc731d2","kind":"concept"},"predicate":"uses","subject":{"id":"3938dcca-8eeb-551b-9f5f-16d6154c43bf","kind":"concept"}}
 {"id":"f89484b2-e06f-4c99-a39a-1d8f225d1626","object":{"id":"7878e1ec-11d6-5faf-8a42-b02b1f09b78a","kind":"concept"},"predicate":"related_to","subject":{"id":"1b1addf0-c3f3-5ffa-88a2-bab14ecfb0c2","kind":"concept"}}
 {"id":"f8c50428-aabf-455b-b6d9-5df1d7a85f5f","object":{"id":"a363a776-30f0-5c1d-983d-339a464062f7","kind":"concept"},"predicate":"part_of","subject":{"id":"6c1d1b5a-42cc-5598-a43b-3f64f97cc6bf","kind":"concept"}}
 {"id":"f8ce1aba-38a9-4396-ab9b-ff0078c51912","object":{"id":"2104dffe-febb-569c-bf52-8d3258c9403b","kind":"concept"},"predicate":"uses","subject":{"id":"a3dbb281-44f2-5540-846a-10cd5c7b4114","kind":"concept"}}
 {"id":"f9141e3c-a368-4e76-b4c7-2b57e5a1fba8","object":{"id":"2bfccfc4-b578-5dad-a6b2-361106b178b0","kind":"concept"},"predicate":"transmits","subject":{"id":"976679c5-ba11-59bc-a298-f6d0c7b76ad1","kind":"concept"}}
 {"id":"f91a252d-9589-43fd-bb8a-c8f60c27b4a5","object":{"id":"aaa55292-1af3-5632-8f92-19407d10bdad","kind":"concept"},"predicate":"produces","subject":{"id":"c15df0d2-ce31-5c4a-8407-82fed9325f5e","kind":"concept"}}
+{"id":"f987f253-e0db-5db6-b180-5ca8339cbe2e","object":{"id":"e277eaea-a38d-5107-afab-3241e612a65f","kind":"concept"},"predicate":"subtype_of","subject":{"id":"35fe8080-4233-58d1-80e9-1a99e5ee871e","kind":"concept"}}
 {"id":"fa3afd23-32c1-5552-9742-ef9ca097f3f5","object":{"id":"e49e143b-9646-5872-b1ad-389557c9093d","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"2f719c8a-2a16-5d88-8f50-3709b2beff18","kind":"concept"}}
 {"id":"fa4dcfef-114d-4013-8a20-21cebc4da2ba","object":{"id":"e889347d-517f-568e-900b-b4fa60fab8dc","kind":"concept"},"predicate":"uses","subject":{"id":"15aff24c-fc4b-5561-8e4d-36397ae65fb4","kind":"concept"}}
 {"id":"fafe5c55-092f-433b-ad8f-fcb14c800bb1","object":{"id":"4a5f5f2e-3dbd-5a1a-aa2d-4af7a8cc051e","kind":"concept"},"predicate":"subtype_of","subject":{"id":"72302d9e-45e9-5d82-90eb-5eeb594d43ca","kind":"concept"}}
@@ -769,6 +804,7 @@
 {"id":"fb6edfa6-de63-45a7-954d-ebe809672435","object":{"id":"7d5dd3a9-5821-5d0f-8ea6-f0f8f18515be","kind":"concept"},"predicate":"uses","subject":{"id":"5673f8ea-fd10-5961-be80-17e3d6dc3949","kind":"concept"}}
 {"id":"fb98fbbc-efe7-55aa-afeb-f6e9e33f4d3c","object":{"id":"4fe3cdc3-f3eb-5544-875d-f7f45733ec6a","kind":"concept"},"predicate":"research_topic_parent_of","subject":{"id":"ca04477f-7058-5fcf-bf1c-ece84454a51c","kind":"concept"}}
 {"id":"fbbaf084-a3ab-470e-ab84-1a088cf98263","object":{"id":"e889347d-517f-568e-900b-b4fa60fab8dc","kind":"concept"},"predicate":"uses","subject":{"id":"d2801087-1d0f-55c7-8f4d-e5d3e0568352","kind":"concept"}}
+{"id":"fbbba597-50a1-59cb-ac4d-45c8a9e2ccfa","object":{"id":"36849e15-5cdc-55de-9cbd-46ab7f098947","kind":"concept"},"predicate":"subtype_of","subject":{"id":"a909b843-a4bb-5886-a3e8-d5e7f423e1ad","kind":"concept"}}
 {"id":"fbf15ed6-6125-4e5e-9c8e-df6e1a69f7b6","object":{"id":"ac63b2f8-c01e-54f4-a7ec-d2417421b68a","kind":"concept"},"predicate":"related_to","subject":{"id":"15010dd8-2ce3-5afe-87f6-169f510e0c1d","kind":"concept"}}
 {"id":"fc216ab2-2b5f-44d2-9b9c-51eca40bace9","object":{"id":"6d4da759-c218-5d45-a947-1f2eccb3bda5","kind":"concept"},"predicate":"subtype_of","subject":{"id":"d2f6e159-e852-58e9-b69b-5add3e02b07c","kind":"concept"}}
 {"id":"fc3c5e74-8fb6-49b4-9b43-b0f184cd8369","object":{"id":"4d30adbd-4c3f-5cb0-ada2-674a80d40c2b","kind":"concept"},"predicate":"uses","subject":{"id":"0c24b055-25af-5073-9495-60ed4cd9f0a4","kind":"concept"}}
