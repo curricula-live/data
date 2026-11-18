@@ -1,8 +1,8 @@
 # Specific computing classes — 18 November 2026
 
-36 explicit class-inclusion statements supplement the historical topic archive. Historical umbrella links are preserved as source records and are not promoted by this script.
+38 explicit class-inclusion statements supplement the historical topic archive. Historical umbrella links are preserved as source records and are not promoted by this script.
 
-`Numeric representation` denotes schemes for representing numeric values; `File operation` denotes computational operations on files or file streams. These category definitions are editorial modelling choices corroborated by the referenced technical documentation. They are not quoted ontology assertions or independently expert-certified facts.
+`Decoding operation` denotes computational interpretation of encoded data; BCD digit decoding belongs here. `Numeric representation` denotes schemes for representing numeric values; `File operation` denotes computational operations on files or file streams. These category definitions are editorial modelling choices corroborated by the referenced technical documentation. They are not quoted ontology assertions or independently expert-certified facts.
 
 BCD is classified as an encoding and a numeric representation, not as the binary numeral system or as a representation restricted to integers. Arithmetic, string, bitwise and file operations receive their specific superclass. Their membership in Computational operation is inferred by transitivity instead of adding redundant direct statements.
 

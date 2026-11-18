@@ -7,7 +7,7 @@ def write(name,rows,key):
  p=root/name;p.parent.mkdir(parents=True,exist_ok=True)
  p.write_text(''.join(json.dumps(r,sort_keys=True,separators=(',',':'))+'\n' for r in sorted(rows,key=lambda r:r[key])))
 cs=read('knowledge/concepts.jsonl');ss=read('knowledge/statements.jsonl');by={c['slug']:c for c in cs}
-for slug,label in [('numeric-representation','Numeric representation'),('file-operation','File operation')]:
+for slug,label in [('numeric-representation','Numeric representation'),('file-operation','File operation'),('decoding-operation','Decoding operation')]:
  if slug not in by:
   c={'id':str(uuid.uuid5(uuid.NAMESPACE_URL,'https://curricula.live/concepts/'+slug)),'slug':slug,'label':label};cs.append(c);by[slug]=c
 ibm='https://www.ibm.com/docs/en/xl-c-aix/13.1.0?topic=functions-binary-coded-decimal-built-in'
@@ -20,6 +20,8 @@ def add(a,b,url,reason):
  if old:sid=old['id']
  else:ss.append({'id':sid,'subject':{'kind':'concept','id':by[a]['id']},'predicate':'subtype_of','object':{'kind':'concept','id':by[b]['id']}})
  reviews.append({'statement_id':sid,'subject_slug':a,'object_slug':b,'predicate':'subtype_of','evidence_urls':[url],'review_reason':reason,'review_status':'editorially_reviewed_class_interpretation','independent_expert_review':False,'scope':'Conventional computing meaning; source examples corroborate the classification. Conditional class-inclusion premise, not an equivalence or a prerequisite.','historical_edge_automatically_promoted':False})
+add('bcd-digit-decoding','decoding-operation',ibm,'Decoding a BCD digit converts an encoded decimal digit to its interpreted value; it is a decoding operation, not a numeral system.')
+add('decoding-operation','computational-operation',ibm,'The decoding operation category denotes computational interpretation of encoded data.')
 add('binary-coded-decimal','encoding',ibm,'BCD encodes decimal digits in binary; the concept denotes an encoding scheme, not a numeral base.')
 add('binary-coded-decimal','numeric-representation',ibm,'BCD is a representation of decimal numeric values using separately encoded decimal digits.')
 add('numeric-representation','data-representation',ibm,'Numeric representations specialize data representation to numeric values; editorial category definition.')

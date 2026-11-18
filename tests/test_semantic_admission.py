@@ -21,9 +21,9 @@ def test_admission_wave_counts_and_reproducibility():
     assert manifest["proof_eligible_statement_count"]==0
     assert json.loads((AREA/"admission-manifest.json").read_text())==manifest
     state=load_canonical_state()
-    assert len(state["concepts"])==2412
+    assert len(state["concepts"])==2413
     assert len(state["predicates"])==24
-    assert len(state["statements"])==825
+    assert len(state["statements"])==827
     assert len(state["admissions"])==126
     assert len(state["policies"])==5
     assert len({x["statement_id"] for x in state["admissions"]})==126
