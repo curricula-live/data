@@ -75,6 +75,19 @@ class HistoricalTests(unittest.TestCase):
         self.assertFalse(m["cross_source_identity_approved"])
         self.assertEqual(len(proposer.load(proposer.LEDGER)), 2001)
 
+    def test_historical_concept_import_excludes_curriculum_and_competency_overlays(self):
+        technical_kinds = {"operation", "abstractConcept", "softwareArtifact", "protocol",
+                           "mathematicalStructure", "algorithm", "property", "hardwareArtifact",
+                           "datatype", "value", "standard", "class"}
+        terms = proposer.load(proposer.TERMS)
+        self.assertEqual(len(terms), 2001)
+        self.assertTrue(all(t["source_uri"].startswith(historical.PREFIX) for t in terms))
+        self.assertTrue(all(t["kind"] in technical_kinds for t in terms))
+        term_uris = {t["source_uri"] for t in terms}
+        decisions = proposer.load(proposer.LEDGER)
+        self.assertEqual({d["source_uri"] for d in decisions}, term_uris)
+        self.assertFalse(any("/overlay/" in d["source_uri"] for d in decisions))
+
     def test_source_hierarchy_witnesses_are_not_subtype_inferences(self):
         result = topic_paths.paths("cso", "computer science", depth=2, limit=5)
         self.assertEqual(result["predicate"], topic_paths.CSO)

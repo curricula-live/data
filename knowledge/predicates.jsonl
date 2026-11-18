@@ -1,8 +1,11 @@
+{"label":"ADT Has Discipline","slug":"adt_has_discipline"}
+{"label":"ADT Supports Operation","slug":"adt_supports_operation"}
 {"label":"Changes","slug":"changes"}
 {"label":"Encodes","slug":"encodes"}
 {"label":"Executes","slug":"executes"}
 {"label":"Identifies","slug":"identifies"}
 {"label":"Implemented By","slug":"implemented_by"}
+{"label":"Logic Gate Implements Operation","slug":"logic_gate_implements_operation"}
 {"label":"Measures","slug":"measures"}
 {"label":"Part Of","slug":"part_of"}
 {"label":"Prerequisite Of","slug":"prerequisite_of"}
@@ -13,7 +16,9 @@
 {"label":"Protects Against","slug":"protects_against"}
 {"label":"Related To","slug":"related_to"}
 {"label":"Represents","slug":"represents"}
+{"label":"Research Topic Parent Of","slug":"research_topic_parent_of"}
 {"label":"Stores","slug":"stores"}
 {"label":"Subtype Of","slug":"subtype_of"}
 {"label":"Transmits","slug":"transmits"}
 {"label":"Uses","slug":"uses"}
+{"label":"Value Of Type","slug":"value_of_type"}

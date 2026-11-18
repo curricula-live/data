@@ -1,0 +1,10 @@
+authentication|authorization|Distinct security processes; this hierarchy risks presenting authorization as a kind of authentication.
+gpu|cpu|Distinct processor categories; source hierarchy must not collapse GPU into CPU.
+statistics|regression testing|Software regression testing is not statistical regression; likely lexical conflation.
+ipv6|ipv4|Separate protocol versions; parent-child wording is misleading.
+physical layer|data link layer|Adjacent network layers, not a narrower-topic relationship suitable for this corpus.
+computer virus|antivirus|Countermeasure is not a narrower virus category; requires a distinct typed relation.
+virus|malware|Ambiguous virus identity and likely reversed generalization.
+html|css|Related web technologies; requires a distinct relationship rather than topic containment.
+image resolution|confusion matrix|No defensible topic containment identified; appears cross-domain noise.
+tcp|udp|Distinct transport protocols; shared layer does not justify hierarchy.

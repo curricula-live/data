@@ -1,0 +1,14 @@
+implements|NOT gate|Logical negation|https://www.analog.com/en/resources/glossary/logic-gate.html
+implements|AND gate|Logical conjunction|https://www.analog.com/en/resources/glossary/logic-gate.html
+implements|OR gate|Logical disjunction|https://www.analog.com/en/resources/glossary/logic-gate.html
+hasOperation|Queue ADT|Queue enqueue|https://www.cs.cornell.edu/courses/cs2110/2026sp/lectures/lec15/
+hasOperation|Queue ADT|Queue dequeue|https://www.cs.cornell.edu/courses/cs2110/2026sp/lectures/lec15/
+hasOperation|Stack ADT|Stack push|https://www.cs.cornell.edu/courses/cs2110/2026sp/lectures/lec15/
+hasOperation|Stack ADT|Stack pop|https://www.cs.cornell.edu/courses/cs2110/2026sp/lectures/lec15/
+hasOperation|Stack ADT|Stack peek|https://www.cs.cornell.edu/courses/cs2110/2026sp/lectures/lec15/
+hasProperty|Queue ADT|FIFO discipline|https://www.cs.cornell.edu/courses/cs2110/2026sp/lectures/lec15/
+hasProperty|Stack ADT|LIFO discipline|https://www.cs.cornell.edu/courses/cs2110/2026sp/lectures/lec15/
+valueOfType|Boolean false|Boolean type|https://docs.python.org/3/library/stdtypes.html#boolean-type-bool
+valueOfType|Boolean true|Boolean type|https://docs.python.org/3/library/stdtypes.html#boolean-type-bool
+valueOfType|Binary zero|Bit type|https://csrc.nist.gov/glossary/term/bit
+valueOfType|Binary one|Bit type|https://csrc.nist.gov/glossary/term/bit

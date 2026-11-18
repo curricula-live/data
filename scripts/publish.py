@@ -37,12 +37,19 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
 
 
 def load_canonical_state() -> dict[str, list[dict[str, Any]]]:
-    return {
+    state = {
         "concepts": read_jsonl(KNOWLEDGE / "concepts.jsonl"),
         "predicates": read_jsonl(KNOWLEDGE / "predicates.jsonl"),
         "statements": read_jsonl(KNOWLEDGE / "statements.jsonl"),
         "definitions": read_jsonl(KNOWLEDGE / "definitions.jsonl"),
     }
+    admission_path = KNOWLEDGE / "statement-admissions.jsonl"
+    if admission_path.exists():
+        state["admissions"] = read_jsonl(admission_path)
+    policies_path = KNOWLEDGE / "predicate-policies.jsonl"
+    if policies_path.exists():
+        state["policies"] = read_jsonl(policies_path)
+    return state
 
 
 def connect(database_url: str | None = None) -> psycopg.Connection:
@@ -52,12 +59,17 @@ def connect(database_url: str | None = None) -> psycopg.Connection:
     return psycopg.connect(url, application_name="curricula-live-data-publish")
 
 
-def require_target_schema(cursor: psycopg.Cursor) -> None:
+def require_target_schema(cursor: psycopg.Cursor, include_admissions: bool = False) -> None:
     missing: list[str] = []
     for table in REQUIRED_TABLES:
         cursor.execute("select to_regclass(%s)", (table,))
         if cursor.fetchone()[0] is None:
             missing.append(table)
+    if include_admissions:
+        for table in ("knowledge.statement_admission", "knowledge.predicate_semantic_policy"):
+            cursor.execute("select to_regclass(%s)", (table,))
+            if cursor.fetchone()[0] is None:
+                missing.append(table)
     if missing:
         raise SystemExit(
             "target knowledge schema is not installed: "
@@ -153,12 +165,25 @@ def fetch_database_state(cursor: psycopg.Cursor) -> dict[str, list[dict[str, Any
         for row in cursor.fetchall()
     ]
 
-    return {
+    state = {
         "concepts": concepts,
         "predicates": predicates,
         "statements": statements,
         "definitions": definitions,
     }
+    cursor.execute("select to_regclass('knowledge.statement_admission')")
+    if cursor.fetchone()[0] is not None:
+        cursor.execute(
+            "select review_record from knowledge.statement_admission order by statement_id::text"
+        )
+        state["admissions"] = [row[0] for row in cursor.fetchall()]
+    cursor.execute("select to_regclass('knowledge.predicate_semantic_policy')")
+    if cursor.fetchone()[0] is not None:
+        cursor.execute(
+            "select policy_record from knowledge.predicate_semantic_policy order by predicate_slug"
+        )
+        state["policies"] = [row[0] for row in cursor.fetchall()]
+    return state
 
 
 def _diff(
@@ -193,12 +218,23 @@ def build_plan(
     repository: dict[str, list[dict[str, Any]]],
     database: dict[str, list[dict[str, Any]]],
 ) -> dict[str, Any]:
-    return {
+    plan = {
         "concepts": _diff(repository["concepts"], database["concepts"], lambda row: row["id"]),
         "predicates": _diff(repository["predicates"], database["predicates"], lambda row: row["slug"]),
         "statements": _diff(repository["statements"], database["statements"], lambda row: row["id"]),
         "definitions": _diff(repository["definitions"], database["definitions"], lambda row: row["concept_id"]),
     }
+    if "admissions" in repository:
+        plan["admissions"] = _diff(
+            repository["admissions"], database.get("admissions", []),
+            lambda row: row["statement_id"],
+        )
+    if "policies" in repository:
+        plan["policies"] = _diff(
+            repository["policies"], database.get("policies", []),
+            lambda row: row["slug"],
+        )
+    return plan
 
 
 def has_changes(plan: dict[str, Any]) -> bool:
@@ -343,6 +379,81 @@ def apply_canonical_state(
         [_statement_parameters(row) for row in canonical["statements"]],
     )
 
+    # New predicate meanings cannot drift silently from the canonical Git policy.
+    if "policies" in canonical:
+        cursor.executemany(
+            """
+            insert into knowledge.predicate_semantic_policy (
+                predicate_slug, semantic_scope, semantics, source_tier,
+                transitive, symmetric_relation, safe_for_subtype_inference,
+                safe_for_prerequisite_inference, safe_for_formal_proof,
+                policy_record
+            ) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+            on conflict (predicate_slug) do update set
+                semantic_scope = excluded.semantic_scope,
+                semantics = excluded.semantics,
+                source_tier = excluded.source_tier,
+                transitive = excluded.transitive,
+                symmetric_relation = excluded.symmetric_relation,
+                safe_for_subtype_inference = excluded.safe_for_subtype_inference,
+                safe_for_prerequisite_inference = excluded.safe_for_prerequisite_inference,
+                safe_for_formal_proof = excluded.safe_for_formal_proof,
+                policy_record = excluded.policy_record
+            """,
+            [
+                (
+                    row["slug"], row["semantic_scope"], row["semantics"],
+                    row["source_tier"], row["transitive"], row["symmetric"],
+                    row["safe_for_subtype_inference"],
+                    row["safe_for_prerequisite_inference"],
+                    row["safe_for_formal_proof"], Jsonb(row),
+                )
+                for row in canonical["policies"]
+            ],
+        )
+        _delete_not_in(
+            cursor, "knowledge.predicate_semantic_policy", "predicate_slug",
+            [row["slug"] for row in canonical["policies"]], "text",
+        )
+
+    # Claim evidence is always part of the same atomic publication transaction.
+    # No admitted statement is allowed to publish without its statement witness.
+    if "admissions" in canonical:
+        cursor.executemany(
+            """
+            insert into knowledge.statement_admission (
+                statement_id, source_id, source_assertion_witness, native_predicate,
+                review_level, evidence_urls, inference_eligible, proof_eligible,
+                independent_expert_review, review_record
+            ) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+            on conflict (statement_id) do update set
+                source_id = excluded.source_id,
+                source_assertion_witness = excluded.source_assertion_witness,
+                native_predicate = excluded.native_predicate,
+                review_level = excluded.review_level,
+                evidence_urls = excluded.evidence_urls,
+                inference_eligible = excluded.inference_eligible,
+                proof_eligible = excluded.proof_eligible,
+                independent_expert_review = excluded.independent_expert_review,
+                review_record = excluded.review_record
+            """,
+            [
+                (
+                    _uuid(row["statement_id"]), row["source_id"],
+                    row["source_assertion_witness"], row["native_predicate"],
+                    row["review_level"], Jsonb(row["evidence_urls"]),
+                    row["inference_eligible"], row["proof_eligible"],
+                    row["independent_expert_review"], Jsonb(row),
+                )
+                for row in canonical["admissions"]
+            ],
+        )
+        _delete_not_in(
+            cursor, "knowledge.statement_admission", "statement_id",
+            [_uuid(row["statement_id"]) for row in canonical["admissions"]],
+            "uuid",
+        )
+
     # Definition membership is small and ordered; rebuild it atomically.
     cursor.execute("delete from knowledge.definition_statement")
     definition_ids = [_uuid(row["concept_id"]) for row in canonical["definitions"]]
@@ -395,7 +506,7 @@ def command_plan(database_url: str | None) -> None:
     with connect(database_url) as connection:
         connection.read_only = True
         with connection.cursor() as cursor:
-            require_target_schema(cursor)
+            require_target_schema(cursor, include_admissions="admissions" in canonical)
             database = fetch_database_state(cursor)
     print_plan(build_plan(canonical, database))
 
@@ -405,7 +516,7 @@ def command_verify(database_url: str | None) -> None:
     with connect(database_url) as connection:
         connection.read_only = True
         with connection.cursor() as cursor:
-            require_target_schema(cursor)
+            require_target_schema(cursor, include_admissions="admissions" in canonical)
             database = fetch_database_state(cursor)
     plan = build_plan(canonical, database)
     print_plan(plan)
@@ -421,7 +532,7 @@ def command_apply(database_url: str | None, confirmation: str) -> None:
     canonical = load_canonical_state()
     with connect(database_url) as connection:
         with connection.cursor() as cursor:
-            require_target_schema(cursor)
+            require_target_schema(cursor, include_admissions="admissions" in canonical)
             before = build_plan(canonical, fetch_database_state(cursor))
             print("publish plan:")
             print_plan(before)

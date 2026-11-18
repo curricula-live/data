@@ -1,0 +1,67 @@
+{
+  "adt_has_discipline": {
+    "allowed_conditional_rules": [
+      "conjunction_introduction",
+      "existential_introduction"
+    ],
+    "argument_interpretation": "named_abstract_type_and_discipline",
+    "arity": 2,
+    "class_subsumption": false,
+    "closed_world_negation": false,
+    "equivalence_from_edge": false,
+    "form": "scoped_binary_relation",
+    "symbol": "HasDiscipline"
+  },
+  "adt_supports_operation": {
+    "allowed_conditional_rules": [
+      "conjunction_introduction",
+      "existential_introduction"
+    ],
+    "argument_interpretation": "named_abstract_type_and_operation",
+    "arity": 2,
+    "class_subsumption": false,
+    "closed_world_negation": false,
+    "equivalence_from_edge": false,
+    "form": "scoped_binary_relation",
+    "symbol": "SupportsOperation"
+  },
+  "logic_gate_implements_operation": {
+    "allowed_conditional_rules": [
+      "conjunction_introduction",
+      "existential_introduction"
+    ],
+    "argument_interpretation": "named_gate_and_boolean_operation",
+    "arity": 2,
+    "class_subsumption": false,
+    "closed_world_negation": false,
+    "equivalence_from_edge": false,
+    "form": "scoped_binary_relation",
+    "symbol": "ImplementsBooleanOperation"
+  },
+  "research_topic_parent_of": {
+    "allowed_conditional_rules": [
+      "conjunction_introduction",
+      "existential_introduction"
+    ],
+    "argument_interpretation": "named_research_topics",
+    "arity": 2,
+    "class_subsumption": false,
+    "closed_world_negation": false,
+    "equivalence_from_edge": false,
+    "form": "scoped_binary_relation",
+    "symbol": "ResearchTopicParentOf"
+  },
+  "value_of_type": {
+    "allowed_conditional_rules": [
+      "conjunction_introduction",
+      "existential_introduction"
+    ],
+    "argument_interpretation": "named_value_and_type",
+    "arity": 2,
+    "class_subsumption": false,
+    "closed_world_negation": false,
+    "equivalence_from_edge": false,
+    "form": "scoped_binary_relation",
+    "symbol": "ValueOfType"
+  }
+}
