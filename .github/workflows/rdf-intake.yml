@@ -1,0 +1,85 @@
+name: Review formal-sciences RDF release
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '37 5 * * *'
+  pull_request:
+    paths: ['pipeline/rdf/**', '.github/workflows/rdf-intake.yml']
+permissions:
+  contents: read
+concurrency:
+  group: rdf-intake-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.sha || 'dev' }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install rdflib==7.1.4
+      - name: Verify proposed immutable receipt
+        if: github.event_name == 'pull_request'
+        run: |
+          python -m py_compile pipeline/rdf/consume.py
+          if test -f pipeline/rdf/formal-sciences.json; then
+            python pipeline/rdf/consume.py fetch --receipt pipeline/rdf/formal-sciences.json "$RUNNER_TEMP/rdf"
+          fi
+      - name: Validate current producer release
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          revision=$(gh api repos/curricula-live/ontology-formal-sciences/commits/main --jq .sha)
+          python pipeline/rdf/consume.py fetch --commit "$revision" "$RUNNER_TEMP/rdf" > "$RUNNER_TEMP/formal-sciences.json"
+      - uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          name: verified-rdf-receipt
+          path: ${{ runner.temp }}/formal-sciences.json
+  propose:
+    needs: check
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-rdf-receipt
+          path: pipeline/rdf
+      - name: Mint repository-scoped proposal credential
+        if: vars.CURRICULA_REVIEW_APP_ID != ''
+        id: review-app
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.CURRICULA_REVIEW_APP_ID }}
+          private-key: ${{ secrets.CURRICULA_REVIEW_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+      - name: Open a review request for a changed release
+        env:
+          GH_TOKEN: ${{ steps.review-app.outputs.token || github.token }}
+        run: |
+          if git show HEAD:pipeline/rdf/formal-sciences.json > "$RUNNER_TEMP/previous.json" 2>/dev/null; then
+            if test "$(jq -r .manifest_sha256 "$RUNNER_TEMP/previous.json")" = "$(jq -r .manifest_sha256 pipeline/rdf/formal-sciences.json)"; then exit 0; fi
+          fi
+          git add pipeline/rdf/formal-sciences.json
+          git diff --cached --quiet && exit 0
+          revision=$(jq -r .commit pipeline/rdf/formal-sciences.json)
+          branch="intake/formal-sciences-$revision"
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git switch -c "$branch"
+          git commit -m "Pin validated formal-sciences RDF release $revision"
+          if ! git ls-remote --exit-code --heads origin "$branch" >/dev/null; then git push origin "$branch"; fi
+          if test "$(gh pr list --head "$branch" --state all --json number --jq length)" = 0; then
+            gh pr create --base dev --head "$branch" --title 'Update formal-sciences RDF intake' --body 'Review the immutable upstream revision and validated release manifest. Database publication is independent.'
+          fi
