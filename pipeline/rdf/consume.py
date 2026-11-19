@@ -19,6 +19,10 @@ def verify(directory):
     manifest = json.loads((directory/"manifest.json").read_text())
     if manifest.get("contract")!="curricula.rdf-release/v1" or manifest["conforms"] is not True:
         raise ValueError("Expected conforming v1 release")
+    if manifest.get("namespace")!="https://curricula.live/id/formal-sciences/":
+        raise ValueError("Unexpected producer namespace")
+    if set(manifest.get("counts",{}))!={"asserted","alignments","provenance","inferred"}:
+        raise ValueError("Unexpected graph roster")
     if set(manifest["artifacts"])!=FILES:
         raise ValueError("Unexpected artifact inventory")
     for name,digest in manifest["artifacts"].items():

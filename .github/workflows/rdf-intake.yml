@@ -59,6 +59,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          if git show HEAD:pipeline/rdf/formal-sciences.json > "$RUNNER_TEMP/previous.json" 2>/dev/null; then
+            if test "$(jq -r .manifest_sha256 "$RUNNER_TEMP/previous.json")" = "$(jq -r .manifest_sha256 pipeline/rdf/formal-sciences.json)"; then exit 0; fi
+          fi
           git add pipeline/rdf/formal-sciences.json
           git diff --cached --quiet && exit 0
           revision=$(jq -r .commit pipeline/rdf/formal-sciences.json)
